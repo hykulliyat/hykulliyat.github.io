@@ -7,16 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ePubViewer</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-    <!--
     <link rel="stylesheet" href="libs/normalize.min.css">
-    -->
-    <link rel="stylesheet" href="libs/normalize.min.css" integrity="sha256-CQAS5Da6vTVWdh7dCc+SQGv8aj2gcuI1WMWMWl2dwmQ=" crossorigin="anonymous">
-    
-    <link rel="stylesheet" href="style.css" integrity="sha256-u/HhQRCeB1f51j4z/129t5u4rMdTtrrRzPWIU9ji1Xo=" crossorigin="anonymous">
-    
-    <!--
     <link rel="stylesheet" href="style.css">
-    -->
     <link href="https://fonts.googleapis.com/css?family=Arbutus+Slab" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i" rel="stylesheet">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -224,8 +216,8 @@
             </div>
         </div>
     </div>
-    
-    <script src="epubviewer-inject.js" integrity="sha256-fe3yAc4jA21HID59fKygod9z0zPnmKR/M3DGzT8Qgoo=" crossorigin="anonymous"></script>
+
+    <script src="https://geek1011.net/epubviewer-inject.js"></script>
 
     <script>
         function isIE(userAgent) {
@@ -252,13 +244,15 @@
             window.caches.keys().then(keys => console.log("caches: " + keys.join(", "))).catch(err => console.log("error checking cache version"));
         } catch (err) { }
     </script>
-    <script src="polyfills/babel-polyfill.min.js" integrity="sha256-FGyUo0z92f4PNPnUkJbtzvHQ6kQUQaDINg9V1toJhjE=" crossorigin="anonymous"></script>
-    <script src="polyfills/fetch.js" integrity="sha256-S8Y0B22dTCTm0Kw3XJRjA6mrZ+HSSN6mLQHGU4vSFSo=" crossorigin="anonymous"></script>
-    <script src="polyfills/pep.min.js" integrity="sha256-ibZWIASZ948myvthXu3qCoTOg8bnJzjMJoYZz1RPg6E=" crossorigin="anonymous"></script>
-    <script src="libs/jszip.min.js" integrity="sha256-0oH8ZD0to6xZkG6+5fXlhFw1xP5m532j9MHVw5HJ6LY=" crossorigin="anonymous"></script>
-    <script src="libs/jszip.min.js"></script><script src="https://harunyahya-kitap.github.io/viewer/ePubViewer3/libs/epub.js" integrity="sha256-vDA7MLXM99DcV5QylM1rQ7Va4Bh7gnN813vN4uUXdi8=" crossorigin="anonymous"></script>
 
-    <script src="https://cdn.ravenjs.com/3.26.2/raven.min.js" integrity="sha256-S214AJ5uNpUH59UJJbnyhk4FsnggqShi+La89cJ6hDA=" crossorigin="anonymous"></script>
+    <script src="polyfills/babel-polyfill.min.js"></script>
+    <script src="polyfills/fetch.js"></script>
+    <script src="polyfills/pep.min.js"></script>
+    <script src="libs/sanitize-html.min.js"></script>
+    <script src="libs/jszip.min.js"></script>
+    <script src="libs/epub.js"></script>
+
+    <script src="https://cdn.ravenjs.com/3.26.2/raven.min.js" crossorigin="anonymous"></script>
     <script>
         Raven.config('https://2ca31038f72145f787447a29b085007b@sentry.io/1239248', {
             autoBreadcrumbs: {
@@ -267,15 +261,15 @@
             }
         }).install();
     </script>
-    
-<script src="https://harunyahya-kitap.github.io/viewer/ePubViewer3/script.js" integrity="sha256-D9dlJT7pyOrnpdDHrzK3RxmVgCSRbL8+QAjL9m4MvtE=" crossorigin="anonymous"></script>
+
+    <script src="script.js"></script>
 
 
 <noscript>
-    <img src="https://counter2001.herokuapp.com/ingress/f7f40a7f-4a42-40dd-be33-a5486acb6e23/pixel.gif" alt="Counter" title="Harun Yahya">
+    <img src="https://counter2000.herokuapp.com/ingress/d6a76dc8-0e99-4c68-8add-db423dc118cf/pixel.gif" title="counter" alt="counter">
 </noscript>
-<script defer src="https://counter2001.herokuapp.com/ingress/f7f40a7f-4a42-40dd-be33-a5486acb6e23/script.js" integrity="sha256-gqdsaYEbex6HeB/Zsa2O0nZ0kyU7hXZ10wvHfbmf7uk=" crossorigin="anonymous"></script>
-
+<script defer src="https://counter2000.herokuapp.com/ingress/d6a76dc8-0e99-4c68-8add-db423dc118cf/script.js"></script>
+      
 </body>
 
 </html>
