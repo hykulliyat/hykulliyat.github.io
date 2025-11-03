@@ -116,11 +116,19 @@
         // EasyTabs'ın başlatılması
         $('#container').easyTabs({defaultContent:1});
         
-        // 🔥 ÖNEMLİ DÜZELTME: İstenmeyen geri kaymayı engellemek için.
+        // 🔥 AGRESİF DÜZELTME: İstenmeyen geri kaymayı engellemek için.
         $('#container .tabs a').on('click', function(e) {
             e.preventDefault(); 
-            // Opsiyonel kaydırma sabitleme:
-            $('html, body').scrollTop($('html, body').scrollTop());
+            
+            // Tıklamadan önceki kaydırma pozisyonunu anında sabitle
+            var scrollPosition = $(window).scrollTop();
+            
+            // Eğer sayfa kaydı değişmişse, eski pozisyona geri zorla
+            setTimeout(function() {
+                if ($(window).scrollTop() !== scrollPosition) {
+                    $('html, body').scrollTop(scrollPosition);
+                }
+            }, 10); // Kısa bir gecikme ile tarayıcının kaydırma girişimini yakala
         });
     });
 </script>
