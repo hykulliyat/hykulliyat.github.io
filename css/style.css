@@ -1161,8 +1161,8 @@ a.contextAnchor {
     color:#0086C1;
   font-size:18px;
   
-  padding-top:80px;
-  margin-top:-80px;
+  /*padding-top:80px;*/
+  /*margin-top:-80px;*/
   font-weight:normal;
   text-decoration:none;
 }
