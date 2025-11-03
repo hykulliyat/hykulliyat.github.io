@@ -89,6 +89,9 @@
 </head>
 <body>
 
+
+ <script defer src="/assets/js/table.js" integrity="sha256-NF1PWfXrVLtWkwbZ0LdcSQ1sQNiYI+kGSlrBMZXpp88=" crossorigin="anonymous"></script>
+
  <!-- yas JS -->
  <script defer src="/assets/js/yas.js" integrity="sha256-ravY/1T9WZLpb2LkYUEP7V60XIlN78wA7aOoI/iuetw=" crossorigin="anonymous"></script>
 <br>
@@ -163,41 +166,16 @@
 <br>
 <div class="teaser clearfix"></div>
 
-<h1><strong>Adnan Harun Yahya Külliyatı - Oku veya İndir</strong>- 298 Adet Eser</h1>
+
 
 <br>
-
- <!-- table JS -->
- <script>
-function searchTable2() {
-    var input, filter, found, table, tr, td, i, j;
-    input = document.getElementById("myInput2");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("myTable2");
-    tr = table.getElementsByTagName("tr");
-    for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td");
-        for (j = 0; j < td.length; j++) {
-            if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
-                found = true;
-            }
-        }
-        if (found) {
-            tr[i].style.display = "";
-            found = false;
-        } else {
-            tr[i].style.display = "none";
-        }
-    }
-}
-</script>
- <script defer src="/assets/js/table.js" integrity="sha256-NF1PWfXrVLtWkwbZ0LdcSQ1sQNiYI+kGSlrBMZXpp88=" crossorigin="anonymous"></script>
 
 
 <div id="section-harunyahya" class="teaser clearfix"></div>
 
 <input id='myInput' onkeyup='searchTable()' type='text' placeholder="Kitap Adında Ara">
 <br>
+<h1><strong>Adnan Harun Yahya Külliyatı - Oku veya İndir</strong>- 298 Adet Eser</h1>
 <table class="sample_table" id='myTable' style="width:63%">
 <thead>
 <tr>
