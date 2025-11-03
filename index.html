@@ -93,28 +93,7 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
     crossorigin="anonymous"></script>
-<script>
-<--<script src="/assets/js/jquery.min.js" integrity="sha256-jUb9yhXEZVMkge0g138hAVaSejlWWlkUJxW+XLLdDsk=" crossorigin="anonymous"></script>-->
-<script src="/assets/js/bootstrap.min.js" integrity="sha256-OFRAJNoaD8L3Br5lglV7VyLRf0itmoBzWUoM+Sji4/8=" crossorigin="anonymous"></script>
-<script src="/assets/js/x-return-top.min.js" integrity="sha256-YgmlDHGkvgjeY7RLjNevr9jkHPJGJ/tfxhxZOQdLmRY=" crossorigin="anonymous"></script>
 
- <script defer src="/assets/js/table.js" integrity="sha256-NF1PWfXrVLtWkwbZ0LdcSQ1sQNiYI+kGSlrBMZXpp88=" crossorigin="anonymous"></script>
-
- <script defer src="/assets/js/yas.js" integrity="sha256-ravY/1T9WZLpb2LkYUEP7V60XIlN78wA7aOoI/iuetw=" crossorigin="anonymous"></script>
-<br>
-<script>
-    $(document).ready(function() {
-        $('#container').easyTabs({defaultContent:1});
-        
-        // ** YENİ EKLENEN KOD BAŞLANGICI **
-        // Sekmelere tıklandığında sayfanın en üste atmasını engeller.
-        $('#container .tabs a').click(function(e) {
-            e.preventDefault(); // Bağlantının varsayılan davranışını (kaydırma) tamamen durdur
-            // Not: EasyTabs bu davranışı zaten engellemeli, ancak bu ek önlem olarak işe yarayabilir.
-        });
-        // ** YENİ EKLENEN KOD SONU **
-    });
-</script>
 <script>
 	(function($){$.fn.easyTabs=function(option){var param=jQuery.extend({fadeSpeed:"fast",defaultContent:1,activeClass:'active'},option);$(this).each(function(){var thisId="#"+this.id;if(param.defaultContent==''){param.defaultContent=1;}
 	if(typeof param.defaultContent=="number")
@@ -124,13 +103,27 @@
 	{$(thisId+" #"+tabId).fadeIn(param.fadeSpeed);}else{$(thisId+" #"+tabId).show();}}
 	$(thisId+" .tabs li").click(function(){var tabId=$(this).find('a').attr('href').substr(1);changeContent(tabId);return false;});});}})(jQuery);
 </script>
-	
-<script>
-		$(document).ready(function() {
-			$('#container').easyTabs({defaultContent:1});
-		});
-</script>
 
+<script src="/assets/js/bootstrap.min.js" integrity="sha256-OFRAJNoaD8L3Br5lglV7VyLRf0itmoBzWUoM+Sji4/8=" crossorigin="anonymous"></script>
+<script src="/assets/js/x-return-top.min.js" integrity="sha256-YgmlDHGkvgjeY7RLjNevr9jkHPJGJ/tfxhxZOQdLmRY=" crossorigin="anonymous"></script>
+
+ <script defer src="/assets/js/table.js" integrity="sha256-NF1PWfXrVLtWkwbZ0LdcSQ1sQNiYI+kGSlrBMZXpp88=" crossorigin="anonymous"></script>
+ <script defer src="/assets/js/yas.js" integrity="sha256-ravY/1T9WZLpb2LkYUEP7V60XIlN78wA7aOoI/iuetw=" crossorigin="anonymous"></script>
+<br>
+
+<script>
+    $(document).ready(function() {
+        // EasyTabs'ın başlatılması
+        $('#container').easyTabs({defaultContent:1});
+        
+        // 🔥 ÖNEMLİ DÜZELTME: İstenmeyen geri kaymayı engellemek için.
+        $('#container .tabs a').on('click', function(e) {
+            e.preventDefault(); 
+            // Opsiyonel kaydırma sabitleme:
+            $('html, body').scrollTop($('html, body').scrollTop());
+        });
+    });
+</script>
 
 <script>
 function searchTable2() {
