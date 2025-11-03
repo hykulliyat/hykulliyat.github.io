@@ -1,55 +1,61 @@
 <!DOCTYPE html>
-<html lang="tr-TR" prefix="og: https://ogp.me/ns# book: https://ogp.me/ns/book#" itemscope itemtype="https://schema.org/Book">
+<html lang="tr" prefix="og: https://ogp.me/ns# book: https://ogp.me/ns/book#" itemscope itemtype="https://schema.org/Book">
 <head>
 
-  <!-- Required meta tags -->
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <link rel="shortcut icon" href="/assets/img/favicon.ico">
-<meta name="title" content="HARUN YAHYA KÜLLİYATI | OKU VEYA İNDİR">
-<title>HARUN YAHYA KÜLLİYATI - KURAN OKU VEYA İNDİR</title>
-<meta name="description" content="ADNAN HARUN YAHYA KÜLLİYATI | KURAN Ayetleri OKU VEYA eKitapları İNDİR" >
-<link rel="canonical" href="https://harunyahya-kitap.github.io/" />
+<link rel="canonical" href="https://harunyahya-kitap.github.io/" >
 
-<meta name="keywords" content="harun yahya kimdir, kitapları, belgeselleri, kitapları pdf, eserleri, evrim, ekşi, eski hali, adnan oktar mı, adnan oktar, allah'ın isimleri, allah sevgisi, atlas of creation pdf, allah akılla bilinir, atom, archive, bestil, belgeselleri youtube, birds, big bang, balcı, belgesel müzikleri, books, creation of universe, cennet, cehennem, caps">
-
+<title>Harun Yahya Külliyatı | Online Oku veya İndir</title> <meta name="description" content="Harun Yahya'nın tüm külliyatını (298 adet eser) online okuyun veya e-kitap (PDF, EPUB, ODT) olarak ücretsiz indirin." > 
 <meta name="revisit-after" content="15 days">
-<!-- Meta Code Created By Way2Tutorial.com -->
+<meta name="robots" content="index, follow" > 
+<meta name="author" content="Harun Yahya" >
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+<meta name="twitter:card" content="summary_large_image" > <meta name="twitter:title" content="Harun Yahya Külliyatı | Oku veya İndir" >
+<meta name="twitter:image" content="https://harunyahya-kitap.github.io/assets/img/HarunYahya.png" > 
+<meta name="twitter:site" content="@zekidem20379657" >
+
+ <meta property="og:title" content="Harun Yahya Külliyatı | Online Kitap Oku VEYA İNDİR" >
+  <meta property="og:description" content="Harun Yahya'nın tüm külliyatını (298 adet eser) ücretsiz e-kitap (PDF, EPUB) olarak indirin." > <meta property="og:site_name" content="Harun Yahya Külliyatı" >
+  <meta property="og:locale" content="tr_TR" >
+  <meta property="og:type" content="book.list" > 
+  <meta property="og:url" content="https://harunyahya-kitap.github.io" >
+
+  <meta property="og:image" content="https://harunyahya-kitap.github.io/assets/img/HarunYahya.png" >
+  <meta property="og:image:secure_url" content="https://harunyahya-kitap.github.io/assets/img/HarunYahya.png" >
+  <meta property="og:image:type" content="image/png" >
+  <meta property="og:image:alt" content="HARUN YAHYA KÜLLİYATI KAPAK GÖRSELİ">
+  <meta property="og:image:width" content="1200" >    
+  <meta property="og:image:height" content="630" >   
+  <link rel="alternate" type="application/rss+xml" title="Online Oku VEYA iNDİR" href="https://harunyahya-kitap.github.io/feed.rss" >
+
+<meta name="google-site-verification" content="W5X01xBFd1_QydYg7IhlZ5d-KbDCLahVh9Bzl2XhZ68" >
+<meta name="yandex-verification" content="803e8226dfe07217" >
+
+<script type="application/ld+json">
+{
+  "@context" : "https://schema.org",
+  "@type" : "CollectionPage",
+  "name" : "HARUN YAHYA KÜLLİYATI - Oku veya İndir",
+  "description" : "Harun Yahya'nın tüm külliyatını (298 adet eser) online okuyun veya e-kitap (PDF, EPUB, ODT) olarak ücretsiz indirin.",
+  "url": "https://hykulliyat.github.io/",
+  "image" : "https://harunyahya-kitap.github.io/assets/img/HarunYahya.png",
+  "publisher" : {
+    "@type" : "Organization",
+    "name" : "HARUN YAHYA KÜLLİYATI"
+  },
+  "inLanguage" : "Türkçe",
+  "genre" : "Felsefe(Düşünce)"
+}
+</script>
 
 
-
-<meta name="robots" content="index,follow" />
-<meta name="robots" content="all" />
-<meta name="robots" content="index,archive" />
-<meta name="author" content="Harun Yahya
-" />
-
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Adnan Harun Yahya Külliyatı | Oku veya İndir" />
-<meta name="twitter:image" content="https://harunyahya-kitap.github.io/assets/img/hy.png" /> 
-<meta name="twitter:site" content="@zekidem20379657" />
-
-
- <!-- Open Graph -->
-  <meta property="og:title" content="Online Kitap Oku VEYA iNDİR" />
-  <meta property="og:description" content="ADNAN HARUN YAHYA KÜLLİYATINI - eKitap" />
-  <meta property="og:site_name" content="Harun Yahya" />
-  <meta property="og:locale" content="tr_TR" />
-  <meta property="og:type" content="book" />
-  <meta property="book:author" content="HARUN YAHYA" />
-  <meta property="book:release_date"  content="2021-05-29T14:45:16+03:00" />
-  <meta property="book:tag" content="Online Oku VEYA iNDİR" />
-  <meta property="og:url" content="https://harunyahya-kitap.github.io" />
-  <meta property="og:image" content="https://harunyahya-kitap.github.io/assets/img/HarunYahya.png" />
-  <meta property="og:image:secure_url" content="https://harunyahya-kitap.github.io/assets/img/HarunYahya.png" />
-  <meta property="og:image:type" content="image/png" />
-  <meta property="og:image:alt" content="HARUN YAHYA">
-
-
-<link rel="alternate" type="application/rss+xml" title="Online Oku VEYA iNDİR" href="https://harunyahya-kitap.github.io/feed.rss" />
-
-<meta name="yandex-verification" content="803e8226dfe07217" />
+<link rel="alternate" type="application/rss+xml" title="Online Oku VEYA iNDİR" href="https://harunyahya-kitap.github.io/feed.rss" >
 
 
 <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
@@ -72,38 +78,13 @@
 
 
 
-<link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico">
 
-<link rel="stylesheet" href="specimen_files/specimen_stylesheet.css" type="text/css" />
+<link rel="stylesheet" href="specimen_files/specimen_stylesheet.css" type="text/css" >
 
-<link rel="stylesheet" href="css/style.css" type="text/css" />
-<link rel="stylesheet" href="css/misc.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" >
+<link rel="stylesheet" href="css/misc.css" type="text/css" >
 
-    <link rel="stylesheet" href="viewer/css/button.css" type="text/css" >
-<!-- Google Yapısal Veri İşaretleme Yardımcısı tarafından oluşturulan JSON-LD işaretlemesi. -->
-<script type="application/ld+json">
-{
-  "@context" : "https://schema.org",
-  "@type" : "Book",
-  "name" : "HARUN YAHYA",
-  "bookFormat" : "EBook",
-  "keywords" : "Harun Yahya",
-  "isBasedOnURL" : "https://harunyahya-kitap.github.io",
-  "isFamilyFriendly" : "TRUE",
-  "image" : "https://harunyahya-kitap.github.io/assets/img/hy.png",
-  "author" : {
-    "@type" : "Person",
-    "name" : "ADNAN OKTAR"
-  },
-  "datePublished" : "2013-11-05",
-  "publisher" : {
-    "@type" : "Organization",
-    "name" : "HARUN YAHYA"
-  },
-  "inLanguage" : "Türkçe",
-  "genre" : "Felsefe(Düşünce)"
-}
-</script>
+<link rel="stylesheet" href="viewer/css/button.css" type="text/css" >
 
 
 
@@ -111,83 +92,90 @@
 </head>
 <body>
 
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+crossorigin="anonymous"></script>
+
 <script>
-	(function($){$.fn.easyTabs=function(option){var param=jQuery.extend({fadeSpeed:"fast",defaultContent:1,activeClass:'active'},option);$(this).each(function(){var thisId="#"+this.id;if(param.defaultContent==''){param.defaultContent=1;}
-	if(typeof param.defaultContent=="number")
-	{var defaultTab=$(thisId+" .tabs li:eq("+(param.defaultContent-1)+") a").attr('href').substr(1);}else{var defaultTab=param.defaultContent;}
-	$(thisId+" .tabs li a").each(function(){var tabToHide=$(this).attr('href').substr(1);$("#"+tabToHide).addClass('easytabs-tab-content');});hideAll();changeContent(defaultTab);function hideAll(){$(thisId+" .easytabs-tab-content").hide();}
-	function changeContent(tabId){hideAll();$(thisId+" .tabs li").removeClass(param.activeClass);$(thisId+" .tabs li a[href=#"+tabId+"]").closest('li').addClass(param.activeClass);if(param.fadeSpeed!="none")
-	{$(thisId+" #"+tabId).fadeIn(param.fadeSpeed);}else{$(thisId+" #"+tabId).show();}}
-	$(thisId+" .tabs li").click(function(){var tabId=$(this).find('a').attr('href').substr(1);changeContent(tabId);return false;});});}})(jQuery);
-</script>
-	
-<script>
-		$(odtument).ready(function() {
-			$('#container').easyTabs({defaultContent:1});
-		});
+(function($){$.fn.easyTabs=function(option){var param=jQuery.extend({fadeSpeed:"fast",defaultContent:1,activeClass:'active'},option);$(this).each(function(){var thisId="#"+this.id;if(param.defaultContent==''){param.defaultContent=1;}
+if(typeof param.defaultContent=="number")
+{var defaultTab=$(thisId+" .tabs li:eq("+(param.defaultContent-1)+") a").attr('href').substr(1);}else{var defaultTab=param.defaultContent;}
+$(thisId+" .tabs li a").each(function(){var tabToHide=$(this).attr('href').substr(1);$("#"+tabToHide).addClass('easytabs-tab-content');});hideAll();changeContent(defaultTab);function hideAll(){$(thisId+" .easytabs-tab-content").hide();}
+function changeContent(tabId){hideAll();$(thisId+" .tabs li").removeClass(param.activeClass);$(thisId+" .tabs li a[href=#"+tabId+"]").closest('li').addClass(param.activeClass);if(param.fadeSpeed!="none")
+{$(thisId+" #"+tabId).fadeIn(param.fadeSpeed);}else{$(thisId+" #"+tabId).show();}}
+$(thisId+" .tabs li").click(function(){var tabId=$(this).find('a').attr('href').substr(1);changeContent(tabId);return false;});});}})(jQuery);
 </script>
 
+<script src="/assets/js/bootstrap.min.js" integrity="sha256-OFRAJNoaD8L3Br5lglV7VyLRf0itmoBzWUoM+Sji4/8=" crossorigin="anonymous"></script>
+<script src="/assets/js/x-return-top.min.js" integrity="sha256-YgmlDHGkvgjeY7RLjNevr9jkHPJGJ/tfxhxZOQdLmRY=" crossorigin="anonymous"></script>
 
-
-<div class="navbar">
-	<div id="header">Adnan Harun Yahya Külliyatı</div>
-	<ul class="tabs">
-        <li><a href="#section-harunyahya">HARUN YAHYA</a></li>
-        <li><a href="#section-risale">Bediüzzaman Risaleleri</a></li>
-        <li><a href="#section-audio">Sesli Kitaplar</a></li>
-        <li><a href="https://acikkuran.github.io" target="_blank">BLOG</a></li>
-	</ul> 
-</div>
-
-<div class="teaser clearfix"></div>
-
-<div id="main_content"><!-- content -->
-<div id="specimen">
-
+<script defer src="/assets/js/table.js" integrity="sha256-NF1PWfXrVLtWkwbZ0LdcSQ1sQNiYI+kGSlrBMZXpp88=" crossorigin="anonymous"></script>
+<script defer src="/assets/js/yas.js" integrity="sha256-ravY/1T9WZLpb2LkYUEP7V60XIlN78wA7aOoI/iuetw=" crossorigin="anonymous"></script>
 <br>
-<!--Social icons -->
-<div class="container">
- <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fharunyahya-kitap.github.io%2F&t=Adnan-Harun-Yahya-Külliyatı" title="Facebook'ta paylaş" target="_blank"><img alt="HARUN YAHYA" title="HARUN YAHYA" src="/assets/img/Facebook.png" /></a>
-  <a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fharunyahya-kitap.github.io%2F&text=AdnanHarunYahyaKülliyatı:%20http%3A%2F%2Fharunyahya-kitap.github.io%2F" target="_blank" title="Twitter'da paylaş"><img alt="HARUN YAHYA" title="HARUN YAHYA" src="/assets/img/Twitter.png" /></a>
-  <a href="https://harunyahya-kitap.github.io/feed.rss" target="_blank" title="Feed RSS"><img alt="HARUN YAHYA" title="HARUN YAHYA" src="/assets/img/feed.png" /></a>
 
+<script>
+$(document).ready(function() {
+    var savedScrollPosition = 0;
+    var isTabChanging = false;
+    
+    // EasyTabs'ı özelleştirerek başlat
+    $('#container').easyTabs({
+        defaultContent: 1,
+        fadeSpeed: 'fast',
+        activeClass: 'active'
+    });
+    
+    // Scroll değişikliklerini dinle ve sekme değişimi sırasında engelle
+    $(window).on('scroll', function() {
+        if (isTabChanging) {
+            $(window).scrollTop(savedScrollPosition);
+        }
+    });
+    
+    // Sekme tıklamalarını yakala
+    $('#container .tabs a').on('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        // Mevcut pozisyonu kaydet ve kilitle
+        savedScrollPosition = $(window).scrollTop();
+        isTabChanging = true;
+        
+        // Sekme değişimini gerçekleştir
+        var tabId = $(this).attr('href').substr(1);
+        
+        // Diğer sekmeleri pasif yap
+        $('#container .tabs li').removeClass('active');
+        $(this).closest('li').addClass('active');
+        
+        // İçerikleri değiştir
+        $('#container .easytabs-tab-content').hide();
+        $('#' + tabId).fadeIn('fast', function() {
+            // Animasyon tamamlandığında kilidi aç
+            setTimeout(function() {
+                isTabChanging = false;
+            }, 100);
+        });
+        
+        // Pozisyonu koru
+        $(window).scrollTop(savedScrollPosition);
+        
+        return false;
+    });
+    
+    // BONUS: Sayfa yüklendiğinde scroll pozisyonunu geri yükle
+    if (sessionStorage.getItem('tabScrollPos')) {
+        $(window).scrollTop(sessionStorage.getItem('tabScrollPos'));
+    }
+    
+    // Sayfadan ayrılırken scroll pozisyonunu kaydet
+    $(window).on('beforeunload', function() {
+        sessionStorage.setItem('tabScrollPos', $(window).scrollTop());
+    });
+});
+</script>
 
-</div>
-<br>
-<br>
-<div class="container">
-<article itemscope itemtype="https://schema.org/Person">
-	<h2 itemprop="name">Adnan Oktar</h2>
-        <span itemprop="jobTitle">Yazar ve Düşünür</span>
-	<p><img itemprop="image" src="/assets/img/Adnan-Oktar_preview.jpg" alt="HARUN YAHYA" title="HARUN YAHYA"></p>
-	<ul>
-		<li>Milliyeti: <span itemprop="nationality">Seyyid Nogay (Kafkas Çerkez)</span></li>
-		<li>Baba Adı: <span itemprop="children">Yusuf</span></li>
-		<li><span id="yas"></span></li>
-		<li>Doğum Tarihi: <span itemprop="birthDate">2 Şubat 1956</span></li>
-		<li>Doğum Yeri: <span itemprop="birthPlace">Ankara</span></li>
-		<li>Saç Regi: <span>Siyah</span></li>
-		<li>Göz Regi: <span>Yeşil</span></li>
-	</ul>
-</article>
-
- <!-- yas JS -->
- <script defer src="assets/js/yas.js"></script> 
-<br/>
-<br/>
-
-</div>
-<!--
-<p>NOT:Firefox ve Chrome Web Browser ile en iyi performansı sağlar.</p>-->
-<br/>
-<div class="teaser clearfix"></div>
-
-<h1><strong>Adnan Harun Yahya Külliyatı - Oku veya İndir</strong>- 298 Adet Eser</h1>
-
-<br/>
-
- <!-- table JS -->
- <script>
+<script>
 function searchTable2() {
     var input, filter, found, table, tr, td, i, j;
     input = document.getElementById("myInput2");
@@ -210,13 +198,65 @@ function searchTable2() {
     }
 }
 </script>
- 
- <script defer src="assets/js/table.js"></script> 
+<div class="navbar">
+	<div id="header">Adnan Harun Yahya Külliyatı</div>
+	<ul class="tabs">
+        <li><a href="#section-harunyahya">HARUN YAHYA</a></li>
+        <li><a href="#section-risale">Bediüzzaman Risaleleri</a></li>
+        <li><a href="#section-audio">Sesli Kitaplar</a></li>
+        <li><a href="https://acikkuran.github.io" target="_blank">BLOG</a></li>
+	</ul> 
+</div>
+
+<div class="teaser clearfix"></div>
+
+<div id="main_content"><!-- content -->
+<div id="specimen">
+
+<br>
+<!--Social icons -->
+<div class="container">
+ <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fharunyahya-kitap.github.io%2F&t=Adnan-Harun-Yahya-Külliyatı" title="Facebook'ta paylaş" target="_blank"><img alt="HARUN YAHYA" title="HARUN YAHYA" src="/assets/img/Facebook.png" ></a>
+  <a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fharunyahya-kitap.github.io%2F&text=AdnanHarunYahyaKülliyatı:%20http%3A%2F%2Fharunyahya-kitap.github.io%2F" target="_blank" title="Twitter'da paylaş"><img alt="HARUN YAHYA" title="HARUN YAHYA" src="/assets/img/Twitter.png" ></a>
+  <a href="https://harunyahya-kitap.github.io/feed.rss" target="_blank" title="Feed RSS"><img alt="HARUN YAHYA" title="HARUN YAHYA" src="/assets/img/feed.png" ></a>
+
+
+</div>
+<br>
+<br>
+<article itemscope itemtype="https://schema.org/Person">
+	<h2 itemprop="name">Adnan Oktar</h2>
+        <span itemprop="jobTitle">Yazar ve Düşünür</span>
+	<p><img itemprop="image" src="/assets/img/Adnan-Oktar_preview.jpg" alt="HARUN YAHYA" title="HARUN YAHYA"></p>
+	<ul>
+		<li>Milliyeti: <span itemprop="nationality">Seyyid Nogay (Kafkas Çerkez)</span></li>
+		<li>Baba Adı: <span itemprop="children">Yusuf</span></li>
+		<li><span id="yas"></span></li>
+		<li>Doğum Tarihi: <span itemprop="birthDate">2 Şubat 1956</span></li>
+		<li>Doğum Yeri: <span itemprop="birthPlace">Ankara</span></li>
+		<li>Saç Regi: <span>Siyah</span></li>
+		<li>Göz Regi: <span>Yeşil</span></li>
+	</ul>
+</article>
+
+<br>
+
+</div>
+<!--
+<p>NOT:Firefox ve Chrome Web Browser ile en iyi performansı sağlar.</p>-->
+<br>
+<div class="teaser clearfix"></div>
+
+
+
+<br>
+
 
 <div id="section-harunyahya" class="teaser clearfix"></div>
 
 <input id='myInput' onkeyup='searchTable()' type='text' placeholder="Kitap Adında Ara">
 <br>
+<h1><strong>Adnan Harun Yahya Külliyatı - Oku veya İndir</strong>- 298 Adet Eser</h1>
 <table class="sample_table" id='myTable' style="width:63%">
 <thead>
 <tr>
@@ -2346,12 +2386,9 @@ function searchTable2() {
 <!--<section id="section-risale" class="section appear clearfix">
 Bediüzzaman-->
 
-
-
-
 <article itemscope itemtype="https://schema.org/Person">
 	<h2 itemprop="name">Bediüzzaman Said Nursi(Okur)</h2>
-	<p><img itemprop="image" src="/assets/img/said-nursi.jpg" alt="Bediüzzaman Said Nursi" title="Bediüzzaman" title="Bediüzzaman"></p>
+	<p><img itemprop="image" src="/assets/img/said-nursi.jpg" alt="Bediüzzaman Said Nursi" title="Bediüzzaman"></p>
 	<ul>
 		<li>Milliyeti: <span itemprop="nationality">(Bitlis vilayeti Osmanlı)</span></li>
 		<li>Doğum Tarihi: <span itemprop="birthDate">1877</span></li>
@@ -2365,33 +2402,10 @@ Bediüzzaman-->
 <br>
 <br>
 
-<script>
-function searchTable2() {
-    var input, filter, found, table, tr, td, i, j;
-    input = document.getElementById("myInput2");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("myTable2");
-    tr = table.getElementsByTagName("tr");
-    for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td");
-        for (j = 0; j < td.length; j++) {
-            if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
-                found = true;
-            }
-        }
-        if (found) {
-            tr[i].style.display = "";
-            found = false;
-        } else {
-            tr[i].style.display = "none";
-        }
-    }
-}
-</script>
-
 <input id='myInput2' onkeyup='searchTable2()' type='text' placeholder="Kitap Adında Ara">
 <br>
 <br>
+
 <h2><strong>Bediüzzaman Said Nursi Risaleleri</strong>- 40 Adet Eser</h2>
 
 <br>
@@ -2692,23 +2706,22 @@ function searchTable2() {
 
 <br><br><br>
 
-<div class="teaser clearfix"></div>
 <!--Sesli Kitap-->
+
+<div id="section-audio" class="teaser clearfix">
 <div class="ex1">
 
 
 <div class="container">
-<section id="section-audio" class="section appear clearfix" style="width:100%">
+<!--<section id="section-audio" class="section appear clearfix" style="width:100%">-->
 <br>
 
 <h3>Audio Player</h3>
 <audio id="audio" preload="auto" autoplay controls></audio> <!-- player-->
 
 
-</section>
     
 <br>
-
 <section id="liste">
 <h3>Harun Yahya - <strong>Sesli Kitap</strong></h3>
 <details class="akerdion">
@@ -3242,7 +3255,7 @@ function searchTable2() {
   <li data-src="https://seslikitap.net/mp3/0450.mp3">GİRİŞ</li>
   <li data-src="https://seslikitap.net/mp3/0451.mp3">CAHİLİYE TOPLUMUNUN GENEL YAPISI</li>
   <li data-src="https://seslikitap.net/mp3/0452.mp3">CAHİLİYE TOPLUMUNDA İNSAN KARAKTERLERİ</li>
-  <li data-src="https://seslikitap.netİBADE/mp3/0453.mp3">CAHİLİYE TOPLUMUNDA MESLEKLERİN ETKİSİYLE GELİŞEN KARAKTERLER</li>
+  <li data-src="https://seslikitap.net/mp3/0453.mp3">CAHİLİYE TOPLUMUNDA MESLEKLERİN ETKİSİYLE GELİŞEN KARAKTERLER</li>
   <li data-src="https://seslikitap.net/mp3/0454.mp3">SONSÖZ; KURAN AHLAKINI YAŞAMAYA DAVET</li>
   <li data-src="https://seslikitap.net/mp3/0455.mp3">TÜM KİTAP 1.KISIM</li>
   <li data-src="https://seslikitap.net/mp3/0456.mp3">TÜM KİTAP 2.KISIM</li>
@@ -3257,7 +3270,7 @@ function searchTable2() {
 </li>
   <li data-src="https://seslikitap.net/mp3/0441.mp3">İMTAHANIN SIRRI</li>
   <li data-src="https://seslikitap.net/mp3/0442.mp3">ZOR ANLARIN MÜSLÜMANI</li>
-  <li data-src="https://seslikitap.netİBADE/mp3/0443.mp3">CAHİLİYENİN ZORLUKLAR KARŞISINDAKİ TAVRI</li>
+  <li data-src="https://seslikitap.net/mp3/0443.mp3">CAHİLİYENİN ZORLUKLAR KARŞISINDAKİ TAVRI</li>
   <li data-src="https://seslikitap.net/mp3/0444.mp3">İMTAHAN SON ANA KADAR DEVAM ETMEKTEDİR</li>
   <li data-src="https://seslikitap.net/mp3/0445.mp3">SONUÇ</li>
   <li data-src="https://seslikitap.net/mp3/0446.mp3">TÜM KİTAP 1.KISIM</li>
@@ -3273,7 +3286,7 @@ function searchTable2() {
   <li data-src="https://seslikitap.net/mp3/0406.mp3">DİNSİZ İNSANLARIN AMAÇSIZLIĞI</li>
   <li data-src="https://seslikitap.net/mp3/0407.mp3">ALLAH KORKUSU OLMAZSA NE OLUR?</li>
   <li data-src="https://seslikitap.net/mp3/0424.mp3">GERÇEK ADALET KURAN AHLAKININ YAŞANMASIYLA SAĞLANABİLİR</li>
-  <li data-src="https://seslikitap.netİBADE/mp3/0425.mp3">SİYASİ HAYATTA YAŞANANLAR</li>
+  <li data-src="https://seslikitap.net/mp3/0425.mp3">SİYASİ HAYATTA YAŞANANLAR</li>
   <li data-src="https://seslikitap.net/mp3/0426.mp3">DİNSİZLİĞİN EKONOMİK YAŞAM ÜZERİNE ETKİLERİ</li>
   <li data-src="https://seslikitap.net/mp3/0427.mp3">DİN, YOKSULLARIN VE YETİMLERİN KORUNMASINI EMREDER</li>
   <li data-src="https://seslikitap.net/mp3/0429.mp3">DİNSİZ TOPLUMLARDA AHLAKİ ÇÖKÜNTÜ</li>
@@ -3295,7 +3308,7 @@ function searchTable2() {
   <li data-src="https://seslikitap.net/mp3/0397.mp3">ŞEYTANIN ÖZELLİKLERİ</li>
   <li data-src="https://seslikitap.net/mp3/0398.mp3">ŞEYTANIN AKILSIZ TAKTİKLERİ</li>
   <li data-src="https://seslikitap.net/mp3/0399.mp3">ŞEYTANIN ETKİSİNİN FARKINA VARMAYAN TOPLULUK; "CAHİLİYE TOPLUMU"</li>
-  <li data-src="https://seslikitap.netİBADE/mp3/0400.mp3">ŞEYTANIN FIRKASI; "MÜNAFIKLAR"</li>
+  <li data-src="https://seslikitap.net/mp3/0400.mp3">ŞEYTANIN FIRKASI; "MÜNAFIKLAR"</li>
   <li data-src="https://seslikitap.net/mp3/0401.mp3">ŞEYTANIN GÜCÜ ZAYIFTIR</li>
   <li data-src="https://seslikitap.net/mp3/0402.mp3">DARWİNİZMİN ÇÖKÜŞÜ</li>
   <li data-src="https://seslikitap.net/mp3/0403.mp3">TÜM KİTAP 1.PARÇA</li>
@@ -3310,7 +3323,7 @@ function searchTable2() {
   <li data-src="https://seslikitap.net/mp3/0386.mp3">BİRİNCİ BÖLÜM; "DARWİNİZMİN KISA TARİHİ"</li>
   <li data-src="https://seslikitap.net/mp3/0387.mp3">İKİNCİ BÖLÜM; "DARWİNİN IRKÇILIĞI VE SÖMÜRGECİLİK"</li>
   <li data-src="https://seslikitap.net/mp3/0388.mp3">ÜÇÜNCÜ BÖLÜM; "DARWİN VE FAŞİZMİN KORKUNÇ İTTİFAKI"</li>
-  <li data-src="https://seslikitap.netİBADE/mp3/0389.mp3">DÖRDÜNCÜ BÖLÜM; "KOMÜNİST VAHŞETİN DAYANAĞI"</li>
+  <li data-src="https://seslikitap.net/mp3/0389.mp3">DÖRDÜNCÜ BÖLÜM; "KOMÜNİST VAHŞETİN DAYANAĞI"</li>
   <li data-src="https://seslikitap.net/mp3/0390.mp3">BEŞİNCİ BÖLÜM; "KAPİTALİZM VE EKONOMİDE YAŞAM MÜCADELESİ</li>
   <li data-src="https://seslikitap.net/mp3/0391.mp3">ALTINCI BÖLÜM; "DARWİNİZMİN GETİRDİĞİ AHLAKİ ÇÖKÜNTÜ"</li>
   <li data-src="https://seslikitap.net/mp3/0392.mp3">SONUÇ; "DARWİNİZM BATAKLIĞININ KURUTULMASI ŞARTTIR"</li>
@@ -3327,7 +3340,7 @@ function searchTable2() {
   <li data-src="https://seslikitap.net/mp3/0386.mp3">BİRİNCİ BÖLÜM; "DARWİNİZMİN KISA TARİHİ"</li>
   <li data-src="https://seslikitap.net/mp3/0387.mp3">İKİNCİ BÖLÜM; "DARWİNİN IRKÇILIĞI VE SÖMÜRGECİLİK"</li>
   <li data-src="https://seslikitap.net/mp3/0388.mp3">ÜÇÜNCÜ BÖLÜM; "DARWİN VE FAŞİZMİN KORKUNÇ İTTİFAKI"</li>
-  <li data-src="https://seslikitap.netİBADE/mp3/0389.mp3">DÖRDÜNCÜ BÖLÜM; "KOMÜNİST VAHŞETİN DAYANAĞI"</li>
+  <li data-src="https://seslikitap.net/mp3/0389.mp3">DÖRDÜNCÜ BÖLÜM; "KOMÜNİST VAHŞETİN DAYANAĞI"</li>
   <li data-src="https://seslikitap.net/mp3/0390.mp3">BEŞİNCİ BÖLÜM; "KAPİTALİZM VE EKONOMİDE YAŞAM MÜCADELESİ</li>
   <li data-src="https://seslikitap.net/mp3/0391.mp3">ALTINCI BÖLÜM; "DARWİNİZMİN GETİRDİĞİ AHLAKİ ÇÖKÜNTÜ"</li>
   <li data-src="https://seslikitap.net/mp3/0392.mp3">SONUÇ; "DARWİNİZM BATAKLIĞININ KURUTULMASI ŞARTTIR"</li>
@@ -3344,7 +3357,7 @@ function searchTable2() {
   <li data-src="https://seslikitap.net/mp3/0380.mp3">EVREN YOKTAN YARATILDI</li>
   <li data-src="https://seslikitap.net/mp3/0381.mp3">MADDENİN ARDINDAKİ SIR</li>
   <li data-src="https://seslikitap.net/mp3/0382.mp3">ZAMANIN İZAFİYETİ VE KADER GERÇEĞİ</li>
-  <li data-src="https://seslikitap.netİBADE/mp3/0383.mp3">EVRİM YANILGISI</li>
+  <li data-src="https://seslikitap.net/mp3/0383.mp3">EVRİM YANILGISI</li>
   <li data-src="https://seslikitap.net/mp3/0384.mp3">TÜM KİTAP</li>
   </ul>
 </details>
@@ -3356,7 +3369,7 @@ function searchTable2() {
   <li data-src="https://seslikitap.net/mp3/0380.mp3">2- İNSANIN ACİZLİĞİ</li>
   <li data-src="https://seslikitap.net/mp3/0381.mp3">3- DÜNYA HAYATININ SÜSLERİ</li>
   <li data-src="https://seslikitap.net/mp3/0382.mp3">4- AFETLER</li>
-  <li data-src="https://seslikitap.netİBADE/mp3/0383.mp3">5- GEÇMİŞ UYGARLIKLAR</li>
+  <li data-src="https://seslikitap.net/mp3/0383.mp3">5- GEÇMİŞ UYGARLIKLAR</li>
   <li data-src="https://seslikitap.net/mp3/0384.mp3">6- GERÇEK YURT AHİRET</li>
   <li data-src="https://seslikitap.net/mp3/0384.mp3">TÜM KİTAP</li>
   </ul>
@@ -3369,7 +3382,7 @@ function searchTable2() {
   <li data-src="https://seslikitap.net/mp3/0369.mp3">İHLASLI İNSAN NASIL OLUR?</li>
   <li data-src="https://seslikitap.net/mp3/0370.mp3">ŞEYTANIN MÜMİNLERİN İHLASINI KIRMA ÇABASI</li>
   <li data-src="https://seslikitap.net/mp3/0371.mp3">İHLASI KAZANMANIN YOLLARI</li>
-  <li data-src="https://seslikitap.netİBADE/mp3/0372.mp3">İHLASI ZEDELEYEN TAVIRLARDAN KAÇINMAK</li>
+  <li data-src="https://seslikitap.net/mp3/0372.mp3">İHLASI ZEDELEYEN TAVIRLARDAN KAÇINMAK</li>
   <li data-src="https://seslikitap.net/mp3/0373.mp3">MÜMİNLERİN KUVVETİ İHLASTAN GELİR</li>
   <li data-src="https://seslikitap.net/mp3/0374.mp3">SONUÇ</li>
   <li data-src="https://seslikitap.net/mp3/0375.mp3">EVRİM YANILGISI</li>
@@ -3386,7 +3399,7 @@ function searchTable2() {
   <li data-src="https://seslikitap.net/mp3/0242.mp3">GİRİŞ</li>
   <li data-src="https://seslikitap.net/mp3/0243.mp3">ÖRÜMCEKLERİN AVLANMA YÖNTEMLERİ</li>
   <li data-src="https://seslikitap.net/mp3/0244.mp3">SIÇRAYAN ÖRÜMCEĞİN ÖZELLİKLERİ</li>
-  <li data-src="https://seslikitap.netİBADE/mp3/0245.mp3">İPEK MUCİZESİ</li>
+  <li data-src="https://seslikitap.net/mp3/0245.mp3">İPEK MUCİZESİ</li>
   <li data-src="https://seslikitap.net/mp3/0246.mp3">TASARIM HARİKASI AĞLAR</li>
   <li data-src="https://seslikitap.net/mp3/0247.mp3">YARATILIŞ MUCİZESİ</li>
   <li data-src="https://seslikitap.net/mp3/0248.mp3">SONSÖZ</li>
@@ -3402,7 +3415,7 @@ function searchTable2() {
   <li data-src="https://seslikitap.net/mp3/0176.mp3">KURANIN BİLİMSEL MUCİZELERİ -2-</li>
   <li data-src="https://seslikitap.net/mp3/0177.mp3">KURANIN BİLİMSEL MUCİZELERİ -3-</li>
   <li data-src="https://seslikitap.net/mp3/0178.mp3">KURANIN BİLİMSEL MUCİZELERİ -4-</li>
-  <li data-src="https://seslikitap.netİBADE/mp3/0179.mp3">TÜM KİTAP</li>
+  <li data-src="https://seslikitap.net/mp3/0179.mp3">TÜM KİTAP</li>
   </ul>
 </details>
 
@@ -4156,13 +4169,13 @@ function myFunction2() {
 <table>
 <tbody>
 <tr>
-<td><img  class="left" src="/assets/img/tumeserler/makaleler1.jpg" alt="HARUN YAHYA" title="HARUN YAHYA" height="200" /></td>
+<td><img  class="left" src="/assets/img/tumeserler/makaleler1.jpg" alt="HARUN YAHYA" title="HARUN YAHYA" height="200" ></td>
 
-<td><img  class="left" src="/assets/img/tumeserler/makaleler2.jpg" alt="HARUN YAHYA" title="HARUN YAHYA" height="200" /></td>
+<td><img  class="left" src="/assets/img/tumeserler/makaleler2.jpg" alt="HARUN YAHYA" title="HARUN YAHYA" height="200" ></td>
 
-<td><img  class="left" src="/assets/img/tumeserler/makaleler3.jpg" alt="HARUN YAHYA" title="HARUN YAHYA" height="200" /></td>
+<td><img  class="left" src="/assets/img/tumeserler/makaleler3.jpg" alt="HARUN YAHYA" title="HARUN YAHYA" height="200" ></td>
 
-<td><img  class="left" src="/assets/img/tumeserler/makaleler4.jpg" alt="HARUN YAHYA" title="HARUN YAHYA" height="200" /></td>
+<td><img  class="left" src="/assets/img/tumeserler/makaleler4.jpg" alt="HARUN YAHYA" title="HARUN YAHYA" height="200" ></td>
 </tr>
 </tbody>
 </table>
@@ -4256,7 +4269,7 @@ function myFunction2() {
 <article class="day-forecast">
 
 <h2>ÇOCUKLAR DARWIN YALAN SÖYLEDİ!</h2>
-<p><strong>Çocuklar, Darwin Yalan Söyledi!..</strong><br />
+<p><strong>Çocuklar, Darwin Yalan Söyledi!..</strong><br >
 <strong>Gerçekleri ise bu kitaptan öğreneceksiniz...</strong><img  class="left" src="/assets/img/tumeserler/cocuklardarwiyalansoyledi.jpg" alt="HARUN YAHYA" title="HARUN YAHYA" height="200">"Çocuklar Darwin Yalan Söyledi" isimli kitapta, çocukların anlayabilecekleri bir üslup ve dikkat çekici örnekler kullanılarak, evrim teorisinin bilim açısından geçersizliği anlatılmakta, bir yandan da, Allah'ın evreni ve tüm canlıları yarattığına dair yaratılış delilleri gösterilmektedir. Birçok canlının özelliklerinin anlatıldığı kitap, karikatürlerle, renkli resim ve çizimlerle konuların daha anlaşılır ve zevkli hale getirildiği bir üslupla hazırlanmıştır. Kitabın giriş bölümünde şu sözler yer almaktadır:Çocuklar ! Hiç düşündünüz mü?"Dünyamız nasıl meydana geldi?", "Güneş ve Ay nasıl meydana geldiler?","Doğmadan önce neredeydiniz?","Denizler, ağaçlar, hayvanlar nasıl meydana geldiler?","Minicik bir arı çok lezzetli balı yapmayı nereden biliyor? Çok düzgün kenarları olan bal peteğini nasıl yapabiliyor?""İlk insan kimdi?" ...Bu kitapta bu soruların hepsinin en doğru cevabını öğreneceksiniz.Bu en doğru cevap nedir biliyor musunuz? Çevrenizde gördüğünüz herşeyi, sizi, arkadaşlarınızı, anne-babanızı, dünyayı, güneşi, çok sevdiğiniz yiyecekleri, muzları, kirazları, çilekleri, rengarenk gülleri, menekşeleri, güzel kokuları, insanları, kedileri, köpekleri, karıncaları, kelebekleri, kısacası herşeyi Allah yaratmıştır.Ancak bir de bu konuda yalan söyleyen insanlar vardır. Onlar herşeyi Allah'ın yarattığına inanmazlar ve her konuda yalan söylerler. Bu insanlara "evrimci", söyledikleri yalana ise "Evrim Teorisi" denir.Biz de sizin doğruları çok iyi öğrenmeniz için önce doğru olanları anlattık. Kitabın ikinci bölümünde ise evrim teorisine inananların, insanları nasıl yanılttıklarını gösterdik. Bu kitabı okuduktan sonra, bir gün biri gelip size evrim teorisine inanmanızı söylerse, siz de ona evrim teorisinin doğru olmadığını, herşeyi Allah'ın yarattığını anlatabilirsiniz. <strong>144 SAYFA, 282 RESİM</strong></p>
 </article>
 <hr>
@@ -4292,7 +4305,7 @@ function myFunction2() {
 <article class="day-forecast">
 
 <h2>EVRENİN YARATILIŞI</h2>
-<p><strong>Çağdaş fizik ve astronominin bulguları, evrenin Allah tarafından yaratıldığını nasıl gösteriyor? </strong><br />
+<p><strong>Çağdaş fizik ve astronominin bulguları, evrenin Allah tarafından yaratıldığını nasıl gösteriyor? </strong><br >
 <strong>Bu sorunun cevabını en son bilimsel gelişmelerle bu kitapta tüm detaylarıyla bulacaksınız.</strong><img  class="left" src="/assets/img/tumeserler/evreninyaratilisi.jpg" alt="HARUN YAHYA" title="HARUN YAHYA" height="200">Tüm evrenin tesadüfe hiçbir şekilde yer vermeyecek mükemmellikte, belirli bir amaca göre, muhteşem bir uyum, ahenk ve denge ile Allah tarafından yaratılmış olduğu bu kitapta delilleri ile birlikte anlatılmaktadır.Asırlar önce nasıl bir bilim anlayışının var olduğu ve bu bilim anlayışı içinde "evrenin sonsuzdan beri var olduğu" fikrinin nasıl ortaya çıktığı, daha sonraları bu fikrin yerine evrenin genişlediği fikrine bırakması ve bu tartışmanın Big Bang Teorisinin kanıtlanması ile yön değiştirmesi, Kuran'da Big Bang'e işaret ediliyor olması kitabın "Evrenin Yoktan Yaratılışı" bölümünde ele alınan konulardan bazılarıdır.Kitabın "Göklerdeki Düzen" bölümünde ise, Güneş Sistemi'nden başlayarak uzayda nasıl kusursuz bir düzenin var olduğu, uzaydaki boşlukların neden gerekli olduğu, Güneş Sistemi'ni oluşturan bütün parçaların birbirine olan mükemmel uyumu, Dünya'nın yerinin tam olması gereken yerde bulunduğu gibi konular ayetler doğrultusunda ve bilim adamlarının bu konular hakkındaki düşünceleri ile birlikte ele alınmakta ve bunların tümünün yaratılış mucizeleri oldukları anlatılmaktadır.Bundan başka kitapta "Mavi Gezegen" başlığı altında Dünya'da var olan kusursuz sistemi oluşturan parçalar teker teker ele alınmaktadır. Dünya'nın Isısı, Yerkürenin Kütlesi ve Manyetik Alanı, Atmosferin Canlı Yaşamı için Uygunluğu gibi konular da yine örneklerle açıklanmaktadır.Kitaptaki; Işıktaki Tasarım, Sudaki Tasarım, Yaşamın Özel Tasarlanmış Elementleri ise tüm evrenin insan için özel olarak yaratılmış olduğunu kanıtlayan delillerin anlatıldığı bölümlerdir. Bu bölümlerde de Allah'ın yeryüzündeki yaratma sanatının inceliklerini tüm çarpıcılığıyla okuyacaksınız. <strong>192 SAYFA, 91 RESİM</strong></p>
 </article>
 <hr>
@@ -4328,7 +4341,7 @@ function myFunction2() {
 <article class="day-forecast">
 
 <h2>CANLILARDAKİ FEDAKARLIK VE AKILCI DAVRANIŞLAR</h2>
-<p><strong>Darwinizm, tüm canlılığı "yaşam mücadelesi" kavramına dayandırır. </strong><br />
+<p><strong>Darwinizm, tüm canlılığı "yaşam mücadelesi" kavramına dayandırır. </strong><br >
 <strong>Oysa canlılarda şaşırtıcı fedakarlık örnekleri vardır...</strong><img  class="left" src="/assets/img/tumeserler/canlilardakifedakarlikveakilcidavranislar.jpg" alt="HARUN YAHYA" title="HARUN YAHYA" height="200">Bu kitapta hayvan davranışlarında görülen bilinçli davranışlar, evrim teorisinin açmazlarından biri olarak anlatılmakta ve bu konuyla ilgili olarak çok sayıda örnek verilmektedir. Baraj Mühendisleri Kunduzlar, Birkaç Aşamalı Plan Yapabilen İmparator Tırtılı gibi hayvanlardaki bilinçli davranışlar incelenirken, "İçgüdünün kökeni nedir?" sorusunun cevabı da verilmektedir. İçgüdülerin evrimle gelişemeyeceği konusu, bu konuda evrimcilerin itirafları ve canlılardan örnekler verilerek ele alınmaktadır. Sonuç olarak tüm canlıların Allah'ın ilhamıyla hareket ettikleri ise kitapta şöyle anlatılmaktadır:Doğada elbette ki canlılar beslenebilmek veya güvenliklerini sağlayabilmek için bir çaba içerisindedirler. Ancak doğa sadece bu görüntülerden ibaret değildir. Doğada canlıların büyük bir çoğunluğu, yavruları veya aileleri için, kimi zaman sürülerindeki diğer canlılar hatta diğer türler için benzeri görülmemiş fedakarlıklarda bulunurlar. Fedakarlığın yanısıra işbirliği, dayanışma, birbirinin çıkarını kollama gibi özellikler de canlılar aleminde sıkça karşılaşılan tavırlardır.İşte doğanın yalnızca bir savaş yeri olduğunu iddia eden evrim teorisi canlılar aleminde görülen bu fedakarlık örneklerine hiçbir açıklama getiremez. Evrim teorisi, düşmanlarından kaçıp kurtulan bir zebranın neden geri dönüp düşmanları tarafından kuşatılmış olan diğer zebraları, üstelik de hayatını tehlikeye atarak, kurtardığını kesinlikle açıklayamaz.Canlılardaki fedakar ve işbirlikçi davranışlar evrim teorisinin geçersizliğini bir kez daha ve tüm açıklığıyla ortaya koyarken, önemli bir gerçeğin de delillerini oluşturmaktadır: Tüm evrenin üstün bir Yaratıcı tarafından yaratıldığı ve her bir canlının, Yaratıcısı olan Allah'ın ilhamı ile davrandığı gerçeğinin…<strong>175 SAYFA, 73 RESİM /  SAYFA, RESİM</strong></p>
 </article>
 <hr>
@@ -4348,18 +4361,18 @@ function myFunction2() {
 </article>
 <hr>
 
-<blockquote><p>1. Allah'ın Apaçık Olan Varlığını Anlamazlıktan Gelmeyin<br />
-2. Evrimin Bir Aldatmaca Olduğunu, Herşeyi Allah'ın Yarattığını Anlamazlıktan Gelmeyin<br />
-3. Çevrenizdeki Canlılardaki Mucizevi Özellikleri, Mükemmellikleri Anlamazlıktan Gelmeyin<br />
-4. Sahip Olduğunuz Herşeyi Allah'ın Nimet Olarak Verdiğini Anlamazlıktan Gelmeyin<br />
-5. Bu Dünyada Uzun Süre Kalmayacağınızı Anlamazlıktan Gelmeyin<br />
-6. Ölüm Gerçeğini Anlamazlıktan Gelmeyin<br />
-7. Kuran'ın Hak Kitap Olduğunu, Ondan Hesaba Çekileceğinizi Anlamazlıktan Gelmeyin<br />
-8. Vicdanınızın Sesini Anlamazlıktan Gelmeyin<br />
-9. Allah'ın Güzel Ahlaklı Olmayı Emrettiğini Anlamazlıktan Gelmeyin<br />
-10. Bütün Kötülüklerin Kaynağının Dinsizlik Olduğunu Anlamazlıktan Gelmeyin<br />
-11. Ahiretin ve Hesap Gününün Varlığını Anlamazlıktan Gelmeyin<br />
-12. Maddenin Bir Hayalden İbaret Olduğunu Anlamazlıktan Gelmeyin<br />
+<blockquote><p>1. Allah'ın Apaçık Olan Varlığını Anlamazlıktan Gelmeyin<br >
+2. Evrimin Bir Aldatmaca Olduğunu, Herşeyi Allah'ın Yarattığını Anlamazlıktan Gelmeyin<br >
+3. Çevrenizdeki Canlılardaki Mucizevi Özellikleri, Mükemmellikleri Anlamazlıktan Gelmeyin<br >
+4. Sahip Olduğunuz Herşeyi Allah'ın Nimet Olarak Verdiğini Anlamazlıktan Gelmeyin<br >
+5. Bu Dünyada Uzun Süre Kalmayacağınızı Anlamazlıktan Gelmeyin<br >
+6. Ölüm Gerçeğini Anlamazlıktan Gelmeyin<br >
+7. Kuran'ın Hak Kitap Olduğunu, Ondan Hesaba Çekileceğinizi Anlamazlıktan Gelmeyin<br >
+8. Vicdanınızın Sesini Anlamazlıktan Gelmeyin<br >
+9. Allah'ın Güzel Ahlaklı Olmayı Emrettiğini Anlamazlıktan Gelmeyin<br >
+10. Bütün Kötülüklerin Kaynağının Dinsizlik Olduğunu Anlamazlıktan Gelmeyin<br >
+11. Ahiretin ve Hesap Gününün Varlığını Anlamazlıktan Gelmeyin<br >
+12. Maddenin Bir Hayalden İbaret Olduğunu Anlamazlıktan Gelmeyin<br >
 13. Zamanın Değişken Bir Algı Olduğunu ve Kader Gerçeğini Anlamazlıktan Gelmeyin</p>
 
 </blockquote>
@@ -4429,11 +4442,11 @@ function myFunction2() {
 <p><strong>Bu kitapta Hz. Musa'nın hayatı ile ilgili anlatılanlar, geçmişte yaşanmış ve </strong> <strong>bitmiş olaylar olarak değil, günümüze ışık tutan ibretler ve örnekler olarak değerlendirilmelidir.</strong><img  class="left" src="/assets/img/tumeserler/hazretiMusa.jpg" alt="HARUN YAHYA" title="HARUN YAHYA" height="200">Bu kitapta Hz. Musa'nın Kuran'da bahsedilen hayatı ayetler doğrultusunda incelenmektedir. Kuran'da yaşamından en çok bahsedilen peygamber Hz. Musa'dır. Ayetlerde Hz. Musa'nın çocukluğundan başlayarak Firavun'la olan mücadelesi, kavminin kötü davranışları ve onlara yaptığı tebliğ çok ayrıntılı bir şekilde aktarılmıştır. Zorluk anlarında gösterdiği dirayetli tavırlar örnek olarak verilmiştir. Dikkat edilmesi gereken önemli bir husus, Hz. Musa'nın hayatını geçmişte yaşanmış bitmiş olaylar olarak değil, günümüze, bizzat kendi hayatımıza ışık tutan ibretler ve örnekler olarak değerlendirmemizdir.Kitabın sonuç bölümünde yer alan ifadelerden bazıları şunlardır:Hz. Musa'nın hayatı inananlar için çok güzel öğüt ve hatırlatmalarla doludur. Bu öğüt ve hatırlatmaların bir kısmını kitap boyunca Hz. Musa'nın doğumundan itibaren inceledik.Bu dersleri bir kez daha özet olarak düşünürsek, bir insanın yaşamındaki kaderin mutlak hakimiyeti ve inanan salih kullar için kaderin mutlak güzelliği ile karşılaşırız.Hz. Musa ile ilgili ayetlerden çıkarmamız gereken derslerin bir kısmını şöyle özetleyebiliriz:</p>
 </article>
 <hr>
-<blockquote><p>1- Kader ve hikmetleri<br />
-2- Haklının yanında olmak<br />
-3- Allah'a güvenmek ve tevekkül<br />
-4- Dünya hayatının ve mülkün geçici olması<br />
-5- Cahiliye düşüncesi ve insanın kendini arındırması<br />
+<blockquote><p>1- Kader ve hikmetleri<br >
+2- Haklının yanında olmak<br >
+3- Allah'a güvenmek ve tevekkül<br >
+4- Dünya hayatının ve mülkün geçici olması<br >
+5- Cahiliye düşüncesi ve insanın kendini arındırması<br >
 6- Buzağı kıssası ve insanın teferruata düşkünlüğü</p>
 
 </blockquote>
@@ -4562,13 +4575,13 @@ function myFunction2() {
 <table>
 <tbody>
 <tr>
-<td><img  class="left" src="/assets/img/tumeserler/Allahinguzelliklerindenbirdemet1.jpg" alt="HARUN YAHYA" title="HARUN YAHYA" height="200" /></td>
+<td><img  class="left" src="/assets/img/tumeserler/Allahinguzelliklerindenbirdemet1.jpg" alt="HARUN YAHYA" title="HARUN YAHYA" height="200" ></td>
 
-<td><img  class="left" src="/assets/img/tumeserler/Allahinguzelliklerindenbirdemet2.jpg" alt="HARUN YAHYA" title="HARUN YAHYA" height="200" /></td>
+<td><img  class="left" src="/assets/img/tumeserler/Allahinguzelliklerindenbirdemet2.jpg" alt="HARUN YAHYA" title="HARUN YAHYA" height="200" ></td>
 
-<td><img  class="left" src="/assets/img/tumeserler/Allahinguzelliklerindenbirdemet3.jpg" alt="HARUN YAHYA" title="HARUN YAHYA" height="200" /></td>
+<td><img  class="left" src="/assets/img/tumeserler/Allahinguzelliklerindenbirdemet3.jpg" alt="HARUN YAHYA" title="HARUN YAHYA" height="200" ></td>
 
-<td><img  class="left" src="/assets/img/tumeserler/Allahinguzelliklerindenbirdemet4.jpg" alt="HARUN YAHYA" title="HARUN YAHYA" height="200" /></td>
+<td><img  class="left" src="/assets/img/tumeserler/Allahinguzelliklerindenbirdemet4.jpg" alt="HARUN YAHYA" title="HARUN YAHYA" height="200" ></td>
 </tr>
 </tbody>
 </table>
@@ -4699,11 +4712,11 @@ function myFunction2() {
 <table>
 <tbody>
 <tr>
-<td><img  class="left" src="/assets/img/tumeserler/imanicabukanlamak1.png" alt="HARUN YAHYA" title="HARUN YAHYA"  height="125" /></td>
+<td><img  class="left" src="/assets/img/tumeserler/imanicabukanlamak1.png" alt="HARUN YAHYA" title="HARUN YAHYA"  height="125" ></td>
 <td></td>
-<td><img  class="left" src="/assets/img/tumeserler/imanicabukanlamak2.png" alt="HARUN YAHYA" title="HARUN YAHYA"  height="125" /></td>
+<td><img  class="left" src="/assets/img/tumeserler/imanicabukanlamak2.png" alt="HARUN YAHYA" title="HARUN YAHYA"  height="125" ></td>
 <td></td>
-<td><img  class="left" src="/assets/img/tumeserler/imanicabukanlamak3.png" alt="HARUN YAHYA" title="HARUN YAHYA"  height="125" /></td>
+<td><img  class="left" src="/assets/img/tumeserler/imanicabukanlamak3.png" alt="HARUN YAHYA" title="HARUN YAHYA"  height="125" ></td>
 </tr>
 </tbody>
 </table>
@@ -5000,21 +5013,13 @@ function myFunction2() {
 <hr>
 </div>
 
-
-<script src='/assets/js/jquery.min.js'></script>
-<script src="/assets/js/bootstrap.min.js"></script>
-<script src="/assets/js/x-return-top.min.js"></script>
-
-<a><img alt="Creative Commons Lisansı" style="border-width:0" src="/assets/img/88x31.png" /></a><br />
-<a> Bu eser Creative Commons Atıf 4.0 Uluslararası Lisansı ile lisanslanmıştır.<br />2019-2021 Kuran ve Bilim.</a>
+<a><img alt="Creative Commons Lisansı" style="border-width:0" src="/assets/img/88x31.png" ></a><br >
+<a> Bu eser Creative Commons Atıf 4.0 Uluslararası Lisansı ile lisanslanmıştır.<br >2019-2021 Kuran ve Bilim.</a>
 
 
-<noscript>
-    <img src="https://counter2001.herokuapp.com/ingress/f7f40a7f-4a42-40dd-be33-a5486acb6e23/pixel.gif" alt="counter" title="counter">
-</noscript>
-<script defer src="https://counter2001.herokuapp.com/ingress/f7f40a7f-4a42-40dd-be33-a5486acb6e23/script.js"></script>
 
 </body>
+
 </html>
 
 	
