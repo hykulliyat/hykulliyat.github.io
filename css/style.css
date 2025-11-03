@@ -1467,3 +1467,528 @@ body.tab-changing {
     position: fixed;
     width: 100%;
 }
+padding:12px 5px 5px 5px;
+  color:#0086C1
+}
+
+div.subrelatedwordtype {
+  font-size:14px;
+  padding:1px 5px 3px 5px;
+}
+
+div.spacediv {
+  font-size:9px;
+}
+
+div#dyntransresult {
+  padding-bottom:10px;
+}
+
+div.dyntrans {
+  padding-left:5px;
+  padding-top:12px;
+  color:#2a2a2a;
+}
+
+div.dyntransalpha {
+  padding-left:5px;
+  padding-top:5px;
+  color:#888888;
+}
+
+
+/* Main See Also Section for Desktop */
+h2#seeAlso, h2#moreWords {
+  font-family: "Libre Baskerville", Cambria, Times New Roman, Times, serif;
+  font-size:28px;
+  font-weight:bold;
+  padding-bottom:5px;
+  margin:28px 0px 12px 4px;
+  border-bottom:1px solid #2a2a2a;
+  color:#2A2A2A;
+}
+
+div#seeAlsoLinks, div#moreWordsLinks {
+  margin-left:4px;
+  font-family: "Libre Baskerville", Cambria, Times New Roman, Times, serif;
+  font-size:20px;
+  line-height:36px;
+  color:#2a2a2a;
+}
+
+table.menutable td.label {
+  padding-right:8px;
+  padding-left:1px;
+  height:21px;
+  letter-spacing:0.75px;
+}
+
+table.menutable td.submitcell, table.menutable td.leftpad {
+  padding-left:5px;
+}
+
+table.menutable td.midlabel {
+  padding-left:8px;
+  padding-right:8px;
+}
+
+table.menutable td.letters {
+  padding-left:40px;
+}
+
+table.menutable td.options {
+  height:27px;
+}
+
+div#maindiv {
+  padding-top:0px;
+}
+
+.headercolor {
+  background:#0086C1;
+}
+
+div#headerdiv {
+  padding-top:2px;
+  background:#0086C1;
+  display:block;
+  width:100%;
+  z-index:200;
+  position:sticky;
+  position:-webkit-sticky;
+  top:0px;
+}
+
+img#headerlogoimage {
+  position:absolute;
+  z-index:1000;
+  top:3px;
+  display:none;
+}
+
+td#headerlogo {
+  background:#0086C1;
+}
+
+div#suggestdiv {
+  position:fixed;
+  z-index:300;
+  border-left:1px solid #dadde2;
+  border-bottom:1px solid #dadde2;
+  border-right:1px solid #dadde2;
+}
+
+table#suggesttable tr, table#suggesttable tr td {
+}
+
+table#suggesttable tr td {
+  background:#ffffff;
+  color:#5a5a5a;
+  font-size:13px;
+  padding:3px;
+  text-align:left;
+  cursor:default;
+}
+
+span.wordstring, h1#titleHeader b {
+  color:#0086C1;
+  font-weight:bold;
+  font-size:46px;
+}
+
+/* Recommended words */
+div#recommendedwords h2 {
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-size:25px;
+  font-weight:bold;
+  padding-bottom:5px;
+  margin:18px 0px 12px 4px;
+  border-bottom:1px solid #2a2a2a;
+  color:#4A4A4A;
+}
+
+div#recommendedwords p {
+  margin-left:5px;
+  margin-top:10px;
+  margin-bottom:10px;
+  color:#4A4A4A;
+}
+
+div#recommendedwords div.recommendedword0, div#recommendedwords div.recommendedword1 {
+  margin-left:5px;
+  line-height:30px;
+  padding-left:5px;
+  vertical-align:middle;
+}
+
+div#recommendedwords div.recommendedword1 {
+  background:#f6f6f6  
+}
+
+div#recommendedwords div[id^='recommendedwordsexpandablesection'] {
+  display:none;
+}
+
+div#recommendedwords div[id^='expandrecommendedwordsbutton'] {
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  text-align:center;
+  line-height:38px;
+  vertical-align:middle;
+  font-size:14px;
+  color:#4A789F;
+  cursor:pointer;
+}
+
+div#recommendedwords span.showmorerecommendedwordsdropdown {
+  padding-left:2px;
+  margin-top:2px;
+}
+
+/* Matching words page table */
+table.pagetable {
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  text-align:center;
+  line-height:38px;
+  vertical-align:middle;
+  font-size:14px;
+}
+
+td.wordlinktext {
+  color:#5a5a5a;
+  font-size:14px;
+}
+
+a.wordlinksmall, span.wordlinksmall {
+  color:#4A789F;
+  font-size:14px;
+  cursor:pointer;
+}
+
+
+img#headerspeaker {
+  margin-top:12px;
+  padding-right:10px;
+  padding-left:10px;
+  float:right;
+  cursor:pointer;
+}
+
+img#greyheaderspeaker {
+  padding-left:5px;
+  cursor:pointer;
+}
+
+a.contextAnchor {
+  color:#0086C1;
+  font-size:18px;
+  padding-top:80px;
+  margin-top:-80px;
+  font-weight:normal;
+  text-decoration:none;
+}
+
+div.morewordsblock {
+  display:inline;
+  border-radius:6px;
+  background:#714C27;
+  padding:5px 6px 5px 6px;
+  margin:0px 4px 0px 4px;
+  line-height:36px;
+  white-space: nowrap;
+  font-size:14px;
+  color:#ffffff;
+  cursor:pointer;
+}
+
+div#rightsearchbox {
+  width:280px;
+  text-align:left;
+  vertical-align:middle;
+  margin-top:8px;
+  background:#2DB4EC;
+  padding:10px 10px 10px 10px;
+}
+
+div#rightsearchformhead {
+  font-family: "Libre Baskerville", Arial, Helvetica, sans-serif;
+  font-size:24px;
+  color:#ffffff;
+  margin:0px;
+  padding:0px 0px 6px 1px;
+}
+
+div#rightsearchform {
+  width:280px;
+}
+
+/* Right search form text input elements. */
+table#rightsearchforminputtable {
+}
+
+table#rightsearchforminputtable tr td {
+}
+
+table#rightsearchforminputtable tr td#rightsearchforminputcell {
+  background:#ffffff;
+  border-top:1px solid #006B9A;
+  border-bottom:1px solid #006B9A;
+  border-left:1px solid #006B9A;
+  border-right:none;
+  padding:6px 4px 2px 4px;
+  width:240px;
+}
+
+table#rightsearchforminputtable tr td#rightsearchformsubmitcell {
+  color:#ffffff;
+  background:#714C27;
+  font-weight:normal;
+  border:1px solid #714C27;
+  vertical-align:middle;
+  cursor:pointer;
+  line-height:32px;
+  font-size:18px; 
+  white-space: nowrap;
+  width:40px;
+  text-align:center;
+  height:22px;
+  vertical-align:middle;
+}
+
+table#rightsearchforminputtable tr td#rightsearchforminputcell textarea#rightsearchselectword {
+  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-size:18px;
+  padding:2px;
+  width:100%;
+  height:22px;
+  color:#5a5a5a;
+  background:#ffffff;
+  border:none;
+  overflow:hidden;
+  resize:none;
+  margin-top:0px;
+}
+
+table#rightsearchforminputtable tr td#rightsearchforminputcell textarea#selectword:focus {
+  outline: none;
+}
+
+table#rightsearchforminputtable tr td#rightsearchforminputcell input#selectword:focus {
+  outline: none;
+}
+
+tr#rightsearchformsuggestrow {
+  display:none;
+}
+
+table#rightsearchformsuggesttable {
+  width:100%;
+}
+
+table#rightsearchformsuggesttable tr, table#rightsearchformsuggesttable tr td {
+}
+
+tr#rightsearchformsuggestrow {
+  display:none;
+}
+
+table#rightsearchformsuggesttable tr td {
+  background:#ffffff;
+  color:#5a5a5a;
+  font-size:18px;
+  padding:5px 5px 5px 5px;
+  text-align:left;
+  cursor:default;
+  border-top:none;
+  border-bottom:1px solid #006B9A;
+  border-left:1px solid #006B9A;
+  border-right:1px solid #006B9A;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, img, ins, kbd, q, s, samp,
+small, strike, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, input, select, textarea, button,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+    font-family: 'latoregular';
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a {
+    text-decoration: none;
+}
+a img, :link img, :visited img {
+  border: 0;
+}
+
+:focus {
+    outline: 0;
+}
+.clear {
+    clear: both;
+}
+.akerdion {
+  border: 1px solid #999;
+  border-radius: 5px;
+  margin:2px;
+  padding: 1.04%;
+} 
+.ozet {
+  border-radius: 5px;
+  cursor: pointer;
+  margin: -1%;
+  padding: 8px 10px;
+  background: -webkit-linear-gradient(top, #f3f3f3 50%, #e6e6e6 50%);
+}	
+
+table {font-size:14px;color:#333333;width:50%;border-width: 1px;border-color: #729ea5;border-collapse: collapse;margin-left: auto;margin-right: auto;}
+table th {font-size:13px;background-color:#acc8cc;border-width: 1px;padding: 8px;border-style: solid;border-color: #729ea5;text-align:left;}
+table tr {background-color:#d4e3e5;}
+table td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #729ea5;}
+table tr:hover {background-color:#ffffff;}
+
+/*
+	Max width before this PARTICULAR table gets nasty. This query will take effect for any screen smaller than 760px and also iPads specifically.
+	*/
+	@media only screen and (max-width: 760px) {
+
+		/* Force table to not be like tables anymore */
+		table, thead, tbody, th, td, tr {
+			display: block;
+		}
+
+		/* Hide table headers (but not display: none;, for accessibility) */
+		thead tr {
+			position: absolute;
+			top: -9999px;
+			left: -9999px;
+		}
+	}
+
+
+* {
+  box-sizing: border-box;
+}
+
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myTable {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+#myTable th, #myTable td {
+  text-align: left;
+  padding: 12px;
+}
+
+#myTable tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#myInput2 {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myTable2 {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+#myTable2 th, #myTable2 td {
+  text-align: left;
+  padding: 12px;
+}
+
+#myTable2 tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable2 tr.header, #myTable2 tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* ============================================ */
+/* SEKME SCROLL SORUNU DÜZELTMESİ - YENİ BÖLÜM */
+/* ============================================ */
+
+/* Sekme değişiminde scroll sorununu önle */
+.easytabs-tab-content {
+  position: relative;
+  min-height: auto;
+}
+
+#container {
+  scroll-behavior: auto !important;
+}
+
+html {
+  scroll-behavior: auto !important;
+}
+
+/* Sekme geçişlerinde animasyon sırasında scroll'u sabitle */
+body.tab-changing {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
