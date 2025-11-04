@@ -79,7 +79,11 @@
 
 <link rel="stylesheet" href="specimen_files/specimen_stylesheet.css" type="text/css" >
 
-  <script defer src="https://code.jquery.com/jquery-3.7.1.min.js"
+<link rel="stylesheet" href="css/style.css" type="text/css" >
+    
+
+    
+<script defer src="https://code.jquery.com/jquery-3.7.1.min.js"
 integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
 crossorigin="anonymous"></script>
 
@@ -104,33 +108,51 @@ crossorigin="anonymous"></script>
 <script>
 $(document).ready(function() {
     var savedScrollPosition = 0;
+    var isTabChanging = false;
     
-    // EasyTabs'i başlatın. Tıklama mantığını EasyTabs'e bırakıyoruz.
+    // EasyTabs'ı özelleştirerek başlat
     $('#container').easyTabs({
         defaultContent: 1,
         fadeSpeed: 'fast',
         activeClass: 'active'
     });
     
-    // Sekme tıklamalarını yakala (Orijinal EasyTabs tıklamasını yakalıyoruz)
+    // Scroll değişikliklerini dinle ve sekme değişimi sırasında engelle
+    $(window).on('scroll', function() {
+        if (isTabChanging) {
+            $(window).scrollTop(savedScrollPosition);
+        }
+    });
+    
+    // Sekme tıklamalarını yakala
     $('#container .tabs a').on('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
         
-        // 1. Tıklamadan hemen önce mevcut pozisyonu kaydet
+        // Mevcut pozisyonu kaydet ve kilitle
         savedScrollPosition = $(window).scrollTop();
+        isTabChanging = true;
         
-        // EasyTabs'in işini yapmasına izin ver (Sekme değişimini başlatır)
-        // EasyTabs sekme değişimini bitirdiğinde sayfa kayması gerçekleşir.
+        // Sekme değişimini gerçekleştir
+        var tabId = $(this).attr('href').substr(1);
         
-        // 2. 10 milisaniye sonra kaydırma pozisyonunu geri yükle
-        // Bu kısa süre, EasyTabs'in DOM üzerindeki değişiklikleri yapmasına izin verir.
-        setTimeout(function() {
-             $(window).scrollTop(savedScrollPosition);
-        }, 10); // 10 milisaniye genellikle yeterlidir.
+        // Diğer sekmeleri pasif yap
+        $('#container .tabs li').removeClass('active');
+        $(this).closest('li').addClass('active');
         
-        // Sekme değişimi sırasında sayfayı yukarı atlamaktan korumak için
-        // Tıklamadan sonra küçük bir kaydırma yapıp hemen geri yüklersek
-        // tarayıcının varsayılan atlaması engellenir.
+        // İçerikleri değiştir
+        $('#container .easytabs-tab-content').hide();
+        $('#' + tabId).fadeIn('fast', function() {
+            // Animasyon tamamlandığında kilidi aç
+            setTimeout(function() {
+                isTabChanging = false;
+            }, 100);
+        });
         
+        // Pozisyonu koru
+        $(window).scrollTop(savedScrollPosition);
+        
+        return false;
     });
     
     // BONUS: Sayfa yüklendiğinde scroll pozisyonunu geri yükle
