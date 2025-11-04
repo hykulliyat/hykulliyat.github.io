@@ -2633,3 +2633,15 @@ body.tab-changing {
   position: fixed;
   width: 100%;
 }
+/* Sayfa genelinde kaydırma animasyonunu kapatır. 
+   Bu, otomatik sıçrama hareketini 'ani bir geri zıplama' yerine 'anlık durma'ya çevirir. */
+html {
+    scroll-behavior: auto !important;
+}
+
+/* Tüm öğelerden odaklanma çerçevesini kaldırır, otomatik kaydırmayı tetiklemesini engeller */
+:focus {
+    outline: none !important; 
+}
+
+
