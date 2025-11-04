@@ -80,6 +80,8 @@
 <link rel="stylesheet" href="css/style.css" type="text/css" >
     
 
+<link rel="stylesheet" href="/assets/css/biyografi.css" type="text/css" >
+    
     
     <script defer src="https://code.jquery.com/jquery-3.7.1.min.js"
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
@@ -92,7 +94,7 @@
 
     <script defer src="assets/js/sesli-oynatici.js"></script>
     <script defer src="/assets/js/table.js" integrity="sha256-NF1PWfXrVLtWkwbZ0LdcSQ1sQNiYI+kGSlrBMZXpp88=" crossorigin="anonymous"></script>
-    <script defer src="/assets/js/yas.js" integrity="sha256-ravY/1T9WZLpb2LkYUEP7V60XIlN78wA7aOoI/iuetw=" crossorigin="anonymous"></script>
+    <script defer src="/assets/js/yasi.js"></script>
     
     <script defer src="assets/js/uygulama-scroll-fix.js"></script>
      
@@ -152,20 +154,59 @@ function searchTable2() {
 </div>
 <br>
 <br>
-<article itemscope itemtype="https://schema.org/Person">
-	<h2 itemprop="name">Adnan Oktar</h2>
-        <span itemprop="jobTitle">Yazar ve Düşünür</span>
-	<p><img itemprop="image" src="/assets/img/Adnan-Oktar_preview.jpg" alt="indir" title="HARUN YAHYA"></p>
-	<ul>
-		<li>Milliyeti: <span itemprop="nationality">Seyyid Nogay (Kafkas Çerkez)</span></li>
-		<li>Baba Adı: <span itemprop="children">Yusuf</span></li>
-		<li><span id="yas"></span></li>
-		<li>Doğum Tarihi: <span itemprop="birthDate">2 Şubat 1956</span></li>
-		<li>Doğum Yeri: <span itemprop="birthPlace">Ankara</span></li>
-		<li>Saç Regi: <span>Siyah</span></li>
-		<li>Göz Regi: <span>Yeşil</span></li>
-	</ul>
-</article>
+<div class="container">
+        <header>
+            <h1 itemprop="name">Adnan Oktar</h1>
+            <div class="title" itemprop="jobTitle">Yazar ve Düşünür</div>
+        </header>
+        
+        <div class="content">
+            <div class="image-section">
+                <img itemprop="image" src="/assets/img/Adnan-Oktar_preview.jpg" alt="Adnan Oktar" title="HARUN YAHYA">
+            </div>
+            
+            <div class="info-section">
+                <div class="info-card">
+                    <h3>Kişisel Bilgiler</h3>
+                    <ul class="info-list">
+                        <li>
+                            <span class="label">Milliyeti:</span>
+                            <span class="value" itemprop="nationality">Seyyid Nogay (Kafkas Çerkez)</span>
+                        </li>
+                        <li>
+                            <span class="label">Baba Adı:</span>
+                            <span class="value" itemprop="children">Yusuf</span>
+                        </li>
+                        <li>
+                            <span class="label">Yaş:</span>
+                            <span class="value" id="yas"></span>
+                        </li>
+                        <li>
+                            <span class="label">Doğum Tarihi:</span>
+                            <span class="value" itemprop="birthDate">2 Şubat 1956</span>
+                        </li>
+                        <li>
+                            <span class="label">Doğum Yeri:</span>
+                            <span class="value" itemprop="birthPlace">Ankara</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="info-card">
+                    <h3>Fiziksel Özellikler</h3>
+                    <div class="physical-traits">
+                        <div class="trait">
+                            <span class="trait-icon">●</span>
+                            <span>Saç Rengi: Siyah</span>
+                        </div>
+                        <div class="trait">
+                            <span class="trait-icon">●</span>
+                            <span>Göz Rengi: Yeşil</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 <br>
 
