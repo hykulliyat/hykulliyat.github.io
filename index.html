@@ -104,51 +104,33 @@
 <script>
 $(document).ready(function() {
     var savedScrollPosition = 0;
-    var isTabChanging = false;
     
-    // EasyTabs'ı özelleştirerek başlat
+    // EasyTabs'i başlatın. Tıklama mantığını EasyTabs'e bırakıyoruz.
     $('#container').easyTabs({
         defaultContent: 1,
         fadeSpeed: 'fast',
         activeClass: 'active'
     });
     
-    // Scroll değişikliklerini dinle ve sekme değişimi sırasında engelle
-    $(window).on('scroll', function() {
-        if (isTabChanging) {
-            $(window).scrollTop(savedScrollPosition);
-        }
-    });
-    
-    // Sekme tıklamalarını yakala
+    // Sekme tıklamalarını yakala (Orijinal EasyTabs tıklamasını yakalıyoruz)
     $('#container .tabs a').on('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
         
-        // Mevcut pozisyonu kaydet ve kilitle
+        // 1. Tıklamadan hemen önce mevcut pozisyonu kaydet
         savedScrollPosition = $(window).scrollTop();
-        isTabChanging = true;
         
-        // Sekme değişimini gerçekleştir
-        var tabId = $(this).attr('href').substr(1);
+        // EasyTabs'in işini yapmasına izin ver (Sekme değişimini başlatır)
+        // EasyTabs sekme değişimini bitirdiğinde sayfa kayması gerçekleşir.
         
-        // Diğer sekmeleri pasif yap
-        $('#container .tabs li').removeClass('active');
-        $(this).closest('li').addClass('active');
+        // 2. 10 milisaniye sonra kaydırma pozisyonunu geri yükle
+        // Bu kısa süre, EasyTabs'in DOM üzerindeki değişiklikleri yapmasına izin verir.
+        setTimeout(function() {
+             $(window).scrollTop(savedScrollPosition);
+        }, 10); // 10 milisaniye genellikle yeterlidir.
         
-        // İçerikleri değiştir
-        $('#container .easytabs-tab-content').hide();
-        $('#' + tabId).fadeIn('fast', function() {
-            // Animasyon tamamlandığında kilidi aç
-            setTimeout(function() {
-                isTabChanging = false;
-            }, 100);
-        });
+        // Sekme değişimi sırasında sayfayı yukarı atlamaktan korumak için
+        // Tıklamadan sonra küçük bir kaydırma yapıp hemen geri yüklersek
+        // tarayıcının varsayılan atlaması engellenir.
         
-        // Pozisyonu koru
-        $(window).scrollTop(savedScrollPosition);
-        
-        return false;
     });
     
     // BONUS: Sayfa yüklendiğinde scroll pozisyonunu geri yükle
