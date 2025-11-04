@@ -86,7 +86,7 @@
 
 <link rel="stylesheet" href="viewer/css/button.css" type="text/css" >
 
-
+<script defer src="sesli-oynatici.js"></script>
 
 
 </head>
@@ -3982,44 +3982,7 @@ Bediüzzaman-->
 </div> <!-- end content -->
 
 
-    <script>
-      var ses = document.getElementById("audio");
-      var liste = document.querySelectorAll("#liste li");
-      var index =liste.length;
-     liste[0].style.color="blue";
-     y=0;
-      
- [].forEach.call(liste , function(el,i) {
-       el.onclick=function(){
-       	for(var j=0; j<=index-1; j++){
- 
-        liste[j].style.color="";
-         } 
-           el.style.color="blue";
-          // liste[i-1].style.color="";
-           var x= el.getAttribute("data-src");
-           ses.src=x;
-           y=i;
-           }
-       
-         });
-  
-    ses.addEventListener("ended", function(){
-    y++;
-   
-    if(index==y){
-    y=0;
-    liste[index-1].style.color="";
-    }
-    if(y==0){}else
-    liste[y-1].style.color="";
-    liste[y].style.color="blue";
-    ad = liste[y].getAttribute("data-src");   
-     ses.src=ad;
     
-
-}); 
-    </script> 
 
 </div>
 	 
