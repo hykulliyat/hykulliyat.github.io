@@ -1,5 +1,0 @@
-git add -A &&  git commit -m "commit" && git push origin master
-
-git config credential.helper 'cache --timeout=29600'
-git config --global user.name "vdemir"
-
