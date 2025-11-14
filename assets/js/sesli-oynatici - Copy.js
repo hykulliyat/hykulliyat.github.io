@@ -24,26 +24,10 @@ if (liste.length === 0 || !ses) {
             // Tıklanan satırı mavi yap
             el.style.color = "blue";
 
-            // Tıklanan satırın mp3 linklerini al ve alternatif kaynaklarla oynat
-            var sources = el.getAttribute("data-src").split(',');
+            // Tıklanan satırın mp3 linkini al ve oynat
+            var x = el.getAttribute("data-src");
+            ses.src = x;
             y = i;
-            
-            // Mevcut kaynakları temizle
-            while (ses.firstChild) {
-                ses.removeChild(ses.firstChild);
-            }
-            
-            // Alternatif kaynakları ekle
-            sources.forEach(function(src, index) {
-                var source = document.createElement('source');
-                source.src = src.trim();
-                source.type = 'audio/mpeg';
-                ses.appendChild(source);
-            });
-            
-            // Ses öğesini yükle ve oynat
-            ses.load();
-            ses.play();
         }
     });
 
@@ -61,23 +45,7 @@ if (liste.length === 0 || !ses) {
 
         // Yeni satırı mavi yap ve oynat
         liste[y].style.color = "blue";
-        var sources = liste[y].getAttribute("data-src").split(',');
-        
-        // Mevcut kaynakları temizle
-        while (ses.firstChild) {
-            ses.removeChild(ses.firstChild);
-        }
-        
-        // Alternatif kaynakları ekle
-        sources.forEach(function(src, index) {
-            var source = document.createElement('source');
-            source.src = src.trim();
-            source.type = 'audio/mpeg';
-            ses.appendChild(source);
-        });
-        
-        // Ses öğesini yükle ve oynat
-        ses.load();
-        ses.play();
+        var ad = liste[y].getAttribute("data-src");
+        ses.src = ad;
     });
 }
