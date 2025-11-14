@@ -2,114 +2,50 @@
 // Bu script, HTML içeriği yüklendikten sonra çalışacaktır (defer sayesinde).
 
 var ses = document.getElementById("audio");
-var akordeonlar = document.querySelectorAll(".akerdion");
+var liste = document.querySelectorAll("#liste li");
+var index = liste.length;
 
-// Ses oynatıcı yoksa (hata oluşmaması için kontrol)
-if (!ses) {
-  console.warn("Ses oynatıcı bulunamadı. Script çalışmıyor.");
+// Liste boşsa veya ses oynatıcı yoksa (hata oluşmaması için kontrol)
+if (liste.length === 0 || !ses) {
+    console.warn("Ses oynatıcı veya çalma listesi öğeleri bulunamadı. Script çalışmıyor.");
 } else {
-  var currentIndex = 0;
-  var currentList = null;
 
-  // Her akordeon için liste öğelerini dinle
-  akordeonlar.forEach(function(akordeon) {
-    var listeItems = akordeon.querySelectorAll("li");
-    
-    listeItems.forEach(function(item, index) {
-      item.onclick = function() {
-        // Tüm akordeonlardaki tüm öğelerin rengini sıfırla
-        document.querySelectorAll(".akerdion li").forEach(function(li) {
-          li.style.color = "";
-        });
-        
-        // Tıklanan öğeyi mavi yap
-        item.style.color = "blue";
-        
-        // Şu anki listeyi ve indexi kaydet
-        currentList = listeItems;
-        currentIndex = index;
-        
-        // Önce ana src'yi dene
-        var src = item.getAttribute("data-src");
-        var altSrc = item.getAttribute("data-alt-src");
-        
-        ses.src = src;
-        ses.load();
-        
-        // Oynatmayı dene
-        var playPromise = ses.play();
-        
-        if (playPromise !== undefined) {
-          playPromise.catch(function(error) {
-            // Ana kaynak başarısız olursa alternatifi dene
-            console.log("Ana kaynak yüklenemedi, alternatif deneniyor...");
-            if (altSrc) {
-              ses.src = altSrc;
-              ses.load();
-              ses.play().catch(function(err) {
-                console.error("Her iki kaynak da yüklenemedi:", err);
-              });
+    // İlk satırı mavi yap
+    liste[0].style.color = "blue";
+    var y = 0;
+
+    // Tüm liste öğelerine tıklama olayını ekle
+    [].forEach.call(liste, function(el, i) {
+        el.onclick = function() {
+            // Tüm satırların rengini sıfırla
+            for (var j = 0; j <= index - 1; j++) {
+                liste[j].style.color = "";
             }
-          });
+            // Tıklanan satırı mavi yap
+            el.style.color = "blue";
+
+            // Tıklanan satırın mp3 linkini al ve oynat
+            var x = el.getAttribute("data-src");
+            ses.src = x;
+            y = i;
         }
-      };
     });
-  });
 
-  // Ses bittiğinde otomatik sonraki parçaya geç
-  ses.addEventListener("ended", function() {
-    if (!currentList || currentList.length === 0) return;
-    
-    // Şu anki satırın rengini sıfırla
-    currentList[currentIndex].style.color = "";
-    
-    currentIndex++;
-    
-    // Liste sonuna gelindiyse dur (başa dönme)
-    if (currentIndex >= currentList.length) {
-      currentIndex = 0;
-      return;
-    }
-    
-    // Yeni satırı mavi yap ve oynat
-    currentList[currentIndex].style.color = "blue";
-    
-    var src = currentList[currentIndex].getAttribute("data-src");
-    var altSrc = currentList[currentIndex].getAttribute("data-alt-src");
-    
-    ses.src = src;
-    ses.load();
-    
-    var playPromise = ses.play();
-    
-    if (playPromise !== undefined) {
-      playPromise.catch(function(error) {
-        console.log("Ana kaynak yüklenemedi, alternatif deneniyor...");
-        if (altSrc) {
-          ses.src = altSrc;
-          ses.load();
-          ses.play().catch(function(err) {
-            console.error("Her iki kaynak da yüklenemedi:", err);
-          });
+    // Ses bittiğinde otomatik sonraki parçaya geç
+    ses.addEventListener("ended", function() {
+        // Şu anki satırın rengini sıfırla
+        liste[y].style.color = "";
+
+        y++;
+
+        if (index === y) {
+            // Liste sonuna gelindi, başa dön
+            y = 0;
         }
-      });
-    }
-  });
 
-  // Hata durumunda alternatif kaynağı dene
-  ses.addEventListener("error", function() {
-    if (!currentList || currentList.length === 0) return;
-    
-    var currentItem = currentList[currentIndex];
-    var altSrc = currentItem.getAttribute("data-alt-src");
-    
-    if (altSrc && ses.src.indexOf(altSrc) === -1) {
-      console.log("Hata oluştu, alternatif kaynak deneniyor...");
-      ses.src = altSrc;
-      ses.load();
-      ses.play().catch(function(err) {
-        console.error("Alternatif kaynak da yüklenemedi:", err);
-      });
-    }
-  });
+        // Yeni satırı mavi yap ve oynat
+        liste[y].style.color = "blue";
+        var ad = liste[y].getAttribute("data-src");
+        ses.src = ad;
+    });
 }
