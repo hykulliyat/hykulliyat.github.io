@@ -1,51 +1,86 @@
-// sesli-oynatici.js
-// Bu script, HTML içeriği yüklendikten sonra çalışacaktır (defer sayesinde).
+// sesli-oynatici.js (Tam Sessiz Fallback - HTML Değişikliksiz, Multi-Kitap Desteği)
+// Ana kaynak hata verirse sessizce alternatife geçer (varsa); UI etkilenmez. Tüm <li data-src>'leri kapsar.
 
 var ses = document.getElementById("audio");
-var liste = document.querySelectorAll("#liste li");
+var liste = document.querySelectorAll("li[data-src]"); // Global: Tüm kitap listeleri
 var index = liste.length;
 
-// Liste boşsa veya ses oynatıcı yoksa (hata oluşmaması için kontrol)
 if (liste.length === 0 || !ses) {
-    console.warn("Ses oynatıcı veya çalma listesi öğeleri bulunamadı. Script çalışmıyor.");
+    console.warn("Ses oynatıcı veya çalma listesi bulunamadı.");
 } else {
-
-    // İlk satırı mavi yap
-    liste[0].style.color = "blue";
+    liste[0].style.color = "blue"; // İlk item'ı highlight
     var y = 0;
 
-    // Tüm liste öğelerine tıklama olayını ekle
     [].forEach.call(liste, function(el, i) {
         el.onclick = function() {
-            // Tüm satırların rengini sıfırla
-            for (var j = 0; j <= index - 1; j++) {
+            // Tüm item'ların rengini sıfırla
+            for (var j = 0; j < index; j++) {
                 liste[j].style.color = "";
             }
-            // Tıklanan satırı mavi yap
             el.style.color = "blue";
-
-            // Tıklanan satırın mp3 linkini al ve oynat
             var x = el.getAttribute("data-src");
-            ses.src = x;
+            var altX = el.getAttribute("data-alt-src"); // Varsa fallback
             y = i;
+
+            function yukleKaynak(src, altSrc, isAlt = false) {
+                ses.src = src;
+                ses.load();
+
+                var hataHandler = function(e) {
+                    console.log((isAlt ? 'Alt hata:' : 'Ana hata:'), src);
+                    if (!isAlt && altSrc && ses.src !== altSrc) {
+                        // Sessizce alternatife geç
+                        yukleKaynak(altSrc, null, true);
+                    } else {
+                        console.warn('Kaynaklar başarısız:', src);
+                        // Sessiz dur; oynatma devamı manuel
+                    }
+                    ses.removeEventListener('error', hataHandler);
+                };
+                ses.addEventListener('error', hataHandler, { once: true });
+
+                ses.play().catch(function(e) {
+                    console.log('Oynatma hatası:', e);
+                });
+            }
+
+            yukleKaynak(x, altX);
         }
     });
 
-    // Ses bittiğinde otomatik sonraki parçaya geç
     ses.addEventListener("ended", function() {
-        // Şu anki satırın rengini sıfırla
+        ses.removeEventListener('error', ses._currentFallbackHandler || function(){});
+
         liste[y].style.color = "";
-
-        y++;
-
-        if (index === y) {
-            // Liste sonuna gelindi, başa dön
-            y = 0;
-        }
-
-        // Yeni satırı mavi yap ve oynat
+        y = (y + 1) % index; // Döngüsel next (tüm listeler arası)
         liste[y].style.color = "blue";
         var ad = liste[y].getAttribute("data-src");
-        ses.src = ad;
+        var altAd = liste[y].getAttribute("data-alt-src");
+
+        function yukleSonraki(src, altSrc, isAlt = false) {
+            ses.src = src;
+            ses.load();
+
+            var hataHandler = function(e) {
+                console.log((isAlt ? 'Alt hata (next):' : 'Ana hata (next):'), src);
+                if (!isAlt && altSrc && ses.src !== altSrc) {
+                    yukleSonraki(altSrc, null, true);
+                } else {
+                    console.warn('Kaynaklar başarısız (next):', src);
+                }
+                ses.removeEventListener('error', hataHandler);
+            };
+            ses.addEventListener('error', hataHandler, { once: true });
+
+            ses.play().catch(function(e) {
+                console.log('Oynatma hatası (next):', e);
+            });
+        }
+
+        yukleSonraki(ad, altAd);
+    });
+
+    ses.addEventListener('error', function(e) {
+        console.error('Genel hata:', e);
     });
 }
