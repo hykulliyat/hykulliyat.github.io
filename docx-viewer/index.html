@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOCX Viewer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <div class="header">
+            <h1>DOCX Viewer</h1>
+            <div class="controls">
+                <input type="file" id="file-input" accept=".docx" style="display: none;">
+                <button id="open-btn" class="btn">Dosya Aç</button>
+                <button id="fullscreen-btn" class="btn">Tam Ekran</button>
+            </div>
+        </div>
+        
+        <div class="viewer-container">
+            <div id="docx-preview" class="docx-content"></div>
+            <div id="loading" class="loading hidden">Yükleniyor...</div>
+            <div id="error" class="error hidden">
+                <div class="error-title">Hata</div>
+                <div class="error-message"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/docx-preview@0.1.20/dist/docx-preview.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
