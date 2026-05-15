@@ -152,6 +152,7 @@ App.prototype.doBook = function (url, opts) {
 
   this.state.rendition.hooks.content.register(this.applyTheme.bind(this));
   this.state.rendition.hooks.content.register(this.loadFonts.bind(this));
+  this.state.rendition.hooks.content.register(this.fixLigatures.bind(this));
 
   this.state.rendition.on("relocated", this.onRenditionRelocated.bind(this));
   this.state.rendition.on("click", this.onRenditionClick.bind(this));
@@ -542,11 +543,17 @@ App.prototype.applyTheme = function () {
       "text-align": `${theme.ta} !important`,
       "padding-top": theme.m,
       "padding-bottom": theme.m,
+      "font-variant-ligatures": "none !important",
+      "font-kerning": "normal !important",
+      "letter-spacing": "0.01em !important",
     },
     p: {
       "font-family":
         theme.ff != "" ? `${theme.ff} !important` : "!invalid-hack",
       "font-size": theme.fs != "" ? `${theme.fs} !important` : "!invalid-hack",
+      "font-variant-ligatures": "none !important",
+      "font-kerning": "normal !important",
+      "letter-spacing": "0.01em !important",
     },
     a: {
       color: "inherit !important",
@@ -589,6 +596,20 @@ App.prototype.loadFonts = function () {
       el.setAttribute("rel", "stylesheet");
       el.setAttribute("href", url);
     });
+  });
+};
+
+App.prototype.fixLigatures = function (contents) {
+  if (!contents || !contents.addStylesheetRules) return;
+  contents.addStylesheetRules({
+    "*": {
+      "font-variant-ligatures": "none !important",
+      "font-kerning": "normal !important",
+      "text-rendering": "optimizeSpeed !important",
+      "-webkit-font-feature-settings":
+        '"liga" 0, "clig" 0, "calt" 0 !important',
+      "font-feature-settings": '"liga" 0, "clig" 0, "calt" 0 !important',
+    },
   });
 };
 
