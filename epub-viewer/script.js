@@ -1628,7 +1628,9 @@ class BookReaderApp {
                 const response = await fetch(fileUrl);
                 const arrayBuffer = await response.arrayBuffer();
                 const fileName = fileUrl.split('/').pop();
-                this.doBook(arrayBuffer, { encoding: 'binary', name: fileName });
+                if (EpubViewer.instance) {
+                    await EpubViewer.instance.doBook(arrayBuffer, { encoding: 'binary', name: fileName });
+                }
                 return;
             } catch (error) {
                 console.error('[ePub] Error loading file from URL:', error);
