@@ -7,10 +7,8 @@
     <meta name="theme-color" content="#ffffff">
     <title>BookReader - EPUB & PDF</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-    <link rel="stylesheet" href="../../libs/normalize.min.css">
+    <link rel="stylesheet" href="libs/normalize.min.css">
     <link rel="stylesheet" href="style.css">
-    <!-- Modern PDF Toolbar Styles -->
-    <link rel="stylesheet" href="pdf-toolbar.css">
     <link href="https://fonts.googleapis.com/css?family=Arbutus+Slab" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i" rel="stylesheet">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -247,13 +245,13 @@
         }
     </script>
 
-    <script src="../../polyfills/babel-polyfill.min.js"></script>
-    <script src="../../polyfills/fetch.js"></script>
-    <script src="../../polyfills/pep.min.js"></script>
-    <script src="../../libs/sanitize-html.min.js"></script>
-    <script src="../../libs/jszip.min.js"></script>
-    <script src="../../libs/epub.js"></script>
-    <script src="../../libs/epub33-parser.js"></script>
+    <script src="polyfills/babel-polyfill.min.js"></script>
+    <script src="polyfills/fetch.js"></script>
+    <script src="polyfills/pep.min.js"></script>
+    <script src="libs/sanitize-html.min.js"></script>
+    <script src="libs/jszip.min.js"></script>
+    <script src="libs/epub.js"></script>
+    <script src="libs/epub33-parser.js"></script>
 
     <!-- ReadableStream Polyfill for PDF.js v5.7.284 -->
     <script>
@@ -275,17 +273,11 @@
 
     <!-- PDF.js Library v5.7.284 Legacy -->
     <script type="module">
-        import * as pdfjsLib from '../../libs/pdf.mjs';
+        import * as pdfjsLib from 'libs/pdf.mjs';
         window.pdfjsLib = pdfjsLib;
         // Use legacy build worker path
-        pdfjsLib.GlobalWorkerOptions.workerSrc = '../../libs/pdf.worker.mjs';
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'libs/pdf.worker.mjs';
     </script>
-
-    <!-- Library Module -->
-    <script src="library.js"></script>
-    
-    <!-- Modern PDF Toolbar Component -->
-    <script src="pdf-toolbar.js"></script>
 
     <!-- Main Application -->
     <script src="script.js"></script>
