@@ -153,6 +153,15 @@ App.prototype.doBook = function (url, opts) {
   this.state.rendition.hooks.content.register(this.applyTheme.bind(this));
   this.state.rendition.hooks.content.register(this.loadFonts.bind(this));
   this.state.rendition.hooks.content.register(this.fixLigatures.bind(this));
+  // Her sayfa gosterildiginde ligature korumasi uygula
+  this.state.rendition.on(
+    "displayed",
+    this._onDisplayedFixLigatures.bind(this),
+  );
+  this.state.rendition.on(
+    "relocated",
+    this._onRelocatedFixLigatures.bind(this),
+  );
 
   this.state.rendition.on("relocated", this.onRenditionRelocated.bind(this));
   this.state.rendition.on("click", this.onRenditionClick.bind(this));
@@ -577,40 +586,115 @@ App.prototype.applyTheme = function () {
     this.ael.style.background = theme.bg;
     this.ael.style.fontFamily = theme.ff;
     this.ael.style.color = theme.fg;
-    if (this.state.rendition)
-      this.state.rendition
-        .getContents()
-        .forEach((c) => c.addStylesheetRules(rules));
+    if (this.state.rendition) {
+      this.state.rendition.getContents().forEach((c) => {
+        try {
+          c.addStylesheetRules(rules);
+        } catch (err) {
+          console.error("applyTheme content error:", err);
+        }
+      });
+    }
   } catch (err) {
     console.error("error applying theme", err);
   }
 };
 
 App.prototype.loadFonts = function () {
-  this.state.rendition.getContents().forEach((c) => {
-    [
-      "https://fonts.googleapis.com/css?family=Arbutus+Slab",
-      "https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i",
-    ].forEach((url) => {
-      let el = c.document.body.appendChild(c.document.createElement("link"));
-      el.setAttribute("rel", "stylesheet");
-      el.setAttribute("href", url);
-    });
-  });
+  // Google Fonts kaldirildi - ligature sorununu onlemek icin
+  // Sistem fontlari kullanilacak
 };
 
 App.prototype.fixLigatures = function (contents) {
-  if (!contents || !contents.addStylesheetRules) return;
-  contents.addStylesheetRules({
-    "*": {
-      "font-variant-ligatures": "none !important",
-      "font-kerning": "normal !important",
-      "text-rendering": "optimizeSpeed !important",
-      "-webkit-font-feature-settings":
-        '"liga" 0, "clig" 0, "calt" 0 !important',
-      "font-feature-settings": '"liga" 0, "clig" 0, "calt" 0 !important',
-    },
-  });
+  this._applyLigatureFix(contents);
+};
+
+App.prototype._onDisplayedFixLigatures = function (event) {
+  var self = this;
+  setTimeout(function () {
+    try {
+      var contents = self.state.rendition.getContents();
+      contents.forEach(function (c) {
+        self._applyLigatureFix(c);
+      });
+    } catch (e) {}
+  }, 100);
+};
+
+App.prototype._onRelocatedFixLigatures = function (event) {
+  var self = this;
+  setTimeout(function () {
+    try {
+      var contents = self.state.rendition.getContents();
+      contents.forEach(function (c) {
+        self._applyLigatureFix(c);
+      });
+    } catch (e) {}
+  }, 50);
+};
+
+App.prototype._applyLigatureFix = function (contents) {
+  if (!contents || !contents.document) return;
+  try {
+    var doc = contents.document;
+    var ligatureCSS =
+      'font-variant-ligatures: none !important; font-kerning: normal !important; text-rendering: optimizeSpeed !important; -webkit-font-feature-settings: "liga" 0, "clig" 0, "calt" 0 !important; font-feature-settings: "liga" 0, "clig" 0, "calt" 0 !important;';
+
+    // 1. Style tag ekle (en yuksek oncelik)
+    var existingFix = doc.getElementById("epubjs-ligature-fix");
+    if (!existingFix) {
+      var style = doc.createElement("style");
+      style.id = "epubjs-ligature-fix";
+      style.textContent = "* { " + ligatureCSS + " }";
+      doc.head.insertBefore(style, doc.head.firstChild);
+    }
+
+    // 2. Tum mevcut stylesheet kurallarini duzelt
+    var sheets = doc.styleSheets;
+    for (var i = 0; i < sheets.length; i++) {
+      try {
+        var rules = sheets[i].cssRules || sheets[i].rules;
+        if (!rules) continue;
+        for (var j = 0; j < rules.length; j++) {
+          try {
+            var rule = rules[j];
+            if (rule.style) {
+              rule.style.fontVariantLigatures = "none";
+              rule.style.fontKerning = "normal";
+              rule.style.textRendering = "optimizeSpeed";
+              rule.style.webkitFontFeatureSettings =
+                '"liga" 0, "clig" 0, "calt" 0';
+              rule.style.fontFeatureSettings = '"liga" 0, "clig" 0, "calt" 0';
+            }
+          } catch (e) {}
+        }
+      } catch (e) {}
+    }
+
+    // 3. Inline style'lari duzelt
+    var all = doc.querySelectorAll("*");
+    for (var k = 0; k < all.length; k++) {
+      try {
+        var el = all[k];
+        if (el.style) {
+          el.style.fontVariantLigatures = "none";
+          el.style.fontKerning = "normal";
+          el.style.textRendering = "optimizeSpeed";
+          el.style.webkitFontFeatureSettings = '"liga" 0, "clig" 0, "calt" 0';
+          el.style.fontFeatureSettings = '"liga" 0, "clig" 0, "calt" 0';
+        }
+      } catch (e) {}
+    }
+
+    // 4. iframe'in kendisinin style'ini duzelt
+    if (contents.iframe) {
+      contents.iframe.style.fontVariantLigatures = "none";
+      contents.iframe.style.fontKerning = "normal";
+      contents.iframe.style.textRendering = "optimizeSpeed";
+    }
+  } catch (e) {
+    console.error("_applyLigatureFix error:", e);
+  }
 };
 
 App.prototype.onRenditionRelocatedUpdateIndicators = function (event) {
