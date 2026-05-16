@@ -1625,6 +1625,17 @@ class BookReaderApp {
         if (fileUrl) {
             // Load book from URL parameter
             try {
+                // Create EpubViewer instance if not exists
+                if (!EpubViewer.instance && typeof ePub === 'function') {
+                    const readerView = document.getElementById('reader-view');
+                    if (readerView) {
+                        EpubViewer.instance = new EpubViewer(readerView);
+                    }
+                }
+
+                // Show reader view
+                this.#showReader();
+
                 const response = await fetch(fileUrl);
                 const arrayBuffer = await response.arrayBuffer();
                 const fileName = fileUrl.split('/').pop();
