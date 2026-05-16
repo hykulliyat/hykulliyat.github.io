@@ -12,6 +12,38 @@ const Logger = {
 const DOM = { clear: (e) => e && (e.innerHTML = ""), setText: (e, t) => e && (e.textContent = t) };
 const Storage = { get: (k, d = "") => { try { return localStorage.getItem(k) || d; } catch { return d; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch {} } };
 
+// PDFToolbar - Simple PDF toolbar management
+class PDFToolbar {
+    constructor(selector, pdfViewer) {
+        this.container = document.querySelector(selector);
+        this.pdfViewer = pdfViewer;
+        this.visible = false;
+    }
+
+    show() {
+        if (this.container) {
+            this.container.classList.remove('hidden');
+            this.visible = true;
+        }
+    }
+
+    hide() {
+        if (this.container) {
+            this.container.classList.add('hidden');
+            this.visible = false;
+        }
+    }
+
+    setPdfFileName(fileName) {
+        if (this.container) {
+            const titleEl = this.container.querySelector('.pdf-title');
+            if (titleEl) {
+                titleEl.textContent = fileName || '';
+            }
+        }
+    }
+}
+
 class ErrorBoundary {
     static handle(context, error) {
         let safeError = error || new Error("Unknown");
