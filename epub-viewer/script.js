@@ -1619,6 +1619,22 @@ class BookReaderApp {
     }
 
     async #init() {
+        // Check for file parameter in URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const fileUrl = urlParams.get('file');
+        if (fileUrl) {
+            // Load book from URL parameter
+            try {
+                const response = await fetch(fileUrl);
+                const arrayBuffer = await response.arrayBuffer();
+                const fileName = fileUrl.split('/').pop();
+                this.doBook(arrayBuffer, { encoding: 'binary', name: fileName });
+                return;
+            } catch (error) {
+                console.error('[ePub] Error loading file from URL:', error);
+            }
+        }
+
         // Initialize library
         this.#library = new BookLibrary('#library-view', (book) => this.#openBookFromLibrary(book));
         await this.#library.init();
