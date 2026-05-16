@@ -147,6 +147,7 @@
     width: 100% !important;
     overflow: hidden;
     position: relative;
+    min-height: 0;
 }
 
 #epub-container iframe {
@@ -154,6 +155,9 @@
     height: 100% !important;
     border: none;
     display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .app .book > div {
