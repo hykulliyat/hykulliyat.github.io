@@ -530,8 +530,8 @@ class EpubViewer {
         })
         .catch((err) => Logger.warn("Error loading cover:", err));
 
-      this.#state.book.ready
-        .then(() => {
+      await this.#state.book.ready;
+      try {
           Logger.log("Book ready");
           Logger.log("Book archive:", this.#state.book.archive);
           Logger.log("Book resources:", this.#state.book.resources);
