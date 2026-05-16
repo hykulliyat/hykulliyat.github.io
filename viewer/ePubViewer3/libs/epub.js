@@ -2295,6 +2295,11 @@ var Path = function () {
 		var protocol;
 		var parsed;
 
+		// Fix for undefined pathString error
+		if (!pathString || typeof pathString !== 'string') {
+			pathString = '';
+		}
+
 		protocol = pathString.indexOf("://");
 		if (protocol > -1) {
 			pathString = new URL(pathString).pathname;
@@ -11314,8 +11319,12 @@ var Section = function () {
 
 			if (this.contents) {
 				loading.resolve(this.contents);
+			} else if (!this.url && !this.href) {
+				// Skip sections with undefined url/href (e.g. cover without manifest entry)
+				loading.reject(new Error('Section has no valid URL: idref=' + this.idref));
 			} else {
-				request(this.url).then(function (xml) {
+				var urlToLoad = this.url || this.href;
+				request(urlToLoad).then(function (xml) {
 					// var directory = new Url(this.url).directory;
 
 					this.document = xml;
@@ -11612,7 +11621,7 @@ var Locations = function () {
 			this.q.pause();
 
 			this.spine.each(function (section) {
-				if (section.linear) {
+				if (section.linear && section.href) {
 					this.q.enqueue(this.process.bind(this), section);
 				}
 			}.bind(this));
@@ -11653,7 +11662,10 @@ var Locations = function () {
 					return completed.resolve(locations);
 				}, this.pause);
 				return completed.promise;
-			}.bind(this));
+			}.bind(this)).catch(function (error) {
+				// Skip sections that fail to load (e.g. missing href)
+				console.warn('Skipping section during location generation:', section.idref, error);
+			});
 		}
 	}, {
 		key: "parse",
@@ -16035,6 +16047,10 @@ var Archive = function () {
 	}, {
 		key: "getText",
 		value: function getText(url, encoding) {
+			// Fix for undefined url error
+			if (!url || typeof url !== 'string') {
+				return Promise.reject(new Error('Invalid URL provided to getText'));
+			}
 			var decodededUrl = window.decodeURIComponent(url.substr(1)); // Remove first slash
 			var entry = this.zip.file(decodededUrl);
 
