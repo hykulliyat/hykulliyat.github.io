@@ -1876,6 +1876,7 @@ class BookReaderApp {
     // Setup keyboard navigation for both PDF and EPUB
     document.body.addEventListener("keydown", (e) => {
       if (document.querySelector(".reader-view.hidden")) return;
+      console.log("[Keyboard] format:", this.#currentFormat, "key:", e.key);
 
       if (this.#currentFormat === "pdf") {
         switch (e.key) {
