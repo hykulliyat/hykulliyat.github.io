@@ -2229,6 +2229,52 @@ class BookReaderApp {
     readerView?.classList.remove("hidden");
   }
 
+  // Handle hash-based URLs from main page (e.g. #!/assets/.../book.epub)
+  #handleHashUrl() {
+    const hash = window.location.hash;
+    if (!hash.startsWith("#!/")) return;
+
+    const bookUrl = hash.substring(2); // Remove '#!/'
+    console.log("[App] Hash URL detected, loading:", bookUrl);
+
+    // Show reader view directly (skip library)
+    this.#showReader();
+    this.#currentFormat = "epub";
+
+    // Hide library, show reader
+    const libraryView = document.getElementById("library-view");
+    const readerView = document.getElementById("reader-view");
+    libraryView?.classList.add("hidden");
+    readerView?.classList.remove("hidden");
+
+    // Hide the open button since we're loading from URL
+    const openBtn = document.getElementById("reader-open-btn");
+    if (openBtn) openBtn.classList.add("hidden");
+
+    // Lazily create EpubViewer and load the book
+    if (!EpubViewer.instance && typeof ePub === "function") {
+      if (readerView) {
+        EpubViewer.instance = new EpubViewer(readerView);
+      }
+    }
+
+    if (EpubViewer.instance) {
+      // Set loading indicator
+      const bookContainer = document.getElementById("epub-container");
+      if (bookContainer) {
+        bookContainer.innerHTML =
+          '<div style="display:flex;align-items:center;justify-content:center;height:100%;font-size:18px;color:#666;">Kitap yükleniyor...</div>';
+      }
+
+      EpubViewer.instance.doBook(bookUrl, { encoding: "epub" }).catch((err) => {
+        console.error("[App] Error loading book from hash URL:", err);
+        ErrorBoundary.handle("Kitap yuklenirken hata", err);
+      });
+    } else {
+      console.error("[App] EpubViewer instance not available");
+    }
+  }
+
   // Public accessor for library
   getLibrary() {
     return this.#library;
