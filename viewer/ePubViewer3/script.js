@@ -622,6 +622,38 @@ class EpubViewer {
           this.fixDoubleLSpacing(contents);
         });
 
+        // Keyboard navigation inside iframe
+        this.#state.rendition.on("rendered", (section, view) => {
+          Logger.log("Rendered event, section:", section?.href);
+          try {
+            const iframe =
+              view?.iframe || view?.document?.defaultView?.frameElement;
+            if (iframe && iframe.contentWindow) {
+              const iframeDoc = iframe.contentWindow.document;
+              if (iframeDoc) {
+                iframeDoc.addEventListener("keydown", (e) => {
+                  Logger.log("[iFrame keydown] key:", e.key);
+                  switch (e.key) {
+                    case "ArrowLeft":
+                    case "PageUp":
+                      this.#state.rendition.prev();
+                      e.preventDefault();
+                      break;
+                    case "ArrowRight":
+                    case " ":
+                    case "PageDown":
+                      this.#state.rendition.next();
+                      e.preventDefault();
+                      break;
+                  }
+                });
+              }
+            }
+          } catch (err) {
+            Logger.warn("iframe keyboard listener error:", err);
+          }
+        });
+
         // Update page indicator on page change
         this.#state.rendition.on("relocated", (location) => {
           Logger.log("Relocated event:", location);
