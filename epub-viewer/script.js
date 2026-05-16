@@ -589,10 +589,27 @@ class EpubViewer {
 
         DOM.clear(bookEl);
         Logger.log("Creating rendition...");
-        this.#state.rendition = this.#state.book.renderTo(bookEl, {
-          width: "100%",
-          height: "100%",
-        });
+        Logger.log(
+          "bookEl tag:",
+          bookEl?.tagName,
+          "id:",
+          bookEl?.id,
+          "innerHTML length:",
+          bookEl?.innerHTML?.length,
+        );
+        try {
+          this.#state.rendition = this.#state.book.renderTo(bookEl, {
+            width: "100%",
+            height: "100%",
+          });
+          Logger.log("renderTo returned:", !!this.#state.rendition);
+          Logger.log(
+            "bookEl innerHTML after renderTo:",
+            bookEl?.innerHTML?.substring(0, 200),
+          );
+        } catch (renderErr) {
+          Logger.error("renderTo error:", renderErr);
+        }
 
         // Add error handler for display
         this.#state.rendition.on("displayError", (err) => {
