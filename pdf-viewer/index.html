@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+    <title>PDF Viewer</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="libs/normalize.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Lato', sans-serif;
+            background: #fff;
+        }
+        .app {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .toolbar {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background: #f5f5f5;
+            border-bottom: 1px solid #ddd;
+        }
+        .toolbar button {
+            margin-right: 10px;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            background: #fff;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .toolbar button:hover {
+            background: #e0e0e0;
+        }
+        .toolbar span {
+            margin-left: auto;
+            font-size: 14px;
+        }
+        #pdf-container {
+            flex: 1;
+            overflow: auto;
+            padding: 20px;
+            text-align: center;
+        }
+        #pdf-canvas {
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .file-input {
+            display: none;
+        }
+        .open-btn {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app">
+        <div class="toolbar">
+            <button class="open-btn" onclick="openPDF()">Open PDF</button>
+            <button onclick="prevPage()">Previous</button>
+            <button onclick="nextPage()">Next</button>
+            <span id="page-info">Page 0 of 0</span>
+        </div>
+        <div id="pdf-container">
+            <canvas id="pdf-canvas"></canvas>
+        </div>
+    </div>
+    <input type="file" id="file-input" class="file-input" accept=".pdf" onchange="handleFile(event)">
+
+    <!-- PDF.js Library -->
+    <script type="module">
+        import * as pdfjsLib from './libs/pdf.mjs';
+        window.pdfjsLib = pdfjsLib;
+        pdfjsLib.GlobalWorkerOptions.workerSrc = './libs/pdf.worker.mjs';
+    </script>
+
+    <script>
+        let pdfDoc = null;
+        let pageNum = 1;
+        let pageRendering = false;
+        let pageNumPending = null;
+        const canvas = document.getElementById('pdf-canvas');
+        const ctx = canvas.getContext('2d');
+
+        function openPDF() {
+            document.getElementById('file-input').click();
+        }
+
+        function handleFile(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const typedarray = new Uint8Array(e.target.result);
+                loadPDF(typedarray);
+            };
+            reader.readAsArrayBuffer(file);
+        }
+
+        async function loadPDF(data) {
+            try {
+                pdfDoc = await window.pdfjsLib.getDocument(data).promise;
+                pageNum = 1;
+                renderPage(pageNum);
+                updatePageInfo();
+            } catch (error) {
+                console.error('Error loading PDF:', error);
+                alert('Error loading PDF file');
+            }
+        }
+
+        async function renderPage(num) {
+            pageRendering = true;
+            const page = await pdfDoc.getPage(num);
+            const viewport = page.getViewport({ scale: 1.5 });
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+
+            const renderContext = {
+                canvasContext: ctx,
+                viewport: viewport
+            };
+            await page.render(renderContext).promise;
+
+            pageRendering = false;
+            if (pageNumPending !== null) {
+                renderPage(pageNumPending);
+                pageNumPending = null;
+            }
+        }
+
+        function queueRenderPage(num) {
+            if (pageRendering) {
+                pageNumPending = num;
+            } else {
+                renderPage(num);
+            }
+        }
+
+        function prevPage() {
+            if (!pdfDoc || pageNum <= 1) return;
+            pageNum--;
+            queueRenderPage(pageNum);
+            updatePageInfo();
+        }
+
+        function nextPage() {
+            if (!pdfDoc || pageNum >= pdfDoc.numPages) return;
+            pageNum++;
+            queueRenderPage(pageNum);
+            updatePageInfo();
+        }
+
+        function updatePageInfo() {
+            document.getElementById('page-info').textContent = `Page ${pageNum} of ${pdfDoc ? pdfDoc.numPages : 0}`;
+        }
+    </script>
+</body>
+
+</html>
