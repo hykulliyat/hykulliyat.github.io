@@ -2,7 +2,7 @@
 console.log("sw: service worker loaded");
 
 const cachePrefix = "ePubViewer";
-const revision = 23;              // Update on every change
+const revision = 24;              // Update on every change
 
 // Set the cache as the active cache.
 self.addEventListener('activate', event =>
@@ -18,8 +18,7 @@ self.addEventListener('install', event => {
 self.addEventListener('fetch', event => {
     if (
         event.request.url.startsWith(self.location.origin) || 
-        event.request.url.match(/fonts.(googleapis|gstatic).com/) || 
-        event.request.url.match(/dict.geek1011.net/)
+        event.request.url.match(/fonts.(googleapis|gstatic).com/)
 /* Cache first: */
     ) event.respondWith(
         caches.open(`${cachePrefix}-${revision}`).then(
