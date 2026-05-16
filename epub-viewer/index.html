@@ -229,20 +229,19 @@
     <!-- Application Dependencies -->
 
     <!-- Service Worker Registration -->
-    <script type="module">
-        // Only register service worker in web browsers, not in Electron
-        if ('serviceWorker' in navigator && !window.electronAPI?.isElectron) {
-            navigator.serviceWorker.register('sw.js').then(reg => {
-                reg.onupdatefound = () => {
-                    const installingWorker = reg.installing;
-                    installingWorker.onstatechange = () => {
-                        if (installingWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                            location.reload();
-                        }
-                    };
-                };
-            }).catch(console.error);
-        }
+    <script>
+        // Service Worker disabled for testing
+        // if ('serviceWorker' in navigator) {
+        //     window.addEventListener('load', () => {
+        //         navigator.serviceWorker.register('/epub-viewer/sw.js')
+        //             .then(registration => {
+        //                 console.log('SW registered: ', registration);
+        //             })
+        //             .catch(registrationError => {
+        //                 console.log('SW registration failed: ', registrationError);
+        //             });
+        //     });
+        // }
     </script>
 
     <script src="polyfills/babel-polyfill.min.js"></script>
