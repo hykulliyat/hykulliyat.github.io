@@ -349,17 +349,20 @@ class EpubViewer {
         });
         
         this.#state.rendition?.on("rendered", (section) => {
-            try {
-                const doc = section.document;
-                if (!doc) return;
-                let style = doc.getElementById("epubviewer-theme");
-                if (style) style.remove();
-                style = doc.createElement("style");
-                style.id = "epubviewer-theme";
-                style.textContent = `body { background: ${theme.bg} !important; color: ${theme.fg} !important; ${theme.ff ? `font-family: ${theme.ff} !important;` : ''} ${theme.fs ? `font-size: ${theme.fs} !important;` : ''} line-height: ${theme.lh} !important; }`;
-                doc.head?.appendChild(style);
-            } catch (e) {}
-        });
+                    try {
+                        const doc = section.document;
+                        if (!doc) return;
+                        let style = doc.getElementById("epubviewer-theme");
+                        if (style) style.remove();
+                        style = doc.createElement("style");
+                        style.id = "epubviewer-theme";
+                        style.textContent = `body { background: ${theme.bg} !important; color: ${theme.fg} !important; ${theme.ff ? `font-family: ${theme.ff} !important;` : ''} ${theme.fs ? `font-size: ${theme.fs} !important;` : ''} line-height: ${theme.lh} !important; }`;
+                        doc.head?.appendChild(style);
+                        
+                        // Fix double-l spacing on each render
+                        this.fixDoubleLSpacing({ document: doc });
+                    } catch (e) {}
+                });
     }
 
     fixDoubleLSpacing(contents) {
@@ -373,14 +376,23 @@ class EpubViewer {
             
             let node;
             while (node = walker.nextNode()) {
-                if (node.textContent.includes('l l')) {
+                const text = node.textContent;
+                // Check for various patterns that could cause "ll" to become "l l"
+                if (text.includes('l l') || text.includes('l\u00A0l') || text.includes('l\u200Bl') || text.includes('l\u200Cl') || text.includes('l\u200Dl')) {
                     nodesToFix.push(node);
                 }
             }
             
             nodesToFix.forEach(textNode => {
                 const originalText = textNode.textContent;
-                const fixedText = originalText.replace(/l\s+l/g, 'll');
+                // Fix all possible spacing patterns between 'l' characters
+                let fixedText = originalText
+                    .replace(/l\s+l/g, 'll')           // normal space
+                    .replace(/l\u00A0l/g, 'll')        // non-breaking space
+                    .replace(/l\u200Bl/g, 'll')        // zero-width space
+                    .replace(/l\u200Cl/g, 'll')        // zero-width non-joiner
+                    .replace(/l\u200Dl/g, 'll');       // zero-width joiner
+                
                 if (fixedText !== originalText) {
                     textNode.textContent = fixedText;
                     Logger.log("Fixed double-l spacing:", originalText, "->", fixedText);
