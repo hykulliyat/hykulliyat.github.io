@@ -532,142 +532,137 @@ class EpubViewer {
 
       await this.#state.book.ready;
       try {
-          Logger.log("Book ready");
-          Logger.log("Book archive:", this.#state.book.archive);
-          Logger.log("Book resources:", this.#state.book.resources);
-          Logger.log(
-            "Spine items:",
-            this.#state.book.spine?.spineItems?.length,
-          );
+        Logger.log("Book ready");
+        Logger.log("Book archive:", this.#state.book.archive);
+        Logger.log("Book resources:", this.#state.book.resources);
+        Logger.log("Spine items:", this.#state.book.spine?.spineItems?.length);
 
-          const hasSpine = this.#state.book.spine?.spineItems?.length > 0;
-          if (!hasSpine) {
-            ErrorBoundary.handle("EPUB hatasi", new Error("Spine bulunamadi"));
-            return;
+        const hasSpine = this.#state.book.spine?.spineItems?.length > 0;
+        if (!hasSpine) {
+          ErrorBoundary.handle("EPUB hatasi", new Error("Spine bulunamadi"));
+          return;
+        }
+
+        // Find first section with valid href (skip broken ones like cover without manifest entry)
+        // Also skip nav.xhtml since it's navigation, not content
+        let firstValidSection = null;
+        for (let i = 0; i < this.#state.book.spine.spineItems.length; i++) {
+          const s = this.#state.book.spine.spineItems[i];
+          if (s.href && s.linear !== false) {
+            // Skip nav and cover files - they are not readable content
+            const hrefLower = s.href.toLowerCase();
+            if (
+              hrefLower.includes("nav.") ||
+              hrefLower.includes("toc.") ||
+              hrefLower === "nav.xhtml"
+            ) {
+              continue;
+            }
+            firstValidSection = s;
+            Logger.log("First valid section at index:", i, "href:", s.href);
+            break;
           }
+        }
 
-          // Find first section with valid href (skip broken ones like cover without manifest entry)
-          // Also skip nav.xhtml since it's navigation, not content
-          let firstValidSection = null;
+        if (!firstValidSection) {
+          // Fallback: use any section with valid href
           for (let i = 0; i < this.#state.book.spine.spineItems.length; i++) {
             const s = this.#state.book.spine.spineItems[i];
-            if (s.href && s.linear !== false) {
-              // Skip nav and cover files - they are not readable content
-              const hrefLower = s.href.toLowerCase();
-              if (
-                hrefLower.includes("nav.") ||
-                hrefLower.includes("toc.") ||
-                hrefLower === "nav.xhtml"
-              ) {
-                continue;
-              }
+            if (s.href) {
               firstValidSection = s;
-              Logger.log("First valid section at index:", i, "href:", s.href);
+              Logger.log("Fallback section at index:", i, "href:", s.href);
               break;
             }
           }
+        }
 
-          if (!firstValidSection) {
-            // Fallback: use any section with valid href
-            for (let i = 0; i < this.#state.book.spine.spineItems.length; i++) {
-              const s = this.#state.book.spine.spineItems[i];
-              if (s.href) {
-                firstValidSection = s;
-                Logger.log("Fallback section at index:", i, "href:", s.href);
-                break;
-              }
-            }
-          }
+        if (!firstValidSection) {
+          ErrorBoundary.handle(
+            "EPUB hatasi",
+            new Error("Gecerli bolum bulunamadi"),
+          );
+          return;
+        }
 
-          if (!firstValidSection) {
-            ErrorBoundary.handle(
-              "EPUB hatasi",
-              new Error("Gecerli bolum bulunamadi"),
-            );
-            return;
-          }
+        // Generate page locations
+        this.generateLocations(1600);
 
-          // Generate page locations
-          this.generateLocations(1600);
+        DOM.clear(bookEl);
+        Logger.log("Creating rendition...");
+        this.#state.rendition = this.#state.book.renderTo(bookEl, {
+          width: "100%",
+          height: "100%",
+        });
 
-          DOM.clear(bookEl);
-          Logger.log("Creating rendition...");
-          this.#state.rendition = this.#state.book.renderTo(bookEl, {
-            width: "100%",
-            height: "100%",
-          });
+        // Add error handler for display
+        this.#state.rendition.on("displayError", (err) => {
+          Logger.error("Rendition display error:", err);
+          ErrorBoundary.handle("Goruntuleme hatasi", err);
+        });
 
-          // Add error handler for display
-          this.#state.rendition.on("displayError", (err) => {
-            Logger.error("Rendition display error:", err);
-            ErrorBoundary.handle("Goruntuleme hatasi", err);
-          });
+        this.#state.rendition.hooks.content.register((contents) => {
+          this.applyTheme();
+          this.fixDoubleLSpacing(contents);
+        });
 
-          this.#state.rendition.hooks.content.register((contents) => {
-            this.applyTheme();
-            this.fixDoubleLSpacing(contents);
-          });
+        // Update page indicator on page change
+        this.#state.rendition.on("relocated", (location) => {
+          Logger.log("Relocated event:", location);
+          this.updatePageIndicator(location);
 
-          // Update page indicator on page change
-          this.#state.rendition.on("relocated", (location) => {
-            Logger.log("Relocated event:", location);
-            this.updatePageIndicator(location);
-
-            // Update TOC active state like original
-            if (location?.start?.href) {
-              this.#getEls(".toc-list .item").forEach((el) => {
-                el.classList.toggle(
-                  "active",
-                  el.dataset.href === location.start.href,
-                );
-              });
-            }
-          });
-
-          // Keyboard navigation inside book
-          this.#state.rendition.on("keyup", (e) => this.onKeyUp(e));
-
-          // Close sidebar when clicking on book content - like original
-          this.#state.rendition.on("click", () => {
-            const sidebarWrapper = this.#getEl(".sidebar-wrapper");
-            if (sidebarWrapper && !sidebarWrapper.classList.contains("out")) {
-              sidebarWrapper.classList.add("out");
-            }
-          });
-
-          this.#state.rendition
-            .display(firstValidSection.href)
-            .then(() => {
-              Logger.log("Displayed from section:", firstValidSection?.href);
-              this.onBookReady();
-              this.applyTheme();
-              const currentLoc = this.#state.rendition?.currentLocation?.();
-              if (currentLoc) {
-                this.updatePageIndicator(currentLoc);
-              }
-            })
-            .catch((err) => {
-              Logger.error("Display error:", err);
-              // Try displaying from firstValidSection index as fallback
-              const fallbackIndex = firstValidSection?.index || 2;
-              Logger.log("Trying fallback display at index:", fallbackIndex);
-              this.#state.rendition
-                .display(fallbackIndex)
-                .then(() => {
-                  Logger.log(
-                    "Fallback display worked at index:",
-                    fallbackIndex,
-                  );
-                  this.onBookReady();
-                  this.applyTheme();
-                })
-                .catch((err2) => {
-                  Logger.error("Fallback display also failed:", err2);
-                  ErrorBoundary.handle("Sayfa goruntulenirken hata", err2);
-                });
+          // Update TOC active state like original
+          if (location?.start?.href) {
+            this.#getEls(".toc-list .item").forEach((el) => {
+              el.classList.toggle(
+                "active",
+                el.dataset.href === location.start.href,
+              );
             });
-        })
-        .catch((err) => ErrorBoundary.handle("Kitap yuklenirken hata", err));
+          }
+        });
+
+        // Keyboard navigation inside book
+        this.#state.rendition.on("keyup", (e) => this.onKeyUp(e));
+
+        // Close sidebar when clicking on book content - like original
+        this.#state.rendition.on("click", () => {
+          const sidebarWrapper = this.#getEl(".sidebar-wrapper");
+          if (sidebarWrapper && !sidebarWrapper.classList.contains("out")) {
+            sidebarWrapper.classList.add("out");
+          }
+        });
+
+        this.#state.rendition
+          .display(firstValidSection.href)
+          .then(() => {
+            Logger.log("Displayed from section:", firstValidSection?.href);
+            this.onBookReady();
+            this.applyTheme();
+            const currentLoc = this.#state.rendition?.currentLocation?.();
+            if (currentLoc) {
+              this.updatePageIndicator(currentLoc);
+            }
+          })
+          .catch((err) => {
+            Logger.error("Display error:", err);
+            // Try displaying from firstValidSection index as fallback
+            const fallbackIndex = firstValidSection?.index || 2;
+            Logger.log("Trying fallback display at index:", fallbackIndex);
+            this.#state.rendition
+              .display(fallbackIndex)
+              .then(() => {
+                Logger.log("Fallback display worked at index:", fallbackIndex);
+                this.onBookReady();
+                this.applyTheme();
+              })
+              .catch((err2) => {
+                Logger.error("Fallback display also failed:", err2);
+                ErrorBoundary.handle("Sayfa goruntulenirken hata", err2);
+              });
+          });
+      } catch (err) {
+        ErrorBoundary.handle("Kitap yuklenirken hata", err);
+      }
     } catch (err) {
       ErrorBoundary.handle("doBook hatasi", err);
     }
