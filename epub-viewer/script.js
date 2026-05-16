@@ -1927,7 +1927,7 @@ class BookReaderApp {
         readerView?.classList.add('hidden');
 
         // Refresh library
-        this.#library?.renderLibrary();
+        this.#library?.render();
     }
 
     #showReader() {
