@@ -1993,10 +1993,26 @@ class BookReaderApp {
       const arrayBuffer = await response.arrayBuffer();
       const fileName = fileUrl.split("/").pop();
       if (this.#currentFormat === "epub" && EpubViewer.instance) {
+        console.log(
+          "[App] Calling doBook, EpubViewer.instance exists:",
+          !!EpubViewer.instance,
+        );
+        console.log(
+          "[App] epub-container innerHTML before doBook:",
+          document
+            .getElementById("epub-container")
+            ?.innerHTML.substring(0, 100),
+        );
         await EpubViewer.instance.doBook(arrayBuffer, {
           encoding: "binary",
           name: fileName,
         });
+        console.log(
+          "[App] epub-container innerHTML after doBook:",
+          document
+            .getElementById("epub-container")
+            ?.innerHTML.substring(0, 200),
+        );
       } else if (this.#currentFormat === "pdf") {
         await this.#pdfViewer.loadBook(arrayBuffer, "url-" + Date.now(), 1);
         const titleEl = document.querySelector(".reader-bar .book-title");
