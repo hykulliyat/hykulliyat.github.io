@@ -2007,10 +2007,26 @@ class BookReaderApp {
       const fileName = fileUrl.split("/").pop();
 
       if (this.#currentFormat === "epub" && EpubViewer.instance) {
+        console.log(
+          "[App] Calling doBook, EpubViewer.instance exists:",
+          !!EpubViewer.instance,
+        );
+        console.log(
+          "[App] epub-container innerHTML before doBook:",
+          document
+            .getElementById("epub-container")
+            ?.innerHTML.substring(0, 100),
+        );
         await EpubViewer.instance.doBook(arrayBuffer, {
           encoding: "binary",
           name: fileName,
         });
+        console.log(
+          "[App] epub-container innerHTML after doBook:",
+          document
+            .getElementById("epub-container")
+            ?.innerHTML.substring(0, 200),
+        );
       } else if (this.#currentFormat === "pdf") {
         const bookId = "url-" + Date.now();
         await this.#pdfViewer.loadBook(arrayBuffer, bookId, 1);
@@ -2215,6 +2231,16 @@ class BookReaderApp {
 
     libraryView?.classList.add("hidden");
     readerView?.classList.remove("hidden");
+
+    // Debug: reader-view görünürlüğünü kontrol et
+    console.log(
+      "[App] showReader called, reader-view hidden:",
+      readerView?.classList.contains("hidden"),
+    );
+    console.log(
+      "[App] reader-view display:",
+      window.getComputedStyle(readerView).display,
+    );
   }
 
   // Public accessor for library
