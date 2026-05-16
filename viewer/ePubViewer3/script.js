@@ -1958,6 +1958,56 @@ class BookReaderApp {
     }
   }
 
+  // Open book directly from URL parameter (?file=...)
+  async #openBookFromUrl(fileUrl) {
+    console.log("[App] Opening book from URL:", fileUrl);
+    this.#showReader();
+    const ext = fileUrl.split(".").pop().toLowerCase();
+    this.#currentFormat = ext === "pdf" ? "pdf" : "epub";
+    if (
+      this.#currentFormat === "epub" &&
+      !EpubViewer.instance &&
+      typeof ePub === "function"
+    ) {
+      const readerView = document.getElementById("reader-view");
+      if (readerView) EpubViewer.instance = new EpubViewer(readerView);
+    }
+    const emptyEl = document.getElementById("reader-empty");
+    if (emptyEl) emptyEl.style.display = "none";
+    const appEl = document.querySelector(".app");
+    if (this.#currentFormat === "epub") {
+      appEl?.classList.remove("mode-pdf");
+      appEl?.classList.add("mode-epub");
+      this.#pdfViewer?.destroy();
+      this.#pdfToolbar?.hide();
+    } else {
+      appEl?.classList.remove("mode-epub");
+      appEl?.classList.add("mode-pdf");
+      EpubViewer.instance?.doReset?.();
+      EpubViewer.instance = null;
+      this.#pdfToolbar?.show();
+    }
+    try {
+      const response = await fetch(fileUrl);
+      if (!response.ok) throw new Error("HTTP " + response.status);
+      const arrayBuffer = await response.arrayBuffer();
+      const fileName = fileUrl.split("/").pop();
+      if (this.#currentFormat === "epub" && EpubViewer.instance) {
+        await EpubViewer.instance.doBook(arrayBuffer, {
+          encoding: "binary",
+          name: fileName,
+        });
+      } else if (this.#currentFormat === "pdf") {
+        await this.#pdfViewer.loadBook(arrayBuffer, "url-" + Date.now(), 1);
+        const titleEl = document.querySelector(".reader-bar .book-title");
+        if (titleEl) titleEl.textContent = fileName.replace(/\.[^/.]+$/, "");
+      }
+    } catch (err) {
+      console.error("[App] Error loading book from URL:", err);
+      ErrorBoundary.handle("Kitap yuklenirken hata", err);
+    }
+  }
+
   // Load book directly from buffer (used by file dialog)
   async loadBookFromBuffer(buffer, fileName, format) {
     const book = {
