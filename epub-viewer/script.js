@@ -1873,62 +1873,90 @@ class BookReaderApp {
       }
     });
 
-    // Setup keyboard navigation for PDF
+    // Setup keyboard navigation for both PDF and EPUB
     document.body.addEventListener("keydown", (e) => {
-      if (this.#currentFormat !== "pdf") return;
       if (document.querySelector(".reader-view.hidden")) return;
 
-      switch (e.key) {
-        case "ArrowLeft":
-        case "PageUp":
-          this.#pdfViewer?.prevPage();
-          e.preventDefault();
-          break;
-        case "ArrowRight":
-        case " ":
-        case "PageDown":
-          this.#pdfViewer?.nextPage();
-          e.preventDefault();
-          break;
-        case "Home":
-          this.#pdfViewer?.goToPage(1);
-          e.preventDefault();
-          break;
-        case "End":
-          this.#pdfViewer?.goToPage(this.#pdfViewer.getTotalPages());
-          e.preventDefault();
-          break;
-        case "+":
-        case "=":
-          this.#pdfViewer?.zoomIn();
-          e.preventDefault();
-          break;
-        case "-":
-        case "_":
-          this.#pdfViewer?.zoomOut();
-          e.preventDefault();
-          break;
-        case "0":
-          this.#pdfViewer?.resetZoom();
-          e.preventDefault();
-          break;
-        case "w":
-          this.#pdfViewer?.fitToWidth();
-          e.preventDefault();
-          break;
-        case "p":
-        case "Control+P":
-          this.#pdfViewer?.printPdf();
-          e.preventDefault();
-          break;
-        case "r":
-          this.#pdfViewer?.rotateRight();
-          e.preventDefault();
-          break;
-        case "Shift+R":
-          this.#pdfViewer?.rotateLeft();
-          e.preventDefault();
-          break;
+      if (this.#currentFormat === "pdf") {
+        switch (e.key) {
+          case "ArrowLeft":
+          case "PageUp":
+            this.#pdfViewer?.prevPage();
+            e.preventDefault();
+            break;
+          case "ArrowRight":
+          case " ":
+          case "PageDown":
+            this.#pdfViewer?.nextPage();
+            e.preventDefault();
+            break;
+          case "Home":
+            this.#pdfViewer?.goToPage(1);
+            e.preventDefault();
+            break;
+          case "End":
+            this.#pdfViewer?.goToPage(this.#pdfViewer.getTotalPages());
+            e.preventDefault();
+            break;
+          case "+":
+          case "=":
+            this.#pdfViewer?.zoomIn();
+            e.preventDefault();
+            break;
+          case "-":
+          case "_":
+            this.#pdfViewer?.zoomOut();
+            e.preventDefault();
+            break;
+          case "0":
+            this.#pdfViewer?.resetZoom();
+            e.preventDefault();
+            break;
+          case "w":
+            this.#pdfViewer?.fitToWidth();
+            e.preventDefault();
+            break;
+          case "p":
+          case "Control+P":
+            this.#pdfViewer?.printPdf();
+            e.preventDefault();
+            break;
+          case "r":
+            this.#pdfViewer?.rotateRight();
+            e.preventDefault();
+            break;
+          case "Shift+R":
+            this.#pdfViewer?.rotateLeft();
+            e.preventDefault();
+            break;
+        }
+      } else if (this.#currentFormat === "epub") {
+        const inst = EpubViewer.instance;
+        if (!inst || !inst.getRendition) return;
+        const rendition = inst.getRendition();
+        if (!rendition) return;
+
+        switch (e.key) {
+          case "ArrowLeft":
+          case "PageUp":
+            rendition.prev();
+            e.preventDefault();
+            break;
+          case "ArrowRight":
+          case " ":
+          case "PageDown":
+            rendition.next();
+            e.preventDefault();
+            break;
+          case "Home":
+            rendition.display(0);
+            e.preventDefault();
+            break;
+          case "End":
+            rendition.display(-1);
+            e.preventDefault();
+            break;
+        }
       }
     });
 
