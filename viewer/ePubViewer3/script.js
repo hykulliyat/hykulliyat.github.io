@@ -937,8 +937,8 @@ class EpubViewer {
 
     // Show navigation buttons like original
     const sidebarBtn = this.#getEl(".sidebar-button");
-    const prevBtn = this.#getEl(".bar button.prev");
-    const nextBtn = this.#getEl(".bar button.next");
+    const prevBtn = document.getElementById("reader-prev");
+    const nextBtn = document.getElementById("reader-next");
 
     Logger.log("Buttons found:", {
       sidebar: !!sidebarBtn,
@@ -949,6 +949,11 @@ class EpubViewer {
     sidebarBtn?.classList.remove("hidden");
     prevBtn?.classList.remove("hidden");
     nextBtn?.classList.remove("hidden");
+
+    Logger.log("Buttons hidden status after show:", {
+      prevHidden: prevBtn?.classList.contains("hidden"),
+      nextHidden: nextBtn?.classList.contains("hidden"),
+    });
 
     // Store book key for localStorage
     const bookKey = this.#state.book?.key();
