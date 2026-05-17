@@ -115,6 +115,15 @@
     overflow: visible;
 }
 
+.app .bar .left button,
+.app .bar .right button {
+    display: inline-flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    padding: 4px 8px !important;
+    font-size: 16px !important;
+}
+
 .app .bar .right {
     display: flex;
     align-items: center;
