@@ -571,13 +571,10 @@
         </script>
         -->
 
-        <script src="/viewer/ePubViewer3/polyfills/babel-polyfill.min.js"></script>
-        <script src="/viewer/ePubViewer3/polyfills/fetch.js"></script>
-        <script src="/viewer/ePubViewer3/polyfills/pep.min.js"></script>
-        <script src="/viewer/ePubViewer3/libs/sanitize-html.min.js"></script>
-        <script src="/viewer/ePubViewer3/libs/jszip.min.js"></script>
-        <script src="/viewer/ePubViewer3/libs/epub.js"></script>
-        <script src="/viewer/ePubViewer3/libs/epub33-parser.js"></script>
+        <script src="libs/sanitize-html.min.js"></script>
+        <script src="libs/jszip.min.js"></script>
+        <script src="libs/epub.js"></script>
+        <script src="libs/epub33-parser.js"></script>
 
         <!-- ReadableStream Polyfill for PDF.js v5.7.284 -->
         <script>
@@ -603,11 +600,11 @@
 
         <!-- PDF.js Library v5.7.284 Legacy -->
         <script type="module">
-            import * as pdfjsLib from "/viewer/ePubViewer3/libs/pdf.mjs";
+            import * as pdfjsLib from "libs/pdf.mjs";
             window.pdfjsLib = pdfjsLib;
             // Use legacy build worker path
             pdfjsLib.GlobalWorkerOptions.workerSrc =
-                "/viewer/ePubViewer3/libs/pdf.worker.mjs";
+                "libs/pdf.worker.mjs";
         </script>
 
         <!-- Library Module -->
