@@ -33,9 +33,9 @@ async function loadBooksTable() {
             tr.appendChild(tdName);
             
             // Extract paths from CSV links - extract from HTML anchor tags
-            const pdfMatch = row[2] ? row[2].match(/file=([^&\s]+)/) : null;
-            const epubMatch = row[3] ? row[3].match(/file=([^&\s]+)/) : null;
-            const docMatch = row[4] ? row[4].match(/file=([^&\s]+)/) : null;
+            const pdfMatch = row[2] ? row[2].match(/file=([^"]+)/) : null;
+            const epubMatch = row[3] ? row[3].match(/file=([^"]+)/) : null;
+            const docMatch = row[4] ? row[4].match(/file=([^"]+)/) : null;
             
             console.log(`Row ${index} - PDF match:`, pdfMatch);
             console.log(`Row ${index} - EPUB match:`, epubMatch);
@@ -44,7 +44,9 @@ async function loadBooksTable() {
             // PDF Link
             const tdPdf = document.createElement('td');
             if (pdfMatch) {
-                const pdfPath = pdfMatch[1].replace('kuranvebilim.github.io', 'hykulliyat.github.io');
+                let pdfPath = pdfMatch[1].replace('kuranvebilim.github.io', 'hykulliyat.github.io');
+                // Remove any trailing HTML tag remnants
+                pdfPath = pdfPath.replace(/\s+target.*/, '');
                 tdPdf.innerHTML = `<a href="https://hykulliyat.github.io/pdf-viewer/?file=${pdfPath}" rel="alternate bookmark nofollow" hreflang=tr type=application/pdf target="_blank"><img src="/assets/img/pdf.png" alt="indir" title="İNDİR PDF"></a>`;
             }
             tr.appendChild(tdPdf);
@@ -52,7 +54,9 @@ async function loadBooksTable() {
             // EPUB Link
             const tdEpub = document.createElement('td');
             if (epubMatch) {
-                const epubPath = epubMatch[1].replace('kuranvebilim.github.io', 'hykulliyat.github.io');
+                let epubPath = epubMatch[1].replace('kuranvebilim.github.io', 'hykulliyat.github.io');
+                // Remove any trailing HTML tag remnants
+                epubPath = epubPath.replace(/\s+target.*/, '');
                 tdEpub.innerHTML = `<a href="https://hykulliyat.github.io/viewer/ePubViewer3/?file=${epubPath}" rel="alternate bookmark nofollow" hreflang=tr type=application/epub+zip target="_blank"><img src="/assets/img/epub.png" alt="oku" title="OKU EPUB"></a>`;
             }
             tr.appendChild(tdEpub);
@@ -61,6 +65,8 @@ async function loadBooksTable() {
             const tdDocx = document.createElement('td');
             if (docMatch) {
                 let docPath = docMatch[1].replace('kuranvebilim.github.io', 'hykulliyat.github.io');
+                // Remove any trailing HTML tag remnants
+                docPath = docPath.replace(/\s+target.*/, '');
                 // Change /doc/ to /doc/ and ensure .docx extension
                 docPath = docPath.replace(/\.doc$/, '.docx');
                 tdDocx.innerHTML = `<a href="https://hykulliyat.github.io/docx-viewer/?file=${docPath}" rel="alternate bookmark nofollow" hreflang=tr type=application/vnd.openxmlformats-officedocument.wordprocessingml.document target="_blank"><img src="/assets/img/odt.png" alt="indir" title="YAZDIR DOCX"></a>`;
