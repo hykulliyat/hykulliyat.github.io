@@ -1865,24 +1865,38 @@ class BookReaderApp {
     const prevBtn = document.getElementById("reader-prev");
     const nextBtn = document.getElementById("reader-next");
 
+    console.log("[Init] Buttons found:", { prev: !!prevBtn, next: !!nextBtn });
+    console.log("[Init] Buttons visibility:", {
+      prevHidden: prevBtn?.classList.contains("hidden"),
+      nextHidden: nextBtn?.classList.contains("hidden"),
+    });
+
     prevBtn?.addEventListener("click", () => {
+      console.log("[PrevBtn] Clicked, currentFormat:", this.#currentFormat);
       if (this.#currentFormat === "pdf" && this.#pdfViewer) {
         this.#pdfViewer.prevPage();
       } else if (this.#currentFormat === "epub") {
         const inst = EpubViewer.instance;
+        console.log("[PrevBtn] EpubViewer.instance:", !!inst, "getRendition:", !!(inst?.getRendition));
         if (inst && inst.getRendition) {
-          inst.getRendition()?.prev();
+          const rendition = inst.getRendition();
+          console.log("[PrevBtn] Rendition:", !!rendition);
+          rendition?.prev();
         }
       }
     });
 
     nextBtn?.addEventListener("click", () => {
+      console.log("[NextBtn] Clicked, currentFormat:", this.#currentFormat);
       if (this.#currentFormat === "pdf" && this.#pdfViewer) {
         this.#pdfViewer.nextPage();
       } else if (this.#currentFormat === "epub") {
         const inst = EpubViewer.instance;
+        console.log("[NextBtn] EpubViewer.instance:", !!inst, "getRendition:", !!(inst?.getRendition));
         if (inst && inst.getRendition) {
-          inst.getRendition()?.next();
+          const rendition = inst.getRendition();
+          console.log("[NextBtn] Rendition:", !!rendition);
+          rendition?.next();
         }
       }
     });
