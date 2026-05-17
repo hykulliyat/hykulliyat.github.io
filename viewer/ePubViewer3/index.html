@@ -634,6 +634,18 @@
                     console.log("[DEBUG] Prev button visibility:", window.getComputedStyle(prevBtn).visibility);
                     console.log("[DEBUG] Prev button offsetTop:", prevBtn.offsetTop);
                     console.log("[DEBUG] Prev button offsetLeft:", prevBtn.offsetLeft);
+                    console.log("[DEBUG] Prev button height:", window.getComputedStyle(prevBtn).height);
+                    console.log("[DEBUG] Prev button width:", window.getComputedStyle(prevBtn).width);
+                    console.log("[DEBUG] Prev button background:", window.getComputedStyle(prevBtn).background);
+                    console.log("[DEBUG] Prev button color:", window.getComputedStyle(prevBtn).color);
+                    console.log("[DEBUG] Prev button innerHTML:", prevBtn.innerHTML);
+                    const prevIcon = prevBtn.querySelector("i");
+                    console.log("[DEBUG] Prev icon:", !!prevIcon);
+                    if (prevIcon) {
+                        console.log("[DEBUG] Prev icon display:", window.getComputedStyle(prevIcon).display);
+                        console.log("[DEBUG] Prev icon visibility:", window.getComputedStyle(prevIcon).visibility);
+                        console.log("[DEBUG] Prev icon font-family:", window.getComputedStyle(prevIcon).fontFamily);
+                    }
                 }
                 if (nextBtn) {
                     console.log("[DEBUG] Next button classes:", nextBtn.className);
@@ -641,6 +653,18 @@
                     console.log("[DEBUG] Next button visibility:", window.getComputedStyle(nextBtn).visibility);
                     console.log("[DEBUG] Next button offsetTop:", nextBtn.offsetTop);
                     console.log("[DEBUG] Next button offsetLeft:", nextBtn.offsetLeft);
+                    console.log("[DEBUG] Next button height:", window.getComputedStyle(nextBtn).height);
+                    console.log("[DEBUG] Next button width:", window.getComputedStyle(nextBtn).width);
+                    console.log("[DEBUG] Next button background:", window.getComputedStyle(nextBtn).background);
+                    console.log("[DEBUG] Next button color:", window.getComputedStyle(nextBtn).color);
+                    console.log("[DEBUG] Next button innerHTML:", nextBtn.innerHTML);
+                    const nextIcon = nextBtn.querySelector("i");
+                    console.log("[DEBUG] Next icon:", !!nextIcon);
+                    if (nextIcon) {
+                        console.log("[DEBUG] Next icon display:", window.getComputedStyle(nextIcon).display);
+                        console.log("[DEBUG] Next icon visibility:", window.getComputedStyle(nextIcon).visibility);
+                        console.log("[DEBUG] Next icon font-family:", window.getComputedStyle(nextIcon).fontFamily);
+                    }
                 }
             }, 3000);
         </script>
