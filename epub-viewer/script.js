@@ -1861,25 +1861,7 @@ class BookReaderApp {
   }
 
   async #init() {
-    // Check for ?file= URL parameter (direct book open from main page)
-    const urlParams = new URLSearchParams(window.location.search);
-    const fileUrl = urlParams.get("file");
-    if (fileUrl) {
-      await this.#openBookFromUrl(fileUrl);
-      return;
-    }
-
-    // Initialize library
-    this.#library = new BookLibrary("#library-view", (book) =>
-      this.#openBookFromLibrary(book),
-    );
-    await this.#library.init();
-
-    // Setup back to library button
-    const backBtn = document.getElementById("back-to-library");
-    backBtn?.addEventListener("click", () => this.#showLibrary());
-
-    // Setup navigation buttons for PDF
+    // Setup navigation buttons (must be done before URL check)
     const prevBtn = document.getElementById("reader-prev");
     const nextBtn = document.getElementById("reader-next");
 
@@ -1904,6 +1886,24 @@ class BookReaderApp {
         }
       }
     });
+
+    // Setup back to library button
+    const backBtn = document.getElementById("back-to-library");
+    backBtn?.addEventListener("click", () => this.#showLibrary());
+
+    // Check for ?file= URL parameter (direct book open from main page)
+    const urlParams = new URLSearchParams(window.location.search);
+    const fileUrl = urlParams.get("file");
+    if (fileUrl) {
+      await this.#openBookFromUrl(fileUrl);
+      return;
+    }
+
+    // Initialize library
+    this.#library = new BookLibrary("#library-view", (book) =>
+      this.#openBookFromLibrary(book),
+    );
+    await this.#library.init();
 
     // Setup keyboard navigation for both PDF and EPUB
     document.body.addEventListener("keydown", (e) => {
