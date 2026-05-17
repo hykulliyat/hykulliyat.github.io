@@ -170,7 +170,7 @@ class EpubViewer {
     searchBtn?.addEventListener("click", () => this.onSearchClick());
 
     // Location prompt
-    const locEl = this.#getEl(".bar .loc");
+    const locEl = document.getElementById("reader-loc");
     if (locEl) {
       locEl.style.cursor = "pointer";
       locEl.addEventListener("click", () => this.onLocationClick());
@@ -333,7 +333,7 @@ class EpubViewer {
   }
 
   updatePageIndicator(event) {
-    const locEl = this.#getEl(".bar .loc");
+    const locEl = document.getElementById("reader-loc");
     if (!locEl) {
       Logger.warn("Loc element not found");
       return;
@@ -801,7 +801,8 @@ class EpubViewer {
     // Clear book info like original
     DOM.setText(this.#getEl(".bar .book-title"), "");
     DOM.setText(this.#getEl(".bar .book-author"), "");
-    DOM.setText(this.#getEl(".bar .loc"), "");
+    const locEl = document.getElementById("reader-loc");
+    if (locEl) DOM.setText(locEl, "");
     this.#getEl(".sidebar .search-results") &&
       (this.#getEl(".sidebar .search-results").innerHTML = "");
     const searchBox = this.#getEl(".sidebar .search-box");
