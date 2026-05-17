@@ -1860,29 +1860,20 @@ class BookReaderApp {
     const prevBtn = document.getElementById("reader-prev");
     const nextBtn = document.getElementById("reader-next");
 
-    prevBtn?.addEventListener("click", () => {
+    const navigate = (direction) => {
       if (this.#currentFormat === "pdf" && this.#pdfViewer) {
-        this.#pdfViewer.prevPage();
+        direction === "prev" ? this.#pdfViewer.prevPage() : this.#pdfViewer.nextPage();
       } else if (this.#currentFormat === "epub") {
         const inst = EpubViewer.instance;
         if (inst && inst.getRendition) {
           const rendition = inst.getRendition();
-          rendition?.prev();
+          direction === "prev" ? rendition?.prev() : rendition?.next();
         }
       }
-    });
+    };
 
-    nextBtn?.addEventListener("click", () => {
-      if (this.#currentFormat === "pdf" && this.#pdfViewer) {
-        this.#pdfViewer.nextPage();
-      } else if (this.#currentFormat === "epub") {
-        const inst = EpubViewer.instance;
-        if (inst && inst.getRendition) {
-          const rendition = inst.getRendition();
-          rendition?.next();
-        }
-      }
-    });
+    prevBtn?.addEventListener("click", () => navigate("prev"));
+    nextBtn?.addEventListener("click", () => navigate("next"));
 
     // Setup back to library button
     const backBtn = document.getElementById("back-to-library");
