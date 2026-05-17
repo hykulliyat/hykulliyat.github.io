@@ -614,8 +614,25 @@
                 const navBar = document.querySelector(".reader-nav-bar");
                 const leftDiv = navBar?.querySelector(".left");
                 const rightDiv = navBar?.querySelector(".right");
+                const readerView = document.querySelector(".reader-view");
+                const readerContent = document.querySelector(".reader-content");
                 console.log("[DEBUG] Button elements:", { prev: !!prevBtn, next: !!nextBtn });
                 console.log("[DEBUG] Nav bar:", !!navBar);
+                console.log("[DEBUG] Reader view:", !!readerView);
+                console.log("[DEBUG] Reader content:", !!readerContent);
+                if (readerView) {
+                    const rvStyle = window.getComputedStyle(readerView);
+                    console.log("[DEBUG] Reader view display:", rvStyle.display);
+                    console.log("[DEBUG] Reader view visibility:", rvStyle.visibility);
+                    console.log("[DEBUG] Reader view height:", rvStyle.height);
+                    console.log("[DEBUG] Reader view overflow:", rvStyle.overflow);
+                }
+                if (readerContent) {
+                    const rcStyle = window.getComputedStyle(readerContent);
+                    console.log("[DEBUG] Reader content display:", rcStyle.display);
+                    console.log("[DEBUG] Reader content height:", rcStyle.height);
+                    console.log("[DEBUG] Reader content overflow:", rcStyle.overflow);
+                }
                 if (navBar) {
                     const navStyle = window.getComputedStyle(navBar);
                     console.log("[DEBUG] Nav bar display:", navStyle.display);
@@ -626,44 +643,16 @@
                     console.log("[DEBUG] Nav bar top:", navStyle.top);
                     console.log("[DEBUG] Nav bar z-index:", navStyle.zIndex);
                     console.log("[DEBUG] Nav bar overflow:", navStyle.overflow);
-                    console.log("[DEBUG] Nav bar overflow-x:", navStyle.overflowX);
-                    console.log("[DEBUG] Nav bar overflow-y:", navStyle.overflowY);
-                }
-                if (leftDiv) {
-                    const leftStyle = window.getComputedStyle(leftDiv);
-                    console.log("[DEBUG] Left div display:", leftStyle.display);
-                    console.log("[DEBUG] Left div height:", leftStyle.height);
-                    console.log("[DEBUG] Left div overflow:", leftStyle.overflow);
-                }
-                if (rightDiv) {
-                    const rightStyle = window.getComputedStyle(rightDiv);
-                    console.log("[DEBUG] Right div display:", rightStyle.display);
-                    console.log("[DEBUG] Right div height:", rightStyle.height);
-                    console.log("[DEBUG] Right div overflow:", rightStyle.overflow);
                 }
                 if (prevBtn) {
-                    console.log("[DEBUG] Prev button classes:", prevBtn.className);
                     console.log("[DEBUG] Prev button display:", window.getComputedStyle(prevBtn).display);
                     console.log("[DEBUG] Prev button visibility:", window.getComputedStyle(prevBtn).visibility);
-                    console.log("[DEBUG] Prev button offsetTop:", prevBtn.offsetTop);
-                    console.log("[DEBUG] Prev button offsetLeft:", prevBtn.offsetLeft);
-                    console.log("[DEBUG] Prev button height:", window.getComputedStyle(prevBtn).height);
-                    console.log("[DEBUG] Prev button width:", window.getComputedStyle(prevBtn).width);
                     console.log("[DEBUG] Prev button background:", window.getComputedStyle(prevBtn).background);
-                    console.log("[DEBUG] Prev button color:", window.getComputedStyle(prevBtn).color);
-                    console.log("[DEBUG] Prev button innerHTML:", prevBtn.innerHTML);
                 }
                 if (nextBtn) {
-                    console.log("[DEBUG] Next button classes:", nextBtn.className);
                     console.log("[DEBUG] Next button display:", window.getComputedStyle(nextBtn).display);
                     console.log("[DEBUG] Next button visibility:", window.getComputedStyle(nextBtn).visibility);
-                    console.log("[DEBUG] Next button offsetTop:", nextBtn.offsetTop);
-                    console.log("[DEBUG] Next button offsetLeft:", nextBtn.offsetLeft);
-                    console.log("[DEBUG] Next button height:", window.getComputedStyle(nextBtn).height);
-                    console.log("[DEBUG] Next button width:", window.getComputedStyle(nextBtn).width);
                     console.log("[DEBUG] Next button background:", window.getComputedStyle(nextBtn).background);
-                    console.log("[DEBUG] Next button color:", window.getComputedStyle(nextBtn).color);
-                    console.log("[DEBUG] Next button innerHTML:", nextBtn.innerHTML);
                 }
             }, 3000);
         </script>
