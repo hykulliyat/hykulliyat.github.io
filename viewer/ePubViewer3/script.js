@@ -940,31 +940,9 @@ class EpubViewer {
     const prevBtn = document.getElementById("reader-prev");
     const nextBtn = document.getElementById("reader-next");
 
-    Logger.log("Buttons found:", {
-      sidebar: !!sidebarBtn,
-      prev: !!prevBtn,
-      next: !!nextBtn,
-    });
-
-    if (prevBtn && nextBtn) {
-      prevBtn.classList.remove("hidden");
-      nextBtn.classList.remove("hidden");
-
-      // Force display style
-      prevBtn.style.display = "";
-      nextBtn.style.display = "";
-
-      Logger.log("Buttons hidden status after show:", {
-        prevHidden: prevBtn.classList.contains("hidden"),
-        nextHidden: nextBtn.classList.contains("hidden"),
-        prevDisplay: window.getComputedStyle(prevBtn).display,
-        nextDisplay: window.getComputedStyle(nextBtn).display,
-        prevVisibility: window.getComputedStyle(prevBtn).visibility,
-        nextVisibility: window.getComputedStyle(nextBtn).visibility,
-      });
-    } else {
-      Logger.error("Buttons not found!");
-    }
+    sidebarBtn?.classList.remove("hidden");
+    prevBtn?.classList.remove("hidden");
+    nextBtn?.classList.remove("hidden");
 
     // Store book key for localStorage
     const bookKey = this.#state.book?.key();
