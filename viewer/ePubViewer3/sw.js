@@ -1,8 +1,8 @@
 //@ts-nocheck
 console.log("sw: service worker loaded");
 
-const cachePrefix = "ePubViewer";
-const revision = 29;              // Update on every change
+const CACHE_NAME = "book-reader-v30";
+const revision = 30;              // Update on every change
 
 // Set the cache as the active cache.
 self.addEventListener('activate', event =>
