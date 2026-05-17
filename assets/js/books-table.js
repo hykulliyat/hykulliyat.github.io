@@ -32,10 +32,10 @@ async function loadBooksTable() {
             tdName.textContent = row[1];
             tr.appendChild(tdName);
             
-            // Extract paths from CSV links
-            const pdfMatch = row[2] ? row[2].match(/file=([^"]+)/) : null;
-            const epubMatch = row[3] ? row[3].match(/file=([^"]+)/) : null;
-            const docMatch = row[4] ? row[4].match(/file=([^"]+)/) : null;
+            // Extract paths from CSV links - extract from HTML anchor tags
+            const pdfMatch = row[2] ? row[2].match(/file=([^&\s]+)/) : null;
+            const epubMatch = row[3] ? row[3].match(/file=([^&\s]+)/) : null;
+            const docMatch = row[4] ? row[4].match(/file=([^&\s]+)/) : null;
             
             console.log(`Row ${index} - PDF match:`, pdfMatch);
             console.log(`Row ${index} - EPUB match:`, epubMatch);
