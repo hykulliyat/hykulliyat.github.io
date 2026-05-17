@@ -57,7 +57,7 @@ async function loadBooksTable() {
                 let epubPath = epubMatch[1].replace('kuranvebilim.github.io', 'hykulliyat.github.io');
                 // Remove any trailing HTML tag remnants
                 epubPath = epubPath.replace(/\s+target.*/, '');
-                tdEpub.innerHTML = `<a href="https://hykulliyat.github.io/viewer/ePubViewer3/?file=${epubPath}" rel="alternate bookmark nofollow" hreflang=tr type=application/epub+zip target="_blank"><img src="/assets/img/epub.png" alt="oku" title="OKU EPUB"></a>`;
+                tdEpub.innerHTML = `<a href="https://hykulliyat.github.io/epub-viewer/?file=${epubPath}" rel="alternate bookmark nofollow" hreflang=tr type=application/epub+zip target="_blank"><img src="/assets/img/epub.png" alt="oku" title="OKU EPUB"></a>`;
             }
             tr.appendChild(tdEpub);
             
