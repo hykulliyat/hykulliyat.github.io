@@ -615,16 +615,32 @@
             setTimeout(() => {
                 const prevBtn = document.getElementById("reader-prev");
                 const nextBtn = document.getElementById("reader-next");
+                const navBar = document.querySelector(".reader-nav-bar");
                 console.log("[DEBUG] Button elements:", { prev: !!prevBtn, next: !!nextBtn });
+                console.log("[DEBUG] Nav bar:", !!navBar);
+                if (navBar) {
+                    const navStyle = window.getComputedStyle(navBar);
+                    console.log("[DEBUG] Nav bar display:", navStyle.display);
+                    console.log("[DEBUG] Nav bar visibility:", navStyle.visibility);
+                    console.log("[DEBUG] Nav bar height:", navStyle.height);
+                    console.log("[DEBUG] Nav bar width:", navStyle.width);
+                    console.log("[DEBUG] Nav bar position:", navStyle.position);
+                    console.log("[DEBUG] Nav bar top:", navStyle.top);
+                    console.log("[DEBUG] Nav bar z-index:", navStyle.zIndex);
+                }
                 if (prevBtn) {
                     console.log("[DEBUG] Prev button classes:", prevBtn.className);
                     console.log("[DEBUG] Prev button display:", window.getComputedStyle(prevBtn).display);
                     console.log("[DEBUG] Prev button visibility:", window.getComputedStyle(prevBtn).visibility);
+                    console.log("[DEBUG] Prev button offsetTop:", prevBtn.offsetTop);
+                    console.log("[DEBUG] Prev button offsetLeft:", prevBtn.offsetLeft);
                 }
                 if (nextBtn) {
                     console.log("[DEBUG] Next button classes:", nextBtn.className);
                     console.log("[DEBUG] Next button display:", window.getComputedStyle(nextBtn).display);
                     console.log("[DEBUG] Next button visibility:", window.getComputedStyle(nextBtn).visibility);
+                    console.log("[DEBUG] Next button offsetTop:", nextBtn.offsetTop);
+                    console.log("[DEBUG] Next button offsetLeft:", nextBtn.offsetLeft);
                 }
             }, 3000);
         </script>
