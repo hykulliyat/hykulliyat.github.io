@@ -529,7 +529,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="bar reader-nav-bar">
+                <div class="bar reader-nav-bar" style="z-index: 9999 !important; position: relative !important;">
                     <div class="left">
                         <button class="prev" id="reader-prev" style="display: flex !important; background: #f0f0f0 !important; border: 1px solid #ccc !important; padding: 8px 12px !important; border-radius: 4px !important; cursor: pointer !important;">
                             <span style="font-size: 24px;">◀</span>
@@ -604,57 +604,6 @@
         <script src="pdf-toolbar.js"></script>
 
         <!-- Main Application -->
-        <script src="script.js?v=2"></script>
-
-        <!-- Debug script for button visibility -->
-        <script>
-            setTimeout(() => {
-                const prevBtn = document.getElementById("reader-prev");
-                const nextBtn = document.getElementById("reader-next");
-                const navBar = document.querySelector(".reader-nav-bar");
-                const leftDiv = navBar?.querySelector(".left");
-                const rightDiv = navBar?.querySelector(".right");
-                const readerView = document.querySelector(".reader-view");
-                const readerContent = document.querySelector(".reader-content");
-                console.log("[DEBUG] Button elements:", { prev: !!prevBtn, next: !!nextBtn });
-                console.log("[DEBUG] Nav bar:", !!navBar);
-                console.log("[DEBUG] Reader view:", !!readerView);
-                console.log("[DEBUG] Reader content:", !!readerContent);
-                if (readerView) {
-                    const rvStyle = window.getComputedStyle(readerView);
-                    console.log("[DEBUG] Reader view display:", rvStyle.display);
-                    console.log("[DEBUG] Reader view visibility:", rvStyle.visibility);
-                    console.log("[DEBUG] Reader view height:", rvStyle.height);
-                    console.log("[DEBUG] Reader view overflow:", rvStyle.overflow);
-                }
-                if (readerContent) {
-                    const rcStyle = window.getComputedStyle(readerContent);
-                    console.log("[DEBUG] Reader content display:", rcStyle.display);
-                    console.log("[DEBUG] Reader content height:", rcStyle.height);
-                    console.log("[DEBUG] Reader content overflow:", rcStyle.overflow);
-                }
-                if (navBar) {
-                    const navStyle = window.getComputedStyle(navBar);
-                    console.log("[DEBUG] Nav bar display:", navStyle.display);
-                    console.log("[DEBUG] Nav bar visibility:", navStyle.visibility);
-                    console.log("[DEBUG] Nav bar height:", navStyle.height);
-                    console.log("[DEBUG] Nav bar width:", navStyle.width);
-                    console.log("[DEBUG] Nav bar position:", navStyle.position);
-                    console.log("[DEBUG] Nav bar top:", navStyle.top);
-                    console.log("[DEBUG] Nav bar z-index:", navStyle.zIndex);
-                    console.log("[DEBUG] Nav bar overflow:", navStyle.overflow);
-                }
-                if (prevBtn) {
-                    console.log("[DEBUG] Prev button display:", window.getComputedStyle(prevBtn).display);
-                    console.log("[DEBUG] Prev button visibility:", window.getComputedStyle(prevBtn).visibility);
-                    console.log("[DEBUG] Prev button background:", window.getComputedStyle(prevBtn).background);
-                }
-                if (nextBtn) {
-                    console.log("[DEBUG] Next button display:", window.getComputedStyle(nextBtn).display);
-                    console.log("[DEBUG] Next button visibility:", window.getComputedStyle(nextBtn).visibility);
-                    console.log("[DEBUG] Next button background:", window.getComputedStyle(nextBtn).background);
-                }
-            }, 3000);
-        </script>
+        <script src="script.js"></script>
     </body>
 </html>
