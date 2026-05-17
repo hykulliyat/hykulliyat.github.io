@@ -612,6 +612,8 @@
                 const prevBtn = document.getElementById("reader-prev");
                 const nextBtn = document.getElementById("reader-next");
                 const navBar = document.querySelector(".reader-nav-bar");
+                const leftDiv = navBar?.querySelector(".left");
+                const rightDiv = navBar?.querySelector(".right");
                 console.log("[DEBUG] Button elements:", { prev: !!prevBtn, next: !!nextBtn });
                 console.log("[DEBUG] Nav bar:", !!navBar);
                 if (navBar) {
@@ -623,6 +625,21 @@
                     console.log("[DEBUG] Nav bar position:", navStyle.position);
                     console.log("[DEBUG] Nav bar top:", navStyle.top);
                     console.log("[DEBUG] Nav bar z-index:", navStyle.zIndex);
+                    console.log("[DEBUG] Nav bar overflow:", navStyle.overflow);
+                    console.log("[DEBUG] Nav bar overflow-x:", navStyle.overflowX);
+                    console.log("[DEBUG] Nav bar overflow-y:", navStyle.overflowY);
+                }
+                if (leftDiv) {
+                    const leftStyle = window.getComputedStyle(leftDiv);
+                    console.log("[DEBUG] Left div display:", leftStyle.display);
+                    console.log("[DEBUG] Left div height:", leftStyle.height);
+                    console.log("[DEBUG] Left div overflow:", leftStyle.overflow);
+                }
+                if (rightDiv) {
+                    const rightStyle = window.getComputedStyle(rightDiv);
+                    console.log("[DEBUG] Right div display:", rightStyle.display);
+                    console.log("[DEBUG] Right div height:", rightStyle.height);
+                    console.log("[DEBUG] Right div overflow:", rightStyle.overflow);
                 }
                 if (prevBtn) {
                     console.log("[DEBUG] Prev button classes:", prevBtn.className);
@@ -635,13 +652,6 @@
                     console.log("[DEBUG] Prev button background:", window.getComputedStyle(prevBtn).background);
                     console.log("[DEBUG] Prev button color:", window.getComputedStyle(prevBtn).color);
                     console.log("[DEBUG] Prev button innerHTML:", prevBtn.innerHTML);
-                    const prevIcon = prevBtn.querySelector("i");
-                    console.log("[DEBUG] Prev icon:", !!prevIcon);
-                    if (prevIcon) {
-                        console.log("[DEBUG] Prev icon display:", window.getComputedStyle(prevIcon).display);
-                        console.log("[DEBUG] Prev icon visibility:", window.getComputedStyle(prevIcon).visibility);
-                        console.log("[DEBUG] Prev icon font-family:", window.getComputedStyle(prevIcon).fontFamily);
-                    }
                 }
                 if (nextBtn) {
                     console.log("[DEBUG] Next button classes:", nextBtn.className);
@@ -654,13 +664,6 @@
                     console.log("[DEBUG] Next button background:", window.getComputedStyle(nextBtn).background);
                     console.log("[DEBUG] Next button color:", window.getComputedStyle(nextBtn).color);
                     console.log("[DEBUG] Next button innerHTML:", nextBtn.innerHTML);
-                    const nextIcon = nextBtn.querySelector("i");
-                    console.log("[DEBUG] Next icon:", !!nextIcon);
-                    if (nextIcon) {
-                        console.log("[DEBUG] Next icon display:", window.getComputedStyle(nextIcon).display);
-                        console.log("[DEBUG] Next icon visibility:", window.getComputedStyle(nextIcon).visibility);
-                        console.log("[DEBUG] Next icon font-family:", window.getComputedStyle(nextIcon).fontFamily);
-                    }
                 }
             }, 3000);
         </script>
