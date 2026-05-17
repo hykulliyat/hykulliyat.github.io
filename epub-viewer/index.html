@@ -11,7 +11,7 @@
         />
         <link
             rel="stylesheet"
-            href="/viewer/ePubViewer3/libs/normalize.min.css"
+            href="libs/normalize.min.css"
         />
         <link rel="stylesheet" href="style.css" />
         <!-- Modern PDF Toolbar Styles -->
@@ -600,11 +600,11 @@
 
         <!-- PDF.js Library v5.7.284 Legacy -->
         <script type="module">
-            import * as pdfjsLib from "libs/pdf.mjs";
+            import * as pdfjsLib from "./libs/pdf.mjs";
             window.pdfjsLib = pdfjsLib;
             // Use legacy build worker path
             pdfjsLib.GlobalWorkerOptions.workerSrc =
-                "libs/pdf.worker.mjs";
+                "./libs/pdf.worker.mjs";
         </script>
 
         <!-- Library Module -->
