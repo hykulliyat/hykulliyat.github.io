@@ -5,11 +5,20 @@ async function loadBooksTable() {
         const csvText = await response.text();
         const rows = parseCSV(csvText);
         
+        console.log('CSV rows loaded:', rows.length);
+        console.log('First row:', rows[0]);
+        
         const tbody = document.querySelector('#myTable tbody');
+        if (!tbody) {
+            console.error('Table body not found');
+            return;
+        }
         tbody.innerHTML = '';
         
         rows.forEach((row, index) => {
             if (index === 0) return; // Skip header row
+            
+            console.log(`Processing row ${index}:`, row);
             
             const tr = document.createElement('tr');
             
@@ -24,9 +33,13 @@ async function loadBooksTable() {
             tr.appendChild(tdName);
             
             // Extract paths from CSV links
-            const pdfMatch = row[2].match(/file=([^"]+)/);
-            const epubMatch = row[3].match(/file=([^"]+)/);
-            const docMatch = row[4].match(/file=([^"]+)/);
+            const pdfMatch = row[2] ? row[2].match(/file=([^"]+)/) : null;
+            const epubMatch = row[3] ? row[3].match(/file=([^"]+)/) : null;
+            const docMatch = row[4] ? row[4].match(/file=([^"]+)/) : null;
+            
+            console.log(`Row ${index} - PDF match:`, pdfMatch);
+            console.log(`Row ${index} - EPUB match:`, epubMatch);
+            console.log(`Row ${index} - DOC match:`, docMatch);
             
             // PDF Link
             const tdPdf = document.createElement('td');
@@ -59,7 +72,10 @@ async function loadBooksTable() {
         
         // Update count
         const count = rows.length - 1;
-        document.querySelector('#harun-yahya h2').innerHTML = `<strong>Adnan Harun Yahya Külliyatı - Oku veya İndir</strong>- ${count} Adet Eser`;
+        const heading = document.querySelector('#harun-yahya h2');
+        if (heading) {
+            heading.innerHTML = `<strong>Adnan Harun Yahya Külliyatı - Oku veya İndir</strong>- ${count} Adet Eser`;
+        }
         
     } catch (error) {
         console.error('Error loading books table:', error);
@@ -86,7 +102,7 @@ function parseCSV(text) {
         }
         result.push(current);
         return result;
-    }).filter(row => row.length > 1);
+    }).filter(row => row.length > 1 && row[0].trim() !== '');
 }
 
 // Load table when DOM is ready

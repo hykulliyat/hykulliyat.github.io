@@ -1382,7 +1382,7 @@ table tr:hover {background-color:#ffffff;}
 }
 
 #myInput {
-  background-image: url('/css/searchicon.png');
+  background-image: url('/assets/css/searchicon.png');
   background-position: 10px 10px;
   background-repeat: no-repeat;
   width: 100%;
@@ -1417,7 +1417,7 @@ table tr:hover {background-color:#ffffff;}
 }
 
 #myInput2 {
-  background-image: url('/css/searchicon.png');
+  background-image: url('/assets/css/searchicon.png');
   background-position: 10px 10px;
   background-repeat: no-repeat;
   width: 100%;
@@ -1903,7 +1903,7 @@ table tr:hover {background-color:#ffffff;}
 }
 
 #myInput {
-  background-image: url('/css/searchicon.png');
+  background-image: url('/assets/css/searchicon.png');
   background-position: 10px 10px;
   background-repeat: no-repeat;
   width: 100%;
@@ -1938,7 +1938,7 @@ table tr:hover {background-color:#ffffff;}
 }
 
 #myInput2 {
-  background-image: url('/css/searchicon.png');
+  background-image: url('/assets/css/searchicon.png');
   background-position: 10px 10px;
   background-repeat: no-repeat;
   width: 100%;
