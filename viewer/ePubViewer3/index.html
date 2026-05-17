@@ -609,5 +609,24 @@
 
         <!-- Main Application -->
         <script src="script.js?v=2"></script>
+
+        <!-- Debug script for button visibility -->
+        <script>
+            setTimeout(() => {
+                const prevBtn = document.getElementById("reader-prev");
+                const nextBtn = document.getElementById("reader-next");
+                console.log("[DEBUG] Button elements:", { prev: !!prevBtn, next: !!nextBtn });
+                if (prevBtn) {
+                    console.log("[DEBUG] Prev button classes:", prevBtn.className);
+                    console.log("[DEBUG] Prev button display:", window.getComputedStyle(prevBtn).display);
+                    console.log("[DEBUG] Prev button visibility:", window.getComputedStyle(prevBtn).visibility);
+                }
+                if (nextBtn) {
+                    console.log("[DEBUG] Next button classes:", nextBtn.className);
+                    console.log("[DEBUG] Next button display:", window.getComputedStyle(nextBtn).display);
+                    console.log("[DEBUG] Next button visibility:", window.getComputedStyle(nextBtn).visibility);
+                }
+            }, 3000);
+        </script>
     </body>
 </html>
