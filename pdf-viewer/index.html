@@ -89,6 +89,27 @@
         const canvas = document.getElementById('pdf-canvas');
         const ctx = canvas.getContext('2d');
 
+        // Check for ?file= URL parameter
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const fileUrl = urlParams.get('file');
+            if (fileUrl) {
+                loadPDFFromURL(fileUrl);
+            }
+        });
+
+        async function loadPDFFromURL(url) {
+            try {
+                const response = await fetch(url);
+                const arrayBuffer = await response.arrayBuffer();
+                const typedarray = new Uint8Array(arrayBuffer);
+                loadPDF(typedarray);
+            } catch (error) {
+                console.error('Error loading PDF from URL:', error);
+                alert('Error loading PDF from URL');
+            }
+        }
+
         function openPDF() {
             document.getElementById('file-input').click();
         }
