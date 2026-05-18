@@ -95,7 +95,7 @@ async function loadDocx(file) {
 // URL parametresi ile dosya yükle
 function loadFromUrlParam() {
     const urlParams = new URLSearchParams(window.location.search);
-    const fileUrl = urlParams.get('url');
+    const fileUrl = urlParams.get('file') || urlParams.get('url');
     
     if (fileUrl) {
         console.log('URL parametresi ile dosya yükleniyor:', fileUrl);
