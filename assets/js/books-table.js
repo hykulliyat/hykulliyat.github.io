@@ -49,6 +49,8 @@ async function loadBooksTable() {
                 pdfPath = pdfPath.replace('Harun_Yahya_Kitaplar', 'Harun-Yahya-Kitaplar');
                 // Remove any trailing HTML tag remnants
                 pdfPath = pdfPath.replace(/\s+target.*/, '');
+                // URL encode the path to handle spaces
+                pdfPath = encodeURIComponent(pdfPath);
                 tdPdf.innerHTML = `<a href="https://hykulliyat.github.io/pdf-viewer/?file=${pdfPath}" rel="alternate bookmark nofollow" hreflang=tr type=application/pdf target="_blank"><img src="/assets/img/pdf.png" alt="indir" title="İNDİR PDF"></a>`;
             }
             tr.appendChild(tdPdf);
@@ -61,6 +63,8 @@ async function loadBooksTable() {
                 epubPath = epubPath.replace('Harun_Yahya_Kitaplar', 'Harun-Yahya-Kitaplar');
                 // Remove any trailing HTML tag remnants
                 epubPath = epubPath.replace(/\s+target.*/, '');
+                // URL encode the path to handle spaces
+                epubPath = encodeURIComponent(epubPath);
                 tdEpub.innerHTML = `<a href="https://hykulliyat.github.io/epub-viewer/?file=${epubPath}" rel="alternate bookmark nofollow" hreflang=tr type=application/epub+zip target="_blank"><img src="/assets/img/epub.png" alt="oku" title="OKU EPUB"></a>`;
             }
             tr.appendChild(tdEpub);
@@ -75,6 +79,8 @@ async function loadBooksTable() {
                 docPath = docPath.replace(/\s+target.*/, '');
                 // Change /doc/ to /doc/ and ensure .docx extension
                 docPath = docPath.replace(/\.doc$/, '.docx');
+                // URL encode the path to handle spaces
+                docPath = encodeURIComponent(docPath);
                 tdDocx.innerHTML = `<a href="https://hykulliyat.github.io/docx-viewer/?file=${docPath}" rel="alternate bookmark nofollow" hreflang=tr type=application/vnd.openxmlformats-officedocument.wordprocessingml.document target="_blank"><img src="/assets/img/odt.png" alt="indir" title="YAZDIR DOCX"></a>`;
             }
             tr.appendChild(tdDocx);
