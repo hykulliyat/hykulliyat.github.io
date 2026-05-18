@@ -32,56 +32,77 @@ async function loadBooksTable() {
             tdName.textContent = row[1];
             tr.appendChild(tdName);
             
-            // Extract paths from CSV links - extract from HTML anchor tags
-            const pdfMatch = row[2] ? row[2].match(/file=([^&]+?)\s+target/) : null;
-            const epubMatch = row[3] ? row[3].match(/#(.+?)\s+target/) : null;
-            const docMatch = row[4] ? row[4].match(/href=(.+?)\s+target/) : null;
+            // Extract paths from CSV links - extract from HTML anchor tags using DOM parser
+            const parser = new DOMParser();
+            let pdfPath = null, epubPath = null, docPath = null;
             
-            console.log(`Row ${index} - PDF match:`, pdfMatch);
-            console.log(`Row ${index} - EPUB match:`, epubMatch);
-            console.log(`Row ${index} - DOC match:`, docMatch);
+            if (row[2]) {
+                const pdfDoc = parser.parseFromString(row[2], 'text/html');
+                const pdfLink = pdfDoc.querySelector('a');
+                if (pdfLink) {
+                    const pdfUrl = pdfLink.href;
+                    const pdfMatch = pdfUrl.match(/file=([^&]+)/);
+                    if (pdfMatch) pdfPath = pdfMatch[1];
+                }
+            }
+            
+            if (row[3]) {
+                const epubDoc = parser.parseFromString(row[3], 'text/html');
+                const epubLink = epubDoc.querySelector('a');
+                if (epubLink) {
+                    const epubUrl = epubLink.href;
+                    const epubMatch = epubUrl.match(/#(.+)/);
+                    if (epubMatch) epubPath = epubMatch[1];
+                }
+            }
+            
+            if (row[4]) {
+                const docDoc = parser.parseFromString(row[4], 'text/html');
+                const docLink = docDoc.querySelector('a');
+                if (docLink) {
+                    docPath = docLink.href;
+                }
+            }
+            
+            console.log(`Row ${index} - PDF path:`, pdfPath);
+            console.log(`Row ${index} - EPUB path:`, epubPath);
+            console.log(`Row ${index} - DOC path:`, docPath);
             
             // PDF Link
             const tdPdf = document.createElement('td');
-            if (pdfMatch) {
-                let pdfPath = pdfMatch[1].replace('kuranvebilim.github.io', 'hykulliyat.github.io');
+            if (pdfPath) {
+                let processedPdfPath = pdfPath.replace('kuranvebilim.github.io', 'hykulliyat.github.io');
                 // Replace underscores with hyphens in directory name
-                pdfPath = pdfPath.replace('Harun_Yahya_Kitaplar', 'Harun-Yahya-Kitaplar');
-                // Remove any trailing HTML tag remnants
-                pdfPath = pdfPath.replace(/\s+target.*/, '');
+                processedPdfPath = processedPdfPath.replace('Harun_Yahya_Kitaplar', 'Harun-Yahya-Kitaplar');
                 // URL encode the path to handle spaces
-                pdfPath = encodeURIComponent(pdfPath);
-                tdPdf.innerHTML = `<a href="https://hykulliyat.github.io/pdf-viewer/?file=${pdfPath}" rel="alternate bookmark nofollow" hreflang=tr type=application/pdf target="_blank"><img src="/assets/img/pdf.png" alt="indir" title="İNDİR PDF"></a>`;
+                processedPdfPath = encodeURIComponent(processedPdfPath);
+                tdPdf.innerHTML = `<a href="https://hykulliyat.github.io/pdf-viewer/?file=${processedPdfPath}" rel="alternate bookmark nofollow" hreflang=tr type=application/pdf target="_blank"><img src="/assets/img/pdf.png" alt="indir" title="İNDİR PDF"></a>`;
             }
             tr.appendChild(tdPdf);
             
             // EPUB Link
             const tdEpub = document.createElement('td');
-            if (epubMatch) {
-                let epubPath = epubMatch[1].replace('kuranvebilim.github.io', 'hykulliyat.github.io');
+            if (epubPath) {
+                let processedEpubPath = epubPath.replace('kuranvebilim.github.io', 'hykulliyat.github.io');
                 // Replace underscores with hyphens in directory name
-                epubPath = epubPath.replace('Harun_Yahya_Kitaplar', 'Harun-Yahya-Kitaplar');
-                // Remove any trailing HTML tag remnants
-                epubPath = epubPath.replace(/\s+target.*/, '');
+                processedEpubPath = processedEpubPath.replace('Harun_Yahya_Kitaplar', 'Harun-Yahya-Kitaplar');
                 // URL encode the path to handle spaces
-                epubPath = encodeURIComponent(epubPath);
-                tdEpub.innerHTML = `<a href="https://hykulliyat.github.io/epub-viewer/?file=${epubPath}" rel="alternate bookmark nofollow" hreflang=tr type=application/epub+zip target="_blank"><img src="/assets/img/epub.png" alt="oku" title="OKU EPUB"></a>`;
+                processedEpubPath = encodeURIComponent(processedEpubPath);
+                tdEpub.innerHTML = `<a href="https://hykulliyat.github.io/epub-viewer/?file=${processedEpubPath}" rel="alternate bookmark nofollow" hreflang=tr type=application/epub+zip target="_blank"><img src="/assets/img/epub.png" alt="oku" title="OKU EPUB"></a>`;
             }
             tr.appendChild(tdEpub);
             
             // DOCX Link (changed from ODT to DOCX)
             const tdDocx = document.createElement('td');
-            if (docMatch) {
-                let docPath = docMatch[1].replace('kuranvebilim.github.io', 'hykulliyat.github.io');
+            if (docPath) {
+                let processedDocPath = docPath.replace('kuranvebilim.github.io', 'hykulliyat.github.io');
                 // Replace underscores with hyphens in directory name
-                docPath = docPath.replace('Harun_Yahya_Kitaplar', 'Harun-Yahya-Kitaplar');
-                // Remove any trailing HTML tag remnants
-                docPath = docPath.replace(/\s+target.*/, '');
+                processedDocPath = processedDocPath.replace('Harun_Yahya_Kitaplar', 'Harun-Yahya-Kitaplar');
                 // Change /doc/ to /doc/ and ensure .docx extension
-                docPath = docPath.replace(/\.doc$/, '.docx');
+                processedDocPath = processedDocPath.replace(/\.doc$/, '.docx');
                 // URL encode the path to handle spaces
-                docPath = encodeURIComponent(docPath);
-                tdDocx.innerHTML = `<a href="https://hykulliyat.github.io/docx-viewer/?file=${docPath}" rel="alternate bookmark nofollow" hreflang=tr type=application/vnd.openxmlformats-officedocument.wordprocessingml.document target="_blank"><img src="/assets/img/odt.png" alt="indir" title="YAZDIR DOCX"></a>`;
+                processedDocPath = encodeURIComponent(processedDocPath);
+                tdDocx.innerHTML = `<a href="https://hykulliyat.github.io/docx-viewer/?file=${processedDocPath}" rel="alternate bookmark nofollow" hreflang=tr type=application/vnd.openxmlformats-officedocument.wordprocessingml.document target="_blank"><img src="/assets/img/odt.png" alt="indir" title="YAZDIR DOCX"></a>`;
             }
             tr.appendChild(tdDocx);
             
