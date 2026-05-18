@@ -333,7 +333,7 @@ class EpubViewer {
   }
 
   updatePageIndicator(event) {
-    const locEl = this.#getEl(".reader-nav-bar .loc") || this.#getEl(".bar .loc");
+    const locEl = document.getElementById("reader-loc") || this.#getEl(".reader-nav-bar .loc") || this.#getEl(".bar .loc");
     if (!locEl) {
       Logger.warn("Loc element not found");
       return;
