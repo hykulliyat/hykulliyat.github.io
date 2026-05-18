@@ -32,32 +32,34 @@ async function loadBooksTable() {
             tdName.textContent = row[1];
             tr.appendChild(tdName);
             
-            // Extract paths from CSV links - extract from HTML anchor tags using regex for unquoted attributes
+            // Extract paths from CSV links - extract from HTML anchor tags
             let pdfPath = null, epubPath = null, docPath = null;
             
             if (row[2]) {
-                // Match href attribute value (quoted or unquoted) until next attribute or closing tag
-                const hrefMatch = row[2].match(/href\s*=\s*(["']?)([^"'\s>][^>]*?)\1?\s*(?:target|>|$)/);
+                // Match href attribute value (quoted or unquoted) and extract file parameter
+                const hrefMatch = row[2].match(/href\s*=\s*(["'])(.*?)\1|href\s*=\s*([^\s>]+)/);
                 if (hrefMatch) {
-                    const fileMatch = hrefMatch[2].match(/file=([^&]+)/);
+                    const hrefValue = hrefMatch[2] || hrefMatch[3];
+                    const fileMatch = hrefValue.match(/file=([^&]+)/);
                     if (fileMatch) pdfPath = fileMatch[1];
                 }
             }
             
             if (row[3]) {
-                // Match href attribute value (quoted or unquoted) until next attribute or closing tag
-                const hrefMatch = row[3].match(/href\s*=\s*(["']?)([^"'\s>][^>]*?)\1?\s*(?:target|>|$)/);
+                // Match href attribute value (quoted or unquoted) and extract URL after #
+                const hrefMatch = row[3].match(/href\s*=\s*(["'])(.*?)\1|href\s*=\s*([^\s>]+)/);
                 if (hrefMatch) {
-                    const hashMatch = hrefMatch[2].match(/#(.+)/);
+                    const hrefValue = hrefMatch[2] || hrefMatch[3];
+                    const hashMatch = hrefValue.match(/#(.+)/);
                     if (hashMatch) epubPath = hashMatch[1];
                 }
             }
             
             if (row[4]) {
-                // Match href attribute value (quoted or unquoted) until next attribute or closing tag
-                const hrefMatch = row[4].match(/href\s*=\s*(["']?)([^"'\s>][^>]*?)\1?\s*(?:target|>|$)/);
+                // Match href attribute value (quoted or unquoted)
+                const hrefMatch = row[4].match(/href\s*=\s*(["'])(.*?)\1|href\s*=\s*([^\s>]+)/);
                 if (hrefMatch) {
-                    docPath = hrefMatch[2];
+                    docPath = hrefMatch[2] || hrefMatch[3];
                 }
             }
             
@@ -71,8 +73,6 @@ async function loadBooksTable() {
                 let processedPdfPath = pdfPath.replace('kuranvebilim.github.io', 'hykulliyat.github.io');
                 // Replace underscores with hyphens in directory name
                 processedPdfPath = processedPdfPath.replace('Harun_Yahya_Kitaplar', 'Harun-Yahya-Kitaplar');
-                // URL encode the path to handle spaces
-                processedPdfPath = encodeURIComponent(processedPdfPath);
                 tdPdf.innerHTML = `<a href="https://hykulliyat.github.io/pdf-viewer/?file=${processedPdfPath}" rel="alternate bookmark nofollow" hreflang=tr type=application/pdf target="_blank"><img src="/assets/img/pdf.png" alt="indir" title="İNDİR PDF"></a>`;
             }
             tr.appendChild(tdPdf);
@@ -83,8 +83,6 @@ async function loadBooksTable() {
                 let processedEpubPath = epubPath.replace('kuranvebilim.github.io', 'hykulliyat.github.io');
                 // Replace underscores with hyphens in directory name
                 processedEpubPath = processedEpubPath.replace('Harun_Yahya_Kitaplar', 'Harun-Yahya-Kitaplar');
-                // URL encode the path to handle spaces
-                processedEpubPath = encodeURIComponent(processedEpubPath);
                 tdEpub.innerHTML = `<a href="https://hykulliyat.github.io/epub-viewer/?file=${processedEpubPath}" rel="alternate bookmark nofollow" hreflang=tr type=application/epub+zip target="_blank"><img src="/assets/img/epub.png" alt="oku" title="OKU EPUB"></a>`;
             }
             tr.appendChild(tdEpub);
@@ -97,8 +95,6 @@ async function loadBooksTable() {
                 processedDocPath = processedDocPath.replace('Harun_Yahya_Kitaplar', 'Harun-Yahya-Kitaplar');
                 // Change /doc/ to /doc/ and ensure .docx extension
                 processedDocPath = processedDocPath.replace(/\.doc$/, '.docx');
-                // URL encode the path to handle spaces
-                processedDocPath = encodeURIComponent(processedDocPath);
                 tdDocx.innerHTML = `<a href="https://hykulliyat.github.io/docx-viewer/?file=${processedDocPath}" rel="alternate bookmark nofollow" hreflang=tr type=application/vnd.openxmlformats-officedocument.wordprocessingml.document target="_blank"><img src="/assets/img/odt.png" alt="indir" title="YAZDIR DOCX"></a>`;
             }
             tr.appendChild(tdDocx);
