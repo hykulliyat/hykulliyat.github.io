@@ -45,6 +45,8 @@ async function loadBooksTable() {
             const tdPdf = document.createElement('td');
             if (pdfMatch) {
                 let pdfPath = pdfMatch[1].replace('kuranvebilim.github.io', 'hykulliyat.github.io');
+                // Replace underscores with hyphens in directory name
+                pdfPath = pdfPath.replace('Harun_Yahya_Kitaplar', 'Harun-Yahya-Kitaplar');
                 // Remove any trailing HTML tag remnants
                 pdfPath = pdfPath.replace(/\s+target.*/, '');
                 tdPdf.innerHTML = `<a href="https://hykulliyat.github.io/pdf-viewer/?file=${pdfPath}" rel="alternate bookmark nofollow" hreflang=tr type=application/pdf target="_blank"><img src="/assets/img/pdf.png" alt="indir" title="İNDİR PDF"></a>`;
@@ -55,6 +57,8 @@ async function loadBooksTable() {
             const tdEpub = document.createElement('td');
             if (epubMatch) {
                 let epubPath = epubMatch[1].replace('kuranvebilim.github.io', 'hykulliyat.github.io');
+                // Replace underscores with hyphens in directory name
+                epubPath = epubPath.replace('Harun_Yahya_Kitaplar', 'Harun-Yahya-Kitaplar');
                 // Remove any trailing HTML tag remnants
                 epubPath = epubPath.replace(/\s+target.*/, '');
                 tdEpub.innerHTML = `<a href="https://hykulliyat.github.io/epub-viewer/?file=${epubPath}" rel="alternate bookmark nofollow" hreflang=tr type=application/epub+zip target="_blank"><img src="/assets/img/epub.png" alt="oku" title="OKU EPUB"></a>`;
@@ -65,6 +69,8 @@ async function loadBooksTable() {
             const tdDocx = document.createElement('td');
             if (docMatch) {
                 let docPath = docMatch[1].replace('kuranvebilim.github.io', 'hykulliyat.github.io');
+                // Replace underscores with hyphens in directory name
+                docPath = docPath.replace('Harun_Yahya_Kitaplar', 'Harun-Yahya-Kitaplar');
                 // Remove any trailing HTML tag remnants
                 docPath = docPath.replace(/\s+target.*/, '');
                 // Change /doc/ to /doc/ and ensure .docx extension
