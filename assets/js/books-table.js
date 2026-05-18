@@ -43,25 +43,21 @@ async function loadBooksTable() {
                 links.forEach(link => {
                     if (!link.includes('<a')) return;
                     
-                    // Match href attribute value
-                    const hrefMatch = link.match(/href\s*=\s*(["'])(.*?)\1|href\s*=\s*([^\s>]+)/);
-                    if (hrefMatch) {
-                        const hrefValue = hrefMatch[2] || hrefMatch[3];
-                        
-                        // Check if this is PDF link (contains file= parameter)
-                        if (link.includes('PDF')) {
-                            const fileMatch = hrefValue.match(/file=([^&]+)/);
-                            if (fileMatch) pdfPath = fileMatch[1];
-                        }
-                        // Check if this is EPUB link (contains #)
-                        else if (link.includes('ePub')) {
-                            const hashMatch = hrefValue.match(/#(.+)/);
-                            if (hashMatch) epubPath = hashMatch[1];
-                        }
-                        // Check if this is DOC link
-                        else if (link.includes('DOC')) {
-                            docPath = hrefValue;
-                        }
+                    // Check if this is PDF link (contains file= parameter)
+                    if (link.includes('PDF')) {
+                        // Extract the file parameter value from nested quotes
+                        const fileMatch = link.match(/file="([^"]+)"/);
+                        if (fileMatch) pdfPath = fileMatch[1];
+                    }
+                    // Check if this is EPUB link (contains #)
+                    else if (link.includes('ePub')) {
+                        const hashMatch = link.match(/#([^" >]+)/);
+                        if (hashMatch) epubPath = hashMatch[1];
+                    }
+                    // Check if this is DOC link
+                    else if (link.includes('DOC')) {
+                        const hrefMatch = link.match(/href="([^"]+)"/);
+                        if (hrefMatch) docPath = hrefMatch[1];
                     }
                 });
             }
