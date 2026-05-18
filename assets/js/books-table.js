@@ -32,35 +32,32 @@ async function loadBooksTable() {
             tdName.textContent = row[1];
             tr.appendChild(tdName);
             
-            // Extract paths from CSV links - extract from HTML anchor tags using DOM parser
-            const parser = new DOMParser();
+            // Extract paths from CSV links - extract from HTML anchor tags using regex for unquoted attributes
             let pdfPath = null, epubPath = null, docPath = null;
             
             if (row[2]) {
-                const pdfDoc = parser.parseFromString(row[2], 'text/html');
-                const pdfLink = pdfDoc.querySelector('a');
-                if (pdfLink) {
-                    const pdfUrl = pdfLink.href;
-                    const pdfMatch = pdfUrl.match(/file=([^&]+)/);
-                    if (pdfMatch) pdfPath = pdfMatch[1];
+                // Match href attribute value (quoted or unquoted) until next attribute or closing tag
+                const hrefMatch = row[2].match(/href\s*=\s*(["']?)([^"'\s>][^>]*?)\1?\s*(?:target|>|$)/);
+                if (hrefMatch) {
+                    const fileMatch = hrefMatch[2].match(/file=([^&]+)/);
+                    if (fileMatch) pdfPath = fileMatch[1];
                 }
             }
             
             if (row[3]) {
-                const epubDoc = parser.parseFromString(row[3], 'text/html');
-                const epubLink = epubDoc.querySelector('a');
-                if (epubLink) {
-                    const epubUrl = epubLink.href;
-                    const epubMatch = epubUrl.match(/#(.+)/);
-                    if (epubMatch) epubPath = epubMatch[1];
+                // Match href attribute value (quoted or unquoted) until next attribute or closing tag
+                const hrefMatch = row[3].match(/href\s*=\s*(["']?)([^"'\s>][^>]*?)\1?\s*(?:target|>|$)/);
+                if (hrefMatch) {
+                    const hashMatch = hrefMatch[2].match(/#(.+)/);
+                    if (hashMatch) epubPath = hashMatch[1];
                 }
             }
             
             if (row[4]) {
-                const docDoc = parser.parseFromString(row[4], 'text/html');
-                const docLink = docDoc.querySelector('a');
-                if (docLink) {
-                    docPath = docLink.href;
+                // Match href attribute value (quoted or unquoted) until next attribute or closing tag
+                const hrefMatch = row[4].match(/href\s*=\s*(["']?)([^"'\s>][^>]*?)\1?\s*(?:target|>|$)/);
+                if (hrefMatch) {
+                    docPath = hrefMatch[2];
                 }
             }
             
