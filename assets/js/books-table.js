@@ -33,34 +33,37 @@ async function loadBooksTable() {
             tr.appendChild(tdName);
             
             // Extract paths from CSV links - extract from HTML anchor tags
+            // All three links are combined in row[2] as comma-separated anchor tags
             let pdfPath = null, epubPath = null, docPath = null;
             
             if (row[2]) {
-                // Match href attribute value (quoted or unquoted) and extract file parameter
-                const hrefMatch = row[2].match(/href\s*=\s*(["'])(.*?)\1|href\s*=\s*([^\s>]+)/);
-                if (hrefMatch) {
-                    const hrefValue = hrefMatch[2] || hrefMatch[3];
-                    const fileMatch = hrefValue.match(/file=([^&]+)/);
-                    if (fileMatch) pdfPath = fileMatch[1];
-                }
-            }
-            
-            if (row[3]) {
-                // Match href attribute value (quoted or unquoted) and extract URL after #
-                const hrefMatch = row[3].match(/href\s*=\s*(["'])(.*?)\1|href\s*=\s*([^\s>]+)/);
-                if (hrefMatch) {
-                    const hrefValue = hrefMatch[2] || hrefMatch[3];
-                    const hashMatch = hrefValue.match(/#(.+)/);
-                    if (hashMatch) epubPath = hashMatch[1];
-                }
-            }
-            
-            if (row[4]) {
-                // Match href attribute value (quoted or unquoted)
-                const hrefMatch = row[4].match(/href\s*=\s*(["'])(.*?)\1|href\s*=\s*([^\s>]+)/);
-                if (hrefMatch) {
-                    docPath = hrefMatch[2] || hrefMatch[3];
-                }
+                // Split the combined HTML string by </a> to get individual anchor tags
+                const links = row[2].split(/<\/a>/);
+                
+                links.forEach(link => {
+                    if (!link.includes('<a')) return;
+                    
+                    // Match href attribute value
+                    const hrefMatch = link.match(/href\s*=\s*(["'])(.*?)\1|href\s*=\s*([^\s>]+)/);
+                    if (hrefMatch) {
+                        const hrefValue = hrefMatch[2] || hrefMatch[3];
+                        
+                        // Check if this is PDF link (contains file= parameter)
+                        if (link.includes('PDF')) {
+                            const fileMatch = hrefValue.match(/file=([^&]+)/);
+                            if (fileMatch) pdfPath = fileMatch[1];
+                        }
+                        // Check if this is EPUB link (contains #)
+                        else if (link.includes('ePub')) {
+                            const hashMatch = hrefValue.match(/#(.+)/);
+                            if (hashMatch) epubPath = hashMatch[1];
+                        }
+                        // Check if this is DOC link
+                        else if (link.includes('DOC')) {
+                            docPath = hrefValue;
+                        }
+                    }
+                });
             }
             
             console.log(`Row ${index} - PDF path:`, pdfPath);
