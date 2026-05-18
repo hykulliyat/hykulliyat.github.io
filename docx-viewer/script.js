@@ -60,15 +60,18 @@ async function loadDocx(file) {
         console.log('ArrayBuffer boyutu:', arrayBuffer.byteLength, 'bytes');
         
         // docx-preview kütüphanesinin yüklü olup olmadığını kontrol et
-        if (typeof window.docxpreview === 'undefined') {
+        const docxLib = window.docx || window.docxpreview || window.docxrender;
+        if (typeof docxLib === 'undefined') {
+            console.log('Available window properties:', Object.keys(window).filter(k => k.includes('docx')));
             throw new Error('docx-preview kütüphanesi yüklenmedi');
         }
         
         console.log('docx-preview.renderAsync çağrılıyor...');
-        console.log('docx-preview methods:', Object.keys(window.docxpreview));
+        console.log('docx-preview library:', docxLib);
+        console.log('docx-preview methods:', Object.keys(docxLib));
         
         // docx-preview ile render
-        const docx = await window.docxpreview.renderAsync(arrayBuffer, docxPreview, null, {
+        const docx = await docxLib.renderAsync(arrayBuffer, docxPreview, null, {
             className: 'docx-content',
             inWrapper: true,
             ignoreWidth: false,
@@ -125,14 +128,17 @@ async function loadDocxFromUrl(fileUrl) {
         console.log('ArrayBuffer boyutu:', arrayBuffer.byteLength, 'bytes');
         
         // docx-preview kütüphanesinin yüklü olup olmadığını kontrol et
-        if (typeof window.docxpreview === 'undefined') {
+        const docxLib = window.docx || window.docxpreview || window.docxrender;
+        if (typeof docxLib === 'undefined') {
+            console.log('Available window properties:', Object.keys(window).filter(k => k.includes('docx')));
             throw new Error('docx-preview kütüphanesi yüklenmedi');
         }
         
         console.log('docx-preview.renderAsync çağrılıyor...');
+        console.log('docx-preview library:', docxLib);
         
         // docx-preview ile render
-        const docx = await window.docxpreview.renderAsync(arrayBuffer, docxPreview, null, {
+        const docx = await docxLib.renderAsync(arrayBuffer, docxPreview, null, {
             className: 'docx-content',
             inWrapper: true,
             ignoreWidth: false,
