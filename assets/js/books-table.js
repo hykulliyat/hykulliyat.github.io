@@ -73,6 +73,11 @@ async function loadBooksTable() {
                 let processedPdfPath = pdfPath.replace('kuranvebilim.github.io', 'hykulliyat.github.io');
                 // Replace underscores with hyphens in directory name
                 processedPdfPath = processedPdfPath.replace('Harun_Yahya_Kitaplar', 'Harun-Yahya-Kitaplar');
+                // URL encode only the filename portion
+                const urlParts = processedPdfPath.split('/');
+                const filename = urlParts.pop();
+                const encodedFilename = encodeURIComponent(filename);
+                processedPdfPath = urlParts.join('/') + '/' + encodedFilename;
                 tdPdf.innerHTML = `<a href="https://hykulliyat.github.io/pdf-viewer/?file=${processedPdfPath}" rel="alternate bookmark nofollow" hreflang=tr type=application/pdf target="_blank"><img src="/assets/img/pdf.png" alt="indir" title="İNDİR PDF"></a>`;
             }
             tr.appendChild(tdPdf);
@@ -83,6 +88,11 @@ async function loadBooksTable() {
                 let processedEpubPath = epubPath.replace('kuranvebilim.github.io', 'hykulliyat.github.io');
                 // Replace underscores with hyphens in directory name
                 processedEpubPath = processedEpubPath.replace('Harun_Yahya_Kitaplar', 'Harun-Yahya-Kitaplar');
+                // URL encode only the filename portion
+                const urlParts = processedEpubPath.split('/');
+                const filename = urlParts.pop();
+                const encodedFilename = encodeURIComponent(filename);
+                processedEpubPath = urlParts.join('/') + '/' + encodedFilename;
                 tdEpub.innerHTML = `<a href="https://hykulliyat.github.io/epub-viewer/?file=${processedEpubPath}" rel="alternate bookmark nofollow" hreflang=tr type=application/epub+zip target="_blank"><img src="/assets/img/epub.png" alt="oku" title="OKU EPUB"></a>`;
             }
             tr.appendChild(tdEpub);
@@ -95,6 +105,11 @@ async function loadBooksTable() {
                 processedDocPath = processedDocPath.replace('Harun_Yahya_Kitaplar', 'Harun-Yahya-Kitaplar');
                 // Change /doc/ to /doc/ and ensure .docx extension
                 processedDocPath = processedDocPath.replace(/\.doc$/, '.docx');
+                // URL encode only the filename portion
+                const urlParts = processedDocPath.split('/');
+                const filename = urlParts.pop();
+                const encodedFilename = encodeURIComponent(filename);
+                processedDocPath = urlParts.join('/') + '/' + encodedFilename;
                 tdDocx.innerHTML = `<a href="https://hykulliyat.github.io/docx-viewer/?file=${processedDocPath}" rel="alternate bookmark nofollow" hreflang=tr type=application/vnd.openxmlformats-officedocument.wordprocessingml.document target="_blank"><img src="/assets/img/odt.png" alt="indir" title="YAZDIR DOCX"></a>`;
             }
             tr.appendChild(tdDocx);
