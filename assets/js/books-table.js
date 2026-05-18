@@ -127,12 +127,20 @@ function parseCSV(text) {
         const result = [];
         let current = '';
         let inQuotes = false;
+        let inHtmlTag = false;
         
         for (let i = 0; i < line.length; i++) {
             const char = line[i];
             if (char === '"') {
                 inQuotes = !inQuotes;
-            } else if (char === ',' && !inQuotes) {
+                current += char;
+            } else if (char === '<' && !inQuotes) {
+                inHtmlTag = true;
+                current += char;
+            } else if (char === '>' && !inQuotes) {
+                inHtmlTag = false;
+                current += char;
+            } else if (char === ',' && !inQuotes && !inHtmlTag) {
                 result.push(current);
                 current = '';
             } else {
