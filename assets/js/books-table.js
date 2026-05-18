@@ -76,7 +76,9 @@ async function loadBooksTable() {
                 // URL encode only the filename portion
                 const urlParts = processedPdfPath.split('/');
                 const filename = urlParts.pop();
-                const encodedFilename = encodeURIComponent(filename);
+                // Replace spaces with hyphens in filename
+                const normalizedFilename = filename.replace(/\s+/g, '-');
+                const encodedFilename = encodeURIComponent(normalizedFilename);
                 processedPdfPath = urlParts.join('/') + '/' + encodedFilename;
                 tdPdf.innerHTML = `<a href="https://hykulliyat.github.io/pdf-viewer/?file=${processedPdfPath}" rel="alternate bookmark nofollow" hreflang=tr type=application/pdf target="_blank"><img src="/assets/img/pdf.png" alt="indir" title="İNDİR PDF"></a>`;
             }
@@ -91,7 +93,9 @@ async function loadBooksTable() {
                 // URL encode only the filename portion
                 const urlParts = processedEpubPath.split('/');
                 const filename = urlParts.pop();
-                const encodedFilename = encodeURIComponent(filename);
+                // Replace spaces with hyphens in filename
+                const normalizedFilename = filename.replace(/\s+/g, '-');
+                const encodedFilename = encodeURIComponent(normalizedFilename);
                 processedEpubPath = urlParts.join('/') + '/' + encodedFilename;
                 tdEpub.innerHTML = `<a href="https://hykulliyat.github.io/epub-viewer/?file=${processedEpubPath}" rel="alternate bookmark nofollow" hreflang=tr type=application/epub+zip target="_blank"><img src="/assets/img/epub.png" alt="oku" title="OKU EPUB"></a>`;
             }
@@ -108,7 +112,9 @@ async function loadBooksTable() {
                 // URL encode only the filename portion
                 const urlParts = processedDocPath.split('/');
                 const filename = urlParts.pop();
-                const encodedFilename = encodeURIComponent(filename);
+                // Replace spaces with hyphens in filename
+                const normalizedFilename = filename.replace(/\s+/g, '-');
+                const encodedFilename = encodeURIComponent(normalizedFilename);
                 processedDocPath = urlParts.join('/') + '/' + encodedFilename;
                 tdDocx.innerHTML = `<a href="https://hykulliyat.github.io/docx-viewer/?file=${processedDocPath}" rel="alternate bookmark nofollow" hreflang=tr type=application/vnd.openxmlformats-officedocument.wordprocessingml.document target="_blank"><img src="/assets/img/odt.png" alt="indir" title="YAZDIR DOCX"></a>`;
             }
