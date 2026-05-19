@@ -1,3 +1,5 @@
+
+/* ===== style.css ===== */
 body {
     margin: auto;
 }
@@ -3181,6 +3183,9 @@ html {
     background-color: #555;
 }
 
+
+/* ===== biyografi.css ===== */
+
         * {
             margin: 0;
             padding: 0;
@@ -3328,3 +3333,4 @@ html {
                 font-size: 2rem;
             }
         }
+
