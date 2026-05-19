@@ -333,7 +333,10 @@ class EpubViewer {
   }
 
   updatePageIndicator(event) {
-    const locEl = document.getElementById("reader-loc") || this.#getEl(".reader-nav-bar .loc") || this.#getEl(".bar .loc");
+    const locEl =
+      document.getElementById("reader-loc") ||
+      this.#getEl(".reader-nav-bar .loc") ||
+      this.#getEl(".bar .loc");
     if (!locEl) {
       Logger.warn("Loc element not found");
       return;
@@ -2035,6 +2038,12 @@ class BookReaderApp {
   // Open book directly from URL parameter (?file=...)
   async #openBookFromUrl(fileUrl) {
     console.log("[App] Opening book from URL:", fileUrl);
+
+    // URL'deki yanlış dosya adını düzelt
+    fileUrl = fileUrl.replace(
+      "20soradaEvrimTeorisi_5b.epub",
+      "20sorudaEvrimTeorisi_5b.epub",
+    );
 
     // Show reader view immediately
     this.#showReader();
